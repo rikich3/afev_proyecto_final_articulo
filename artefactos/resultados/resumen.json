@@ -1,0 +1,9 @@
+{
+  "estado": "pendiente",
+  "corridas": null,
+  "violaciones_fisicas": null,
+  "po_total": null,
+  "po_descargadas": null,
+  "latencia_p95_ms": null,
+  "fuente": "datos/procesados/resumen.csv"
+}

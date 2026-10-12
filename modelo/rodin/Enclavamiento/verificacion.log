@@ -1,0 +1,18 @@
+STATIC C0=true M0=true
+PO INITIALISATION/INV_01/INV confidence=1000 manual=false broken=false
+PP Energizar/INV_01/INV result=null closed=true
+PO Energizar/INV_01/INV confidence=1000 manual=false broken=false
+PP Cortar/INV_01/INV result=null closed=true
+PO Cortar/INV_01/INV confidence=1000 manual=false broken=false
+PP Ingresar/INV_01/INV result=null closed=true
+PO Ingresar/INV_01/INV confidence=1000 manual=false broken=false
+PP Salir/INV_01/INV result=null closed=true
+PO Salir/INV_01/INV confidence=1000 manual=false broken=false
+AFVE_RODIN_OK obligations=5
+
+REPLAY INITIALISATION/INV_01/INV valid=true
+REPLAY Energizar/INV_01/INV valid=true
+REPLAY Cortar/INV_01/INV valid=true
+REPLAY Ingresar/INV_01/INV valid=true
+REPLAY Salir/INV_01/INV valid=true
+AFVE_IMPORT_REPLAY_OK proofs=5

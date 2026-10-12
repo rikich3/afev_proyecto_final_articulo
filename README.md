@@ -1,6 +1,6 @@
 # AFEV — Enclavamiento de seguridad para minería
 
-Base de planificación y artículo para una faja, una zona y dos operarios; Event-B/Rodin, ProB, Python y CoppeliaSim EDU. Este repositorio contiene documentación inicial y un artículo compilable. Los modelos ejecutables, la escena, el controlador y los experimentos son entregables planificados; aún no se han implementado ni validado.
+Base de planificación y artículo para una faja, una zona y dos operarios; Event-B/Rodin, ProB, Python y CoppeliaSim EDU. Este repositorio contiene documentación inicial y un artículo compilable. Incluye una escena inicial, una base geométrica y el modelo mejorado `simulacion/mina_modelada.ttt`, reproducible con un generador Lua. C0/M0 están disponibles en `modelo/rodin/Enclavamiento/`, con cinco obligaciones demostradas en Rodin. Los refinamientos, el comportamiento de la escena, el controlador y los experimentos siguen pendientes.
 
 ## Por dónde empezar
 
@@ -8,7 +8,9 @@ Base de planificación y artículo para una faja, una zona y dos operarios; Even
 2. Leer [plan de siete semanas](docs/plan_semanal.md): 28 paquetes, 56 h por integrante, 224 h de equipo.
 3. Revisar [guía de proyecto y artículo](docs/guia_proyecto.md) y [entorno](docs/entorno.md).
 4. Usar [requisitos](artefactos/especificacion/requisitos.md), [supuestos](artefactos/especificacion/riesgos.md), [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md) como bases de trabajo.
-5. Completar autores en `metadatos.typ` y desarrollar las secciones de `secciones/`.
+5. Consultar `modelo/rodin/Enclavamiento/README.md` para importar y revisar C0/M0.
+6. Consultar `artefactos/validacion/protocolo.md` y `experimentos/escenarios.json` para A08; los escenarios están definidos, su ejecución sigue pendiente.
+7. Completar autores en `metadatos.typ` y desarrollar las secciones de `secciones/`.
 
 ## Compilar y verificar
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.comment="A06: exclusion presencia-potencia bajo acceso normal controlado. Sin LOTO, sensores, retardos o energia residual; se refinan en M1/M2." org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.seesContext name="sees_C0" org.eventb.core.target="C0"/>
+    <org.eventb.core.variable name="P" org.eventb.core.identifier="P"/>
+    <org.eventb.core.variable name="U" org.eventb.core.identifier="U"/>
+    <org.eventb.core.invariant name="inv_P" org.eventb.core.label="inv_P" org.eventb.core.predicate="P ⊆ Z"/>
+    <org.eventb.core.invariant name="inv_U" org.eventb.core.label="inv_U" org.eventb.core.predicate="U ⊆ O × Z"/>
+    <org.eventb.core.invariant name="INV_01" org.eventb.core.label="INV_01" org.eventb.core.predicate="ran(U) ∩ P = ∅"/>
+    <org.eventb.core.event name="INITIALISATION" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="act1" org.eventb.core.assignment="P ≔ ∅" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="act2" org.eventb.core.assignment="U ≔ ∅" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Energizar" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Energizar">
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z"/>
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ Z"/>
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∉ P"/>
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="z ∉ ran(U)"/>
+        <org.eventb.core.action name="act1" org.eventb.core.assignment="P ≔ P ∪ {z}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Cortar" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Cortar">
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z"/>
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ P"/>
+        <org.eventb.core.action name="act1" org.eventb.core.assignment="P ≔ P ∖ {z}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Ingresar" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Ingresar">
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o"/>
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z"/>
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O"/>
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z"/>
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="z ∉ P"/>
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="o ∉ dom(U)"/>
+        <org.eventb.core.action name="act1" org.eventb.core.assignment="U ≔ U ∪ {o ↦ z}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Salir" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Salir">
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o"/>
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z"/>
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O"/>
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z"/>
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="o ↦ z ∈ U"/>
+        <org.eventb.core.action name="act1" org.eventb.core.assignment="U ≔ U ∖ {o ↦ z}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

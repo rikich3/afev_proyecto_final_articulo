@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="A06: una zona y dos operarios distintos. Contexto de M0." org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.carrierSet name="Z" org.eventb.core.identifier="Z"/>
+    <org.eventb.core.carrierSet name="O" org.eventb.core.identifier="O"/>
+    <org.eventb.core.constant name="z1" org.eventb.core.identifier="z1"/>
+    <org.eventb.core.constant name="o1" org.eventb.core.identifier="o1"/>
+    <org.eventb.core.constant name="o2" org.eventb.core.identifier="o2"/>
+    <org.eventb.core.axiom name="axm1" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(Z, {z1})"/>
+    <org.eventb.core.axiom name="axm2" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(O, {o1}, {o2})"/>
+</org.eventb.core.contextFile>

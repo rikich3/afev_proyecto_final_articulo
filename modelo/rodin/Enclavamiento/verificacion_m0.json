@@ -1,0 +1,61 @@
+{
+  "fecha": "2026-10-07",
+  "rodin": "3.10.0.202607010932-881664d81",
+  "java": "OpenJDK 21.0.12.1",
+  "metodo": "API nativa Rodin en workspace temporal; PP no restringido y reproduccion en otro workspace",
+  "chequeo_estatico": {
+    "C0": true,
+    "M0": true
+  },
+  "obligaciones_generadas": 5,
+  "obligaciones_demostradas": 5,
+  "pruebas_reproducidas": 5,
+  "prob_ejecutado": false,
+  "revision_equipo": "pendiente",
+  "obligaciones": [
+    {
+      "id": "INITIALISATION/INV_01/INV",
+      "confianza": 1000,
+      "manual": false,
+      "estado": "demostrada"
+    },
+    {
+      "id": "Energizar/INV_01/INV",
+      "confianza": 1000,
+      "manual": false,
+      "estado": "demostrada"
+    },
+    {
+      "id": "Cortar/INV_01/INV",
+      "confianza": 1000,
+      "manual": false,
+      "estado": "demostrada"
+    },
+    {
+      "id": "Ingresar/INV_01/INV",
+      "confianza": 1000,
+      "manual": false,
+      "estado": "demostrada"
+    },
+    {
+      "id": "Salir/INV_01/INV",
+      "confianza": 1000,
+      "manual": false,
+      "estado": "demostrada"
+    }
+  ],
+  "sha256": {
+    "C0.buc": "b1bad9008f2e4d20a1ab6baa12be214c015c4253ef70007774fa3766b769d66c",
+    "M0.bum": "b8ad8cdf2a3b620c0b1d0c91fdd7833335488fd852273b54e01f9383f4be571c",
+    "M0.bpr": "ec48a42d236b3d7b32e0781acc7f0735c2828914e2de18c9d924e9b866d34b89"
+  },
+  "sha256_estado_verificado_temporal": {
+    "M0.bps": "bc1a1d56b7e5e2c48c46d5427d5f9d91cd380614492009d7947bbb364a6ca521"
+  },
+  "archivos_regenerables": [
+    "C0.bpo",
+    "C0.bps",
+    "M0.bpo",
+    "M0.bps"
+  ]
+}

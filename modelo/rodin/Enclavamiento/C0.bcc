@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(Z,{z1})" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#axm1" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(O,{o1},{o2})" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#axm2" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scCarrierSet name="O" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#O" org.eventb.core.type="ℙ(O)"/>
+    <org.eventb.core.scCarrierSet name="Z" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#Z" org.eventb.core.type="ℙ(Z)"/>
+    <org.eventb.core.scConstant name="o1" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#o1" org.eventb.core.type="O"/>
+    <org.eventb.core.scConstant name="o2" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#o2" org.eventb.core.type="O"/>
+    <org.eventb.core.scConstant name="z1" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#z1" org.eventb.core.type="Z"/>
+</org.eventb.core.scContextFile>

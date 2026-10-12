@@ -1,0 +1,12 @@
+CONTEXT C0
+SETS
+  Z
+  O
+CONSTANTS
+  z1
+  o1
+  o2
+AXIOMS
+  axm1: partition(Z, {z1})
+  axm2: partition(O, {o1}, {o2})
+END

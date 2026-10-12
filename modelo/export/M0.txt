@@ -1,0 +1,56 @@
+MACHINE M0
+SEES C0
+VARIABLES
+  P
+  U
+INVARIANTS
+  inv_P: P ⊆ Z
+  inv_U: U ⊆ O × Z
+  INV_01: ran(U) ∩ P = ∅
+EVENTS
+
+  EVENT INITIALISATION
+    THEN
+      act1: P ≔ ∅
+      act2: U ≔ ∅
+    END
+
+  EVENT Energizar
+    ANY z
+    WHERE
+      grd1: z ∈ Z
+      grd2: z ∉ P
+      grd3: z ∉ ran(U)
+    THEN
+      act1: P ≔ P ∪ {z}
+    END
+
+  EVENT Cortar
+    ANY z
+    WHERE
+      grd1: z ∈ P
+    THEN
+      act1: P ≔ P ∖ {z}
+    END
+
+  EVENT Ingresar
+    ANY o, z
+    WHERE
+      grd1: o ∈ O
+      grd2: z ∈ Z
+      grd3: z ∉ P
+      grd4: o ∉ dom(U)
+    THEN
+      act1: U ≔ U ∪ {o ↦ z}
+    END
+
+  EVENT Salir
+    ANY o, z
+    WHERE
+      grd1: o ∈ O
+      grd2: z ∈ Z
+      grd3: o ↦ z ∈ U
+    THEN
+      act1: U ≔ U ∖ {o ↦ z}
+    END
+END

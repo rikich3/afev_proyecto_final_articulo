@@ -20,6 +20,8 @@ def _seguro_para_listo(s: Snapshot, estado: Estado) -> bool:
         s.sensor_valid
         and not estado.ocupantes
         and not estado.bloqueos
+        and s.laser_ocupado is False
+        and s.barrera_libre is True
         and s.puerta_cerrada is True
         and s.contacto_cerrado is False
         and s.seccionador_abierto is False

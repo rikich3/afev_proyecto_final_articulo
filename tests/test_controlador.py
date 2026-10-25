@@ -29,3 +29,10 @@ def test_un_bloqueo_no_autoriza_mantenimiento():
     resultado = step(Estado(fase=Fase.BLOQUEO, bloqueos=frozenset({1})), planta.snapshot(), [])
     assert resultado.estado.fase is Fase.BLOQUEO
     assert resultado.salidas.permiso_acceso is False
+
+
+def test_reset_no_ignora_presencia_fisica_sin_evento_rfid():
+    planta = PlantaDeterminista(ocupantes={1})
+    resultado = step(Estado(), planta.snapshot(), [orden(3, "reset")])
+    assert resultado.estado.fase is Fase.INICIO_SEGURO
+    assert resultado.salidas.orden_contactor is False

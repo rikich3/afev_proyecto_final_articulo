@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ciclo de control del enclavamiento</title>
+  <desc id="desc">Flujo adquirir, decidir, actuar, observar, monitorear y registrar.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0,0 L11,5.5 L0,11z" fill="#34495e"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #17202a; }
+      .title { font-size: 32px; font-weight: 700; } .sub { font-size: 18px; fill: #566573; }
+      .h { font-size: 20px; font-weight: 700; } .p { font-size: 16px; fill: #34495e; }
+      .box { stroke-width: 2; rx: 18; } .line { stroke: #34495e; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1400" height="760" fill="#f8fafc"/>
+  <text x="70" y="70" class="title">Ciclo seguro en cada tick</text>
+  <text x="70" y="104" class="sub">La decisión usa el snapshot previo; la seguridad se comprueba con la observación física posterior.</text>
+  <rect class="box" x="70" y="185" width="220" height="170" fill="#d6eaf8" stroke="#2980b9"/>
+  <text x="180" y="230" class="h" text-anchor="middle">1. Adquirir</text><text x="180" y="265" class="p" text-anchor="middle">snapshot de sensores</text><text x="180" y="292" class="p" text-anchor="middle">y confirmaciones</text><text x="180" y="319" class="p" text-anchor="middle">antes del paso</text>
+  <rect class="box" x="385" y="185" width="220" height="170" fill="#e8daef" stroke="#8e44ad"/>
+  <text x="495" y="230" class="h" text-anchor="middle">2. Decidir</text><text x="495" y="265" class="p" text-anchor="middle">controlador puro</text><text x="495" y="292" class="p" text-anchor="middle">prioriza fallo y stop</text><text x="495" y="319" class="p" text-anchor="middle">una fase por tick</text>
+  <rect class="box" x="700" y="185" width="220" height="170" fill="#d5f5e3" stroke="#239b56"/>
+  <text x="810" y="230" class="h" text-anchor="middle">3. Actuar</text><text x="810" y="265" class="p" text-anchor="middle">contactor, puerta,</text><text x="810" y="292" class="p" text-anchor="middle">seccionador y</text><text x="810" y="319" class="p" text-anchor="middle">bloqueos personales</text>
+  <rect class="box" x="1015" y="185" width="250" height="170" fill="#fdebd0" stroke="#d35400"/>
+  <text x="1140" y="230" class="h" text-anchor="middle">4. Observar</text><text x="1140" y="265" class="p" text-anchor="middle">planta posterior</text><text x="1140" y="292" class="p" text-anchor="middle">potencia, posición</text><text x="1140" y="319" class="p" text-anchor="middle">y velocidad reales</text>
+  <path class="line" d="M290 270 H385"/><path class="line" d="M605 270 H700"/><path class="line" d="M920 270 H1015"/>
+  <rect class="box" x="290" y="505" width="310" height="135" fill="#f9e79f" stroke="#b7950b"/>
+  <text x="445" y="550" class="h" text-anchor="middle">Monitor independiente</text><text x="445" y="582" class="p" text-anchor="middle">detecta ocupante físico</text><text x="445" y="609" class="p" text-anchor="middle">con potencia física activa</text>
+  <rect class="box" x="800" y="505" width="310" height="135" fill="#d4efdf" stroke="#1e8449"/>
+  <text x="955" y="550" class="h" text-anchor="middle">Telemetría JSONL</text><text x="955" y="582" class="p" text-anchor="middle">snapshot, decisión, verdad</text><text x="955" y="609" class="p" text-anchor="middle">física, semilla y hash</text>
+  <path class="line" d="M1140 355 C1140 430 1020 442 965 503"/><path class="line" d="M1140 355 C1140 455 600 438 460 503"/>
+  <path class="line" d="M600 572 H800"/>
+  <text x="700" y="710" class="sub" text-anchor="middle">Si un sensor es inválido, hay presencia con potencia o falla el watchdog: contactor apagado, acceso denegado y fase FALLO.</text>
+</svg>

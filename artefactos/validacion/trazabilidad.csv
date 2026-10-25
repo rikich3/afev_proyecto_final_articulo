@@ -1,11 +1,11 @@
 requisito,invariante,eventos,funcion,escenarios,evidencia,seccion,estado
-RF-01,INV-01,Entrar;Energizar,pendiente,SC-01;SC-02;SC-12,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-02,INV-03,Aislar;VerificarEnergia;AutorizarAcceso,pendiente,SC-02;SC-08;SC-13,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-03,INV-02,AplicarBloqueo;RetirarBloqueo,pendiente,SC-03;SC-04;SC-10,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-04,INV-04,Liberar;Reset;Arrancar,pendiente,SC-01;SC-03;SC-04;SC-05;SC-13,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-05,Por formalizar M2,DetectarFallo;Parar,pendiente,SC-06;SC-07;SC-09;SC-13,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-06,INV-04,Parar;Reset;Arrancar,pendiente,SC-05,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-07,Por formalizar M2,INITIALISATION;Reiniciar,pendiente,SC-11,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-08,No aplica: observabilidad,Registrar,pendiente,SC-01;SC-12,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-09,Por formalizar M2,CaducarHeartbeat,pendiente,SC-09,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
-RF-10,INV-03,ConfirmarApertura;DetectarFallo,pendiente,SC-08,pendiente,05-formalizacion;06-validacion;07-resultados,propuesto
+RF-01,INV-01,Entrar;Energizar,software.monitores.evaluar,SC-01;SC-02;SC-12,tests/test_monitores.py; tests/test_integracion.py,05-formalizacion;06-validacion;07-resultados,implementado_con_doble
+RF-02,INV-03,Aislar;VerificarEnergia;AutorizarAcceso,software.controlador.step,SC-02;SC-08;SC-13,tests/test_secuencias.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim
+RF-03,INV-02,AplicarBloqueo;RetirarBloqueo,software.controlador.step,SC-03;SC-04;SC-10,tests/test_secuencias.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim
+RF-04,INV-04,Liberar;Reset;Arrancar,software.controlador.step,SC-01;SC-03;SC-04;SC-05;SC-13,tests/test_controlador.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim
+RF-05,Por formalizar M2,DetectarFallo;Parar,software.controlador.step,SC-06;SC-07;SC-09;SC-13,tests/test_integracion.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim
+RF-06,INV-04,Parar;Reset;Arrancar,software.controlador.step,SC-05,tests/test_controlador.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim
+RF-07,Por formalizar M2,INITIALISATION;Reiniciar,software.controlador.step,SC-11,pendiente,05-formalizacion;06-validacion;07-resultados,pendiente
+RF-08,No aplica: observabilidad,Registrar,software.telemetria.EscritorJsonl,SC-01;SC-12,tests/test_monitores.py,05-formalizacion;06-validacion;07-resultados,implementado_con_fixture
+RF-09,Por formalizar M2,CaducarHeartbeat,software.controlador.step,SC-09,tests/test_integracion.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim
+RF-10,INV-03,ConfirmarApertura;DetectarFallo,software.controlador.step,SC-08,tests/test_integracion.py,05-formalizacion;06-validacion;07-resultados,parcial_sin_CoppeliaSim

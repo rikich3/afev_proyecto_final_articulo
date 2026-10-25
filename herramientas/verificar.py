@@ -4,7 +4,7 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-registro = (ROOT / 'artefactos/artefactos.md').read_text()
+registro = (ROOT / 'artefactos/artefactos.md').read_text(encoding='utf-8')
 filas = {}
 for line in registro.splitlines():
     if re.match(r'\| [AG]\d{2} \|', line):
@@ -38,7 +38,7 @@ fuentes = [ROOT / 'main.typ', ROOT / 'estilo.typ', *sorted((ROOT / 'secciones').
 assert len(list((ROOT / 'secciones').glob('*.typ'))) == 10
 refs = 0
 for file in fuentes:
-    text = file.read_text()
+    text = file.read_text(encoding='utf-8')
     for code, path in re.findall(r'#recurso\("([AG]\d{2})",\s*"([^"]+)"\)', text):
         assert code in filas, f'Código no registrado: {code}'
         assert path in re.findall(r'`([^`]+)`', filas[code][2]), f'Ruta no canónica: {code}: {path}'

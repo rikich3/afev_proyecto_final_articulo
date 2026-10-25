@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import csv
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -72,3 +73,15 @@ def escribir_manifiesto(ruta: Path, contenido: Mapping[str, Any], ruta_jsonl: Pa
     temporal.write_text(json.dumps(manifiesto, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     os.replace(temporal, ruta)
     return manifiesto
+
+
+def actualizar_indice_manifiestos(ruta: Path, manifiesto: Mapping[str, Any]) -> None:
+    """Añade una corrida al índice sin modificar trazas ni manifiestos previos."""
+    columnas = ["run_id", "scenario_id", "seed", "tipo_ejecucion", "resultados_experimentales", "traza", "sha256_traza"]
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    nuevo = not ruta.exists() or ruta.stat().st_size == 0
+    with ruta.open("a", encoding="utf-8", newline="") as archivo:
+        escritor = csv.DictWriter(archivo, fieldnames=columnas)
+        if nuevo:
+            escritor.writeheader()
+        escritor.writerow({campo: manifiesto.get(campo) for campo in columnas})

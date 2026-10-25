@@ -22,7 +22,7 @@ from software.adaptador import PlantaDeterminista
 from software.controlador import step
 from software.estado import Estado, Orden
 from software.monitores import evaluar
-from software.telemetria import ESQUEMA_VERSION, EscritorJsonl, escribir_manifiesto
+from software.telemetria import ESQUEMA_VERSION, EscritorJsonl, actualizar_indice_manifiestos, escribir_manifiesto
 
 
 def _plano(valor):
@@ -73,11 +73,12 @@ def ejecutar_piloto_determinista(destino: Path, seed: int = 0) -> tuple[Path, Pa
             "violated_properties": violaciones,
         })
         estado = resultado.estado
-    escribir_manifiesto(ruta_manifiesto, {
+    manifiesto = escribir_manifiesto(ruta_manifiesto, {
         "run_id": run_id, "scenario_id": "FIXTURE-RESET-START", "seed": seed,
         "tipo_ejecucion": "fixture_de_prueba_con_planta_determinista",
         "resultados_experimentales": False, "python": platform.python_version(),
     }, ruta_jsonl)
+    actualizar_indice_manifiestos(destino / "manifest.csv", manifiesto)
     return ruta_jsonl, ruta_manifiesto
 
 

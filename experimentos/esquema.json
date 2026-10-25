@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "titulo": "Registro por tick del enclavamiento",
+  "version": 1,
+  "requeridos": [
+    "esquema_version", "run_id", "scenario_id", "seed", "tick", "t_sim_s",
+    "inputs", "physical_truth", "state_before", "state_after", "outputs",
+    "violated_properties"
+  ],
+  "nota": "Cada línea JSONL es una observación. Las trazas de dobles de prueba no son evidencia de CoppeliaSim."
+}

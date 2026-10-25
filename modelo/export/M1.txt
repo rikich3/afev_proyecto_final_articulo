@@ -1,0 +1,30 @@
+REFINEMENT M1
+REFINES M0
+SEES C0
+VARIABLES
+  P U L fase
+INVARIANTS
+  inv_P: P ⊆ Z
+  inv_U: U ⊆ O × Z
+  inv_L: L ⊆ O × Z
+  inv_fase: fase ∈ {INICIO_SEGURO, LISTO, MARCHA, PARADA, AISLAMIENTO, BLOQUEO, MANTENIMIENTO, LIBERACION, RESTABLECIMIENTO, FALLO}
+  INV_01: ran(U) ∩ P = ∅
+  INV_02: ran(L) ∩ P = ∅
+  INV_03: fase = MANTENIMIENTO ⇒ P = ∅ ∧ L = O × Z
+  INV_04: fase = MARCHA ⇒ U = ∅ ∧ L = ∅
+EVENTS
+  INITIALISATION REFINES INITIALISATION
+    THEN P ≔ ∅ || U ≔ ∅ || L ≔ ∅ || fase ≔ INICIO_SEGURO END
+  AplicarBloqueo
+    ANY o,z WHERE o ∈ O ∧ z ∈ Z ∧ fase = BLOQUEO ∧ P = ∅ THEN L ≔ L ∪ {o ↦ z} END
+  AutorizarMantenimiento
+    REFINES Ingresar
+    ANY o,z WHERE o ∈ O ∧ z ∈ Z ∧ fase = MANTENIMIENTO ∧ L = O × Z ∧ P = ∅ ∧ o ∉ dom(U)
+    THEN U ≔ U ∪ {o ↦ z} END
+  RetirarBloqueo
+    ANY o,z WHERE o ↦ z ∈ L ∧ o ∉ dom(U) ∧ fase = LIBERACION
+    THEN L ≔ L ∖ {o ↦ z} END
+END
+
+NOTA: borrador legible de M1. Aún no existe una máquina nativa Rodin ni POs
+generadas para este refinamiento; no se debe presentar como modelo comprobado.

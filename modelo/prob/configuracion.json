@@ -1,0 +1,8 @@
+{
+  "estado": "preparada_pendiente_de_ejecucion",
+  "modelo_objetivo": "M2",
+  "dominios_finitos": {"zonas": 1, "operarios": 2},
+  "comprobaciones": ["violacion_invariantes", "deadlock", "cobertura_eventos"],
+  "registrar": ["version_ProB", "limite_estados", "limite_tiempo_s", "estados", "transiciones", "completitud", "contraejemplos"],
+  "nota": "No ejecutar ni afirmar resultados hasta crear y validar M2 nativo en Rodin."
+}

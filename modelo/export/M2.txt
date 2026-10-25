@@ -1,0 +1,27 @@
+REFINEMENT M2
+REFINES M1
+SEES C0
+VARIABLES
+  P U L fase contacto_real seccionador_real puerta_real velocidad fallo orden_contactor permiso_acceso
+INVARIANTS
+  inv_tipos: contacto_real ∈ BOOL ∧ seccionador_real ∈ BOOL ∧ puerta_real ∈ BOOL ∧ fallo ∈ BOOL
+  inv_velocidad: velocidad ∈ NAT
+  inv_enlace_potencia: contacto_real = TRUE ⇒ P = Z
+  inv_enlace_corte: P = ∅ ⇒ orden_contactor = FALSE
+  INV_01: ran(U) ∩ P = ∅
+  INV_03: permiso_acceso = TRUE ⇒ contacto_real = FALSE ∧ seccionador_real = TRUE ∧ velocidad = 0 ∧ L = O × Z
+  INV_05: fallo = TRUE ⇒ orden_contactor = FALSE ∧ permiso_acceso = FALSE
+EVENTS
+  DetectarFallo
+    WHEN fallo = TRUE ∨ contacto_real = TRUE ∧ ran(U) ≠ ∅
+    THEN orden_contactor ≔ FALSE || permiso_acceso ≔ FALSE || fase ≔ FALLO END
+  ConfirmarApertura
+    WHEN orden_contactor = FALSE ∧ contacto_real = FALSE
+    THEN P ≔ ∅ END
+  AutorizarAcceso
+    WHEN fase = MANTENIMIENTO ∧ contacto_real = FALSE ∧ seccionador_real = TRUE ∧ velocidad = 0 ∧ L = O × Z
+    THEN permiso_acceso ≔ TRUE END
+END
+
+NOTA: borrador legible de M2. Requiere traducción a proyecto Rodin nativo,
+revisión de tipos y descarga de POs antes de cualquier afirmación formal.

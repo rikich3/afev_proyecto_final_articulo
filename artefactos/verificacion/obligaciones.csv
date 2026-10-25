@@ -1,0 +1,8 @@
+modelo,obligacion,version,estado,metodo,evidencia,nota
+M0,INITIALISATION/INV_01/INV,existente,demostrada,PP,modelo/rodin/Enclavamiento/M0.bpr,verificación conservada del repositorio
+M0,Energizar/INV_01/INV,existente,demostrada,PP,modelo/rodin/Enclavamiento/M0.bpr,verificación conservada del repositorio
+M0,Cortar/INV_01/INV,existente,demostrada,PP,modelo/rodin/Enclavamiento/M0.bpr,verificación conservada del repositorio
+M0,Ingresar/INV_01/INV,existente,demostrada,PP,modelo/rodin/Enclavamiento/M0.bpr,verificación conservada del repositorio
+M0,Salir/INV_01/INV,existente,demostrada,PP,modelo/rodin/Enclavamiento/M0.bpr,verificación conservada del repositorio
+M1,pendiente_de_generacion,borrador,no_generada,no_aplica,,requiere máquina nativa Rodin
+M2,pendiente_de_generacion,borrador,no_generada,no_aplica,,requiere máquina nativa Rodin

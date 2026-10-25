@@ -1,0 +1,6 @@
+elemento_event_b,abstraccion,funcion_python,precondicion,postcondicion,prueba,estado
+P,potencia activa abstracta,PlantaDeterminista.contacto_cerrado,contacto real confirmado,marca potencia real,test_integracion.py::test_integracion_reset_start_activa_planta_sin_ocupar_zona,borrador
+U,ocupantes identificados,Estado.ocupantes,evento RFID válido,conserva presencia por operario,test_controlador.py::test_presencia_con_potencia_enclava_fallo,borrador
+INV_01,exclusión presencia-potencia,software.monitores.evaluar,verdad física postpaso,detecta ocupante y potencia,test_monitores.py::test_monitor_detecta_violacion_fisica_conocida,implementado_sin_prueba_Rodin
+DetectarFallo,fallo seguro,software.controlador.step,sensor inseguro o watchdog,contactor apagado y fase FALLO,test_integracion.py::test_integracion_watchdog_lleva_a_fallo_y_corte,borrador
+RetirarBloqueo,retiro personal,software.controlador.step,titular coincide y fase LIBERACION,retira sólo bloqueo propio,test_secuencias.py::test_retiro_ajeno_se_rechaza_y_conserva_bloqueo,borrador

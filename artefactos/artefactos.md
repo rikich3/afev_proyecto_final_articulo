@@ -5,7 +5,7 @@ Todas las rutas son relativas a la raíz del repositorio. Los códigos son estab
 | Código | Nombre | Ubicación | Descripción breve | Estado inicial | Responsable | Semana de cierre |
 |---|---|---|---|---|---|---|
 | G01 | Registro de artefactos | `artefactos/artefactos.md` | Fuente de verdad de códigos, rutas y estados. | Documento base | I1 | 1 |
-| G02 | Plan de siete semanas | `docs/plan_semanal.md` | Carga equitativa, dependencias, responsables y revisores. | Documento base | I1 | 1 |
+| G02 | Plan de siete semanas | `docs/plan_semanal.md`; `docs/plan_ejecucion_semanas_4_5.md` | Carga equitativa, dependencias, responsables, revisores y ejecución de A13–A20. | Documento base | I1 | 1 |
 | G03 | Guía de implementación y artículo | `docs/guia_proyecto.md` | Ruta mínima, métricas, normas y criterios de redacción. | Documento base | I2 | 1 |
 | G04 | Entrada y guía del repositorio | `README.md`; `img/README.md`; `img/enunciado.png`; `ejemplo_articulo.pdf` | Enunciado original, ejemplo de formato y uso del proyecto. | Disponible | I3 | 1 |
 | G05 | Verificación editorial | `herramientas/verificar.py` | Comprueba secciones, referencias a artefactos y fuentes de imágenes. | Disponible | I4 | 7 |

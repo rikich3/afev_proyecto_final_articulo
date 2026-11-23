@@ -28,6 +28,5 @@ Durante A04: buscar «Event-B safety interlocking», «formal verification locko
 | iec62061 | IEC 62061:2021+AMD1:2024. | Sistemas de control de seguridad de máquinas. |
 | iso29148 | ISO/IEC/IEEE 29148:2018. | Ingeniería de requisitos. |
 | iso29119 | ISO/IEC/IEEE 29119-2:2021. | Procesos de pruebas. |
-| hypothesis-stateful | Documentación oficial de Hypothesis, *Stateful tests*. | Generación opcional de secuencias de acciones. |
 
 Verificación: metadatos y alcances cotejados con editoriales, organismos normativos, repositorios de autores y documentación oficial; URLs en `referencias.bib`. Para los dos estudios ferroviarios, la comparación se limita al método y alcance descritos en sus resúmenes públicos. Las normas se citan por su alcance público, sin afirmar revisión integral de sus cláusulas. Las 21 entradas aparecen citadas en las secciones y se imprimen en la bibliografía IEEE del PDF.

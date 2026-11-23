@@ -10,6 +10,7 @@ ZeroMQ. La campaña conserva trazas, manifiestos, capturas y resultados.
 - [Requisitos](artefactos/especificacion/requisitos.md), [supuestos](artefactos/especificacion/riesgos.md),
   [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md).
 - [Resultados de integración](artefactos/validacion/integracion.md) y [trazabilidad](artefactos/validacion/trazabilidad.csv).
+- [Auditoría de originalidad y atribución](artefactos/entrega/originalidad.md).
 
 ## Verificación y pruebas
 
@@ -70,5 +71,5 @@ Ver el [procedimiento de reproducción](artefactos/entrega/reproduccion.md).
 Los cambios se registran por entregable, con el formato
 `tipo(alcance): descripción` de [Conventional Commits](docs/versionado.md).
 Las etiquetas `vMAJOR.MINOR.PATCH` identifican versiones reproducibles del
-artículo y sus artefactos. La versión `v0.9.0` es una candidata: quedan la
+artículo y sus artefactos. La serie `v0.9.x` es candidata: quedan la
 revisión cruzada del equipo y la confirmación docente del uso de Event-B.

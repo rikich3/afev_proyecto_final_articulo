@@ -1,0 +1,205 @@
+seccion,linea,oracion,max_palabras_consecutivas,fuente,fragmento_coincidente
+00-resumen.typ,4,_Abstract—_ El mantenimiento de una faja minera requiere impedir el arranque mientras haya personas en la zona de peligro y confirmar el aislamiento antes del ingreso.,3,ArtículoUPPAAL_1 (1).pdf,en la zona
+00-resumen.typ,4,El objetivo es especificar formalmente un entorno simulado para el enclavamiento de seguridad de una faja minera.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,de seguridad de
+00-resumen.typ,4,"Se utiliza Event-B para modelar una zona y dos operarios, NuSMV para analizar el ciclo nominal y CoppeliaSim para evaluar el controlador.",0,,
+00-resumen.typ,4,Rodin demuestra 272 obligaciones de prueba y NuSMV comprueba cinco propiedades.,0,,
+00-resumen.typ,4,Los ensayos de planta corroboran el orden de acceso y la inhibición del rearme con un operario dentro.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,de acceso y
+00-resumen.typ,4,El monitor detecta la coexistencia de ocupación y potencia en dos intrusiones forzadas.,0,,
+00-resumen.typ,4,La exclusión demostrada depende de los supuestos de acceso controlado y sensado.,0,,
+00-resumen.typ,6,"_Keywords—Enclavamiento de seguridad, Event-B, verificación formal, faja minera._",0,,
+01-introduccion.typ,3,"Durante el mantenimiento de una faja transportadora, detener el motor, aislar la energía y autorizar el ingreso son acciones distintas.",3,ArticuloLACCEI2017_VDM_ControlVelocidadBeacons (1).pdf,la energia y
+01-introduccion.typ,3,Una orden de parada debe ir seguida de confirmaciones que permitan establecer cuándo la intervención puede comenzar.,0,,
+01-introduccion.typ,3,La prevención del arranque inesperado y el control de energías peligrosas proporcionan el contexto técnico de este problema  .,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,el control de
+01-introduccion.typ,3,El Reglamento de Seguridad y Salud Ocupacional en Minería sitúa el caso en el ámbito peruano .,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,de seguridad y
+01-introduccion.typ,5,"En el caso estudiado, dos operarios comparten una zona de peligro.",3,ArtículoUPPAAL_1 (1).pdf,en el caso
+01-introduccion.typ,5,La salida de uno de ellos debe mantener inhibida la energización mientras el otro permanezca dentro.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la salida de
+01-introduccion.typ,5,"Además, la autorización de ingreso requiere aislamiento y parada confirmados, y la puesta en marcha exige una secuencia de rearme.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,una secuencia de
+01-introduccion.typ,5,"Expresar estas condiciones mediante Event-B permite identificar las variables necesarias, formular invariantes y comprobar su preservación por cada evento.",0,,
+01-introduccion.typ,5,El trabajo aporta una especificación M0–M2 con 272 obligaciones demostradas y un protocolo para evaluar el controlador en la planta simulada.,0,,
+01-introduccion.typ,7,El objetivo general es *especificar formalmente un entorno simulado para el enclavamiento de seguridad de una faja minera*.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,de seguridad de
+01-introduccion.typ,7,"El alcance comprende una faja, una zona y dos operarios.",0,,
+01-introduccion.typ,7,"La metodología parte de un modelo abstracto y lo refina con bloqueos, rearme e interfaz de planta.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,de un modelo
+01-introduccion.typ,7,El controlador Python se evalúa sobre una escena instrumentada en CoppeliaSim mediante un canal independiente de observación.,0,,
+01-introduccion.typ,9,"Los objetivos específicos son (1) modelar la exclusión y las autorizaciones de mantenimiento en Event-B, (2) verificar propiedades del comportamiento de acceso y rearme mediante Model Checking y (3) evaluar el controlador en una planta simulada con observación física independiente.",3,afev-src-rodin.pdf,event b 2
+01-introduccion.typ,11,"El artículo presenta (1) el estado del arte y los fundamentos de Event-B, (2) el caso de aplicación y sus requisitos, (3) los tipos, invariantes y eventos del modelo, (4) el modelo de estados y el protocolo de validación y (5) los resultados disponibles, su discusión y las conclusiones.",4,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,el caso de aplicacion
+02-relacionados.typ,3,El desarrollo de modelos verificables requiere un lenguaje de especificación y herramientas que permitan analizar sus propiedades.,4,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,un lenguaje de especificacion
+02-relacionados.typ,3,Abrial y colaboradores presentan Rodin como un entorno para editar modelos Event-B y demostrar obligaciones de prueba .,0,,
+02-relacionados.typ,3,"Leuschel y Butler proponen ProB para animar y explorar modelos B , con soporte posterior para Event-B .",0,,
+02-relacionados.typ,3,Estas herramientas permiten combinar razonamiento deductivo y exploración de instancias finitas.,0,,
+02-relacionados.typ,3,En este proyecto se conserva evidencia de Rodin para la cadena M0–M2.,0,,
+02-relacionados.typ,3,La parte de Model Checking utiliza NuSMV para un modelo finito del ciclo de mantenimiento .,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,la parte de
+02-relacionados.typ,3,ProB complementa la demostración deductiva con exploraciones limitadas de M2.,0,,
+02-relacionados.typ,5,"En enclavamientos ferroviarios, Limbree y colaboradores estudian la descomposición mediante contratos con OCRA .",0,,
+02-relacionados.typ,5,Su enfoque aborda la verificación de sistemas con varios componentes.,4,ArtículoUPPAAL_2 (1).pdf,la verificacion de sistemas
+02-relacionados.typ,5,Cappart y colaboradores utilizan verificación estadística de modelos para analizar seguridad y disponibilidad de enclavamientos .,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,y disponibilidad de
+02-relacionados.typ,5,"El caso de la faja se limita a una zona y centra el análisis en ocupación, potencia y autorizaciones de mantenimiento mediante refinamiento Event-B.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,el caso de
+02-relacionados.typ,7,"Para observar el comportamiento de una planta, Rohmer y colaboradores presentan V-REP, antecedente de CoppeliaSim .",0,,
+02-relacionados.typ,7,"En este trabajo, la API ZeroMQ comunica CoppeliaSim con el controlador externo y permite comparar órdenes con confirmaciones de la planta simulada .",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,en este trabajo
+02-relacionados.typ,7,"Los antecedentes revisados sustentan esta combinación de modelado y evaluación, aunque la comparación con aplicaciones mineras requiere ampliar la revisión bibliográfica.",0,,
+03-fundamentos.typ,5,El enclavamiento condiciona la energización y el acceso a estados de seguridad definidos.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,el acceso a
+03-fundamentos.typ,5,"El procedimiento de bloqueo y etiquetado, denominado LOTO, incorpora el aislamiento y el control de energía almacenada .",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,el control de
+03-fundamentos.typ,5,"Para el caso estudiado, un seccionador representa el aislamiento y dos bloqueos representan la participación individual de los operarios.",0,,
+03-fundamentos.typ,5,Una puerta limita el ingreso y los sensores aportan observaciones sobre presencia y estado de la planta.,3,ArtículoUPPAAL_1 (1).pdf,estado de la
+03-fundamentos.typ,7,La evaluación de riesgos y los resguardos se contextualizan en ISO 12100 e ISO 14119  .,3,ArtículoUPPAAL_1 (1).pdf,la evaluacion de
+03-fundamentos.typ,7,ISO 13849-1 e IEC 62061 proporcionan referencias para el diseño de controles relacionados con seguridad  .,3,ArticuloLACCEI2017_VerificacionUPPAL_Control Semaforos.pdf,para el diseno
+03-fundamentos.typ,7,La parada de emergencia y la ubicación de medios de protección se contextualizan en ISO 13850 e ISO 13855  .,3,ArtículoUPPAAL_1 (1).pdf,la ubicacion de
+03-fundamentos.typ,7,"Estas referencias orientan la delimitación de funciones del prototipo académico, cuya evidencia corresponde al modelo y al entorno simulado.",3,ArtículoUPPAAL_1 (1).pdf,al modelo y
+03-fundamentos.typ,11,"Cada evento tiene parámetros, guardas que determinan su habilitación y acciones que modifican el estado.",0,,
+03-fundamentos.typ,11,Los refinamientos introducen detalle y requieren demostrar una relación con el nivel anterior .,0,,
+03-fundamentos.typ,13,Rodin genera obligaciones para comprobar que la inicialización establece los invariantes y que los eventos los preservan .,0,,
+03-fundamentos.typ,13,"Para una propiedad de exclusión, esto exige considerar tanto la energización como el ingreso y la salida de personas.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la salida de
+03-fundamentos.typ,13,"La posibilidad de completar una intervención constituye una pregunta adicional sobre progreso, bajo condiciones del entorno.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,la posibilidad de
+03-fundamentos.typ,13,La distinción entre seguridad y vivacidad permite formular ambas preguntas por separado .,0,,
+03-fundamentos.typ,17,"En la evaluación prevista, el controlador recibe sensores y emite órdenes, mientras que un monitor consulta ocupación geométrica y estado físico del contacto.",0,,
+03-fundamentos.typ,17,Esta arquitectura permite contrastar la decisión lógica con la respuesta de la planta.,0,,
+03-fundamentos.typ,17,"La apertura del contacto y la parada mecánica se miden como sucesos diferentes, pues el movimiento residual condiciona el ingreso de mantenimiento.",0,,
+04-propuesta.typ,6,Dos operarios solicitan intervenir una faja en una zona delimitada.,0,,
+04-propuesta.typ,6,"La secuencia prevista exige parar, abrir el seccionador, confirmar los bloqueos de ambos y verificar la ausencia de movimiento residual antes de habilitar el acceso.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,la ausencia de
+04-propuesta.typ,6,"El rearme exige zona libre y una orden manual, seguida de una orden de arranque nueva.",0,,
+04-propuesta.typ,6,"Si uno permanece dentro o conserva su bloqueo, la energización debe seguir inhibida.",0,,
+04-propuesta.typ,8,"Exclusión presencia–potencia:* el sistema debe impedir la coexistencia de operarios y potencia activa en la zona, bajo los supuestos de acceso controlado y funcionamiento establecidos.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,el sistema debe
+04-propuesta.typ,9,"Aislamiento previo al acceso:* debe mantener el acceso cerrado hasta confirmar el aislamiento, la apertura del contacto y la ausencia de energía residual.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,la ausencia de
+04-propuesta.typ,10,Bloqueo individual:* debe conservar un bloqueo por operario y permitir su retiro únicamente al titular después de salir.,0,,
+04-propuesta.typ,11,"Rearme secuencial:* debe exigir zona libre, salida de todos los operarios, retiro de bloqueos, cierre de acceso y reconocimiento manual.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,de todos los
+04-propuesta.typ,11,El arranque requiere una orden posterior e independiente del reset.,0,,
+04-propuesta.typ,12,"Respuesta ante peligro o fallo:* debe desactivar la orden de potencia y enclavar el fallo cuando detecte peligro, datos inválidos o caducados, o discrepancias entre señales.",0,,
+04-propuesta.typ,13,"Prioridad de parada:* debe resolver órdenes simultáneas dando prioridad a parada, emergencia y fallo sobre reset y arranque.",0,,
+04-propuesta.typ,14,Inicio y reinicio seguros:* debe iniciar con la orden de potencia apagada y los permisos revocados.,0,,
+04-propuesta.typ,14,"Los bloqueos deben conservarse o tratarse como desconocidos, impidiendo la reconexión automática.",0,,
+04-propuesta.typ,15,"Registro de evidencia:* debe registrar entradas, decisiones, salidas y estado físico por corrida, identificando las versiones del modelo y del controlador.",3,ArtículoUPPAAL_2 (1).pdf,del modelo y
+04-propuesta.typ,16,"Supervisión de comunicación:* ante pérdida del cliente, un watchdog local debe ordenar la apertura del contacto simulado y bloquear el acceso, sin depender del proceso desconectado.",0,,
+04-propuesta.typ,17,Confirmación del corte:* debe detectar la negativa del contacto a abrir y denegar el acceso y el rearme; una orden de apagado no constituye confirmación de ausencia de potencia.,0,,
+04-propuesta.typ,19,"Los requisitos se agrupan en exclusión y acceso (RF-01/02), participación individual y rearme (RF-03/04/06), respuesta a fallos (RF-05/07/09/10) y registro (RF-08).",0,,
+04-propuesta.typ,19,La aceptación combina obligaciones formales y escenarios con observación física.,0,,
+04-propuesta.typ,19,El protocolo fija los presupuestos temporales antes de las corridas finales.,0,,
+04-propuesta.typ,23,"La escena geométrica contiene una faja, dos operarios, sensores representados visualmente, un contacto, un seccionador y una puerta articulada.",0,,
+04-propuesta.typ,23,"Un script Lua aplica las órdenes a la escena y modela la realimentación del contacto, la desaceleración y los eventos RFID de los cruces.",0,,
+04-propuesta.typ,23,El watchdog local conserva su reloj y la última secuencia aceptada.,3,ArticuloLACCEI2017_VerificacionUPPAL_Control Semaforos.pdf,y la ultima
+04-propuesta.typ,23,La barrera fotoeléctrica se distingue de la puerta: detectar un cruce no impide por sí mismo el ingreso.,0,,
+04-propuesta.typ,25,El controlador Python implementa una transición de estado que prioriza fallo o emergencia y después parada.,4,ArtículoUPPAAL_2 (1).pdf,transicion de estado que
+04-propuesta.typ,25,El adaptador ZeroMQ conecta el supervisor con el script de planta.,0,,
+04-propuesta.typ,25,"El contrato distingue observaciones previas al paso, órdenes emitidas y confirmaciones físicas posteriores.",0,,
+04-propuesta.typ,29,"La  presenta las entidades del dominio mediante atributos tipados, asociaciones y multiplicidades UML.",0,,
+04-propuesta.typ,29,Zona y Operario corresponden a los conjuntos portadores de Event-B.,0,,
+04-propuesta.typ,29,Potencia y ocupación se representan mediante las variables de M0.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,las variables de
+04-propuesta.typ,33,"La arquitectura exige que el permiso de acceso dependa de apertura del contacto, aislamiento y parada confirmados.",0,,
+04-propuesta.typ,33,La ocupación real procede de la geometría de la escena y la potencia real del circuito simulado.,0,,
+04-propuesta.typ,33,"El oráculo utiliza la posición de los avatares y el estado de la planta, con independencia de las lecturas RFID del controlador.",4,ArtículoUPPAAL_2 (1).pdf,la posicion de los
+04-propuesta.typ,37,"La secuencia de  exige salida de todos los operarios, retiro de bloqueos por sus titulares, cierre de acceso, restablecimiento del circuito y reconocimiento manual.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,de todos los
+04-propuesta.typ,37,El reset prepara el sistema y no activa la potencia.,3,ArticuloLACCEI2017_VerificacionUPPAL_Control Semaforos.pdf,el sistema y
+04-propuesta.typ,37,El arranque requiere una orden nueva en un ciclo posterior.,0,,
+04-propuesta.typ,37,Un fallo invalida las autorizaciones acumuladas y conduce a fallo enclavado.,0,,
+04-propuesta.typ,41,La secuencia conserva bloqueos y ocupantes hasta confirmar su liberación.,0,,
+04-propuesta.typ,41,Una emergencia revoca el permiso acumulado y exige recuperar condiciones seguras antes del rearme.,0,,
+04-propuesta.typ,41,La puerta y el seccionador se actúan mediante sus articulaciones en la escena.,0,,
+05-formalizacion.typ,6,"El contexto C0 fija una zona y dos operarios mediante los conjuntos portadores $Z$ y $O$ y las constantes $z_1$, $o_1$ y $o_2$.",0,,
+05-formalizacion.typ,6,El fragmento siguiente reproduce los axiomas y los invariantes de tipo de las fuentes nativas.,0,,
+05-formalizacion.typ,28,$P$ contiene las zonas energizadas y $U$ los pares operario–zona que representan ocupación.,0,,
+05-formalizacion.typ,28,La expresión $o_1 mapsto z_1 in U$ indica que el primer operario está dentro.,3,ArtículoUPPAAL_1 (1).pdf,indica que el
+05-formalizacion.typ,28,"El rango $op(""ran"")(U)$ contiene las zonas ocupadas por al menos una persona.",0,,
+05-formalizacion.typ,28,"Así, INV-01 expresa RF-01 al exigir que las zonas ocupadas y energizadas sean disjuntas.",0,,
+05-formalizacion.typ,28,"El contexto fija los individuos, mientras que el invariante restringe los estados alcanzables de la máquina.",0,,
+05-formalizacion.typ,32,El evento de energización reproduce la condición decisiva del enclavamiento.,0,,
+05-formalizacion.typ,48,La guarda `grd3` habilita la energización únicamente cuando la zona está libre.,0,,
+05-formalizacion.typ,48,"`Ingresar(o,z)` exige $o in O$, $z in Z$, $z in.not P$ y $o in.not op(""dom"")(U)$, y añade el par $o mapsto z$ a $U$.",0,,
+05-formalizacion.typ,48,"`Salir(o,z)` elimina ese par y `Cortar(z)` retira la zona de $P$.",0,,
+05-formalizacion.typ,48,Los refinamientos incorporan el aislamiento y la confirmación de la parada.,0,,
+05-formalizacion.typ,50,"Considérese $U = {(o_1,z_1), (o_2,z_1)}$ y $P = emptyset$.",0,,
+05-formalizacion.typ,50,"Tras `Salir(o1,z1)`, permanece $U = {(o_2,z_1)}$.",0,,
+05-formalizacion.typ,50,"En consecuencia, $z_1 in op(""ran"")(U)$ y `Energizar(z1)` sigue deshabilitado.",0,,
+05-formalizacion.typ,50,Sólo después de la salida del segundo operario queda satisfecha la guarda de ocupación.,0,,
+05-formalizacion.typ,50,Esta secuencia muestra por qué RF-01 requiere conservar la identidad de cada ocupante en la relación.,0,,
+05-formalizacion.typ,56,"[M0, nativo y comprobado], [Ocupación, potencia y exclusión RF-01.],",0,,
+05-formalizacion.typ,61,"M1 refina M0 y ve C1, que extiende C0 con diez fases.",0,,
+05-formalizacion.typ,61,"Incorpora $L subset.eq O times Z$, los bloqueos por titular, y confirmaciones booleanas abstractas de aislamiento, energía cero, puerta y permiso.",0,,
+05-formalizacion.typ,61,"INV-03 exige que el permiso implique mantenimiento, potencia apagada, aislamiento, energía cero y bloqueos de ambos operarios.",0,,
+05-formalizacion.typ,61,INV-04 restringe la energización a marcha con zona libre y sin bloqueos.,0,,
+05-formalizacion.typ,63,`FinalizarMantenimiento` requiere la salida de todos antes de la liberación.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la salida de
+05-formalizacion.typ,63,Conserva $P$ y $U$ y modifica exclusivamente el bloqueo del titular.,0,,
+05-formalizacion.typ,82,"El último retiro habilita el cierre y el restablecimiento, manteniendo la potencia apagada.",0,,
+05-formalizacion.typ,82,"`Reset` alcanza LISTO con zona libre, sin bloqueos y condiciones seguras confirmadas.",0,,
+05-formalizacion.typ,82,La representación del solicitante sigue la hipótesis de identidad confiable.,0,,
+05-formalizacion.typ,82,"La prueba establece seguridad y refinamiento, mientras que convergencia y progreso universal quedan fuera de esta evidencia.",3,ArtículoUPPAAL_1 (1).pdf,fuera de esta
+05-formalizacion.typ,84,"Una orden de corte revoca el mando, pero $P$ conserva la potencia hasta una confirmación de apertura.",0,,
+05-formalizacion.typ,84,"Los invariantes de enlace también relacionan el seccionador, la puerta y el movimiento con las variables de M1.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,las variables de
+05-formalizacion.typ,86,"El contexto C2 fija un paso nominal de 20 ms y límites de tres pasos para el sensor y la apertura del contacto, y cinco para el heartbeat.",0,,
+05-formalizacion.typ,86,"Al vencer un plazo, `TickCaducado` enclava el fallo y revoca la orden, el permiso efectivo y la autorización de rearme.",0,,
+05-formalizacion.typ,86,"Si la apertura sigue pendiente al vencer su plazo, el evento registra el diagnóstico.",0,,
+05-formalizacion.typ,86,El reinicio conserva los bloqueos e invalida el heartbeat de la sesión anterior.,0,,
+05-formalizacion.typ,86,"Estas transiciones especifican RF-05, RF-07, RF-09 y RF-10 con un reloj abstracto que debe avanzar en planta durante la desconexión.",0,,
+06-validacion.typ,6,"La segunda parte del proyecto se desarrolla con NuSMV 2.6.0, que permite comprobar propiedades temporales de un modelo finito .",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,parte del proyecto
+06-validacion.typ,6,Event-B establece la especificación por invariantes y NuSMV analiza un comportamiento de acceso y rearme.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,de acceso y
+06-validacion.typ,6,"El modelo tiene once fases, desde inicio hasta marcha, mantenimiento, liberación y fallo.",0,,
+06-validacion.typ,6,"Las variables representan potencia, movimiento, aislamiento, puerta, presencia y bloqueo de cada operario.",0,,
+06-validacion.typ,6,El modelo finito representa una selección de las fases y guardas del ciclo Event-B.,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,de las fases
+06-validacion.typ,8,"La solicitud de mantenimiento conduce a parada, donde apertura del contacto y fin del movimiento se confirman por separado.",0,,
+06-validacion.typ,8,"La salida de ambos y el retiro de bloqueos permiten cerrar la puerta, restablecer el seccionador y reconocer el rearme.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la salida de
+06-validacion.typ,8,Emergencia revoca el permiso y conduce a fallo conservando ocupantes y bloqueos.,0,,
+06-validacion.typ,8,El repositorio conserva también las actualizaciones y los bucles de cada fase.,0,,
+06-validacion.typ,12,Se formularon tres propiedades LTL de seguridad y dos consultas CTL de alcanzabilidad.,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,de seguridad y
+06-validacion.typ,12,"En estas expresiones, $G$ exige cumplimiento global y $E F$ expresa la existencia de un recorrido que alcanza la condición indicada.",3,ArticuloLACCEI2017_VerificacionUPPAL_Control Semaforos.pdf,la existencia de
+06-validacion.typ,12,La posibilidad de esperar indefinidamente se conserva en el modelo.,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,la posibilidad de
+06-validacion.typ,17,"[MC02, seguridad], [El permiso implica aislamiento, parada y ambos bloqueos.],",0,,
+06-validacion.typ,20,"[MC05, alcanzabilidad], [Existe un ciclo de ingreso, salida y rearme.],",0,,
+06-validacion.typ,23,El modelo presupone acceso controlado y funcionamiento nominal de puerta y seccionador.,0,,
+06-validacion.typ,23,"La campaña de simulación examina además fallos de sensores, cambios de sesión y latencias de la planta.",0,,
+06-validacion.typ,28,"El protocolo organiza requisitos, criterios y evidencia siguiendo el contexto metodológico de ISO/IEC/IEEE 29148 e ISO/IEC/IEEE 29119-2  .",0,,
+06-validacion.typ,28,"Incluye trece escenarios de operación nominal, mantenimiento, bloqueos, órdenes incompatibles, retardos, sensores inválidos, contacto pegado, desconexión, identidades incorrectas, reinicio, intrusión y emergencia durante rearme.",0,,
+06-validacion.typ,28,Los casos relacionan los estímulos con RF-01–RF-10.,0,,
+06-validacion.typ,30,"Se ejecutaron tres pilotos en CoppeliaSim EDU 4.10 para arranque, mantenimiento y pérdida de comunicación.",0,,
+06-validacion.typ,30,"La campaña combinó 41 corridas deterministas, 90 con semillas reproducibles y cuatro de sensibilidad al paso de 10 o 20 ms.",0,,
+06-validacion.typ,30,Cada corrida comenzó con la escena restablecida y verificó las precondiciones mediante un prefijo de operaciones nominales.,0,,
+06-validacion.typ,30,"Se conservaron versiones, parámetros, semilla y hash de cada traza.",0,,
+06-validacion.typ,32,El monitor independiente evaluó la ocupación por geometría y la potencia mediante el contacto y el seccionador simulados.,0,,
+06-validacion.typ,32,El supervisor leyó el sensor volumétrico y los eventos RFID por ZeroMQ.,0,,
+06-validacion.typ,32,Para simular la desconexión se cerró el socket del supervisor y un segundo cliente leyó el historial que la escena registró con su propio reloj.,0,,
+06-validacion.typ,36,La evidencia formal se expresa mediante obligaciones generadas y demostradas por versión.,0,,
+06-validacion.typ,36,"La evaluación de planta registra episodios de coexistencia presencia–potencia, intentos de rearme, fallos de respuesta y latencias por escenario.",3,ArtículoUPPAAL_1 (1).pdf,la evaluacion de
+06-validacion.typ,36,"El origen de cada incidente identifica si se trata de presencia, caducidad de señal o pérdida de comunicación.",0,,
+06-validacion.typ,40,"La referencia se fija según el caso, por ejemplo la orden de corte o el último latido aceptado.",0,,
+06-validacion.typ,40,"Las latencias usan tiempo simulado y se resumen mediante mediana, percentil 95 y máximo, con el número de incidentes evaluables.",3,ArticuloLACCEI2017_VDM_ControlVelocidadBeacons (1).pdf,el numero de
+06-validacion.typ,40,Un contacto que permanece cerrado conserva el estado de respuesta fallida y la latencia ausente.,3,ArtículoUPPAAL_1 (1).pdf,el estado de
+07-resultados.typ,10,Rodin 3.10.0 completó el chequeo estático de los tres niveles.,0,,
+07-resultados.typ,10,Las pruebas se reprodujeron desde los árboles guardados en un segundo espacio de trabajo.,0,,
+07-resultados.typ,10,Los registros vinculan la evidencia con las versiones exactas de las fuentes mediante SHA256.,0,,
+07-resultados.typ,17,"), kind: table, caption: [Obligaciones de prueba por máquina Event-B.])",0,,
+07-resultados.typ,19,"`Energizar` y `Ingresar` la preservan mediante las guardas de zona libre y potencia apagada, respectivamente.",0,,
+07-resultados.typ,19,"M2 incorpora caducidad de señales, confirmación de potencia y revocación de permisos.",0,,
+07-resultados.typ,21,"La estrategia utilizó simplificación, PP y veriT mediante el complemento SMT de Rodin.",0,,
+07-resultados.typ,21,Los resultados establecen la seguridad inductiva de las máquinas bajo sus hipótesis.,0,,
+07-resultados.typ,23,ProB 1.16.1 analizó 10 000 y 20 000 estados de M2 en dos búsquedas sin contraejemplos observados.,0,,
+07-resultados.typ,23,"Ambas alcanzaron su límite de estados, por lo que sus resultados se circunscriben a la exploración realizada.",3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,por lo que
+07-resultados.typ,27,"NuSMV comprobó las cinco propiedades sobre un espacio de 119 estados alcanzables, con diámetro 36.",0,,
+07-resultados.typ,27,El diámetro indica la mayor distancia mínima desde los estados iniciales en número de transiciones.,0,,
+07-resultados.typ,27,MC04 y MC05 confirman la existencia de recorridos de mantenimiento y rearme.,3,ArticuloLACCEI2017_VerificacionUPPAL_Control Semaforos.pdf,la existencia de
+07-resultados.typ,27,"La selección de eventos permite esperar indefinidamente, por lo que la terminación universal del mantenimiento queda abierta.",4,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,por lo que la
+07-resultados.typ,29,"Como control negativo se evaluó `G !potencia`, que resultó falsa y produjo un arranque como contraejemplo.",0,,
+07-resultados.typ,29,Después se retiró la guarda de permiso del ingreso del primer operario en una copia temporal del modelo.,0,,
+07-resultados.typ,29,MC01 resultó falsa en esa copia y el log conservó la secuencia de intrusión durante energización.,0,,
+07-resultados.typ,29,Este resultado identifica la dependencia de la propiedad respecto del acceso controlado.,0,,
+07-resultados.typ,29,"Los archivos de reproducción conservan fórmulas, comandos y hashes del modelo, el ejecutable y las salidas.",3,ArtículoUPPAAL_2 (1).pdf,del modelo el
+07-resultados.typ,33,"De #ensayo.campana corridas de campaña, #ensayo.oraculos_cumplidos cumplieron el criterio de su caso.",0,,
+07-resultados.typ,33,El caso SC-09-c se clasificó como no evaluable para tiempo de corte porque el reloj se congeló al mantener el modo por pasos tras la desconexión.,0,,
+07-resultados.typ,33,Las otras corridas de desconexión dejaron avanzar el reloj local.,0,,
+07-resultados.typ,33,"En SC-09-a, el corte ocurrió a #ensayo.corte_watchdog_sc09a.p95_ms ms del último latido aceptado (p95, $n = #ensayo.corte_watchdog_sc09a.n$ al paso nominal), dentro del presupuesto simulado de 140 ms.",0,,
+07-resultados.typ,37,"[SC-02-a], [40 ms hasta apertura tras la orden y 320 ms adicionales hasta la parada.],",0,,
+07-resultados.typ,38,"[SC-03-a], [Con el operario 2 dentro, ambos bloqueos permanecieron y el arranque quedó inhibido.],",0,,
+07-resultados.typ,40,"[SC-12-a/b], [El monitor detectó las dos intrusiones forzadas con potencia.],",0,,
+07-resultados.typ,45,El monitor registró #ensayo.violaciones_fisicas episodios presencia–potencia en los casos evaluables dentro de los supuestos.,3,ArtículoUPPAAL_2 (1).pdf,dentro de los
+07-resultados.typ,45,La  muestra el rearme inhibido tras la salida de un operario.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la salida de
+07-resultados.typ,45,"El contacto pegado fue una respuesta física fallida en la planta, aunque se cumplió el criterio de diagnóstico.",0,,
+07-resultados.typ,45,La sensibilidad de SC-09-a mantuvo 120 ms entre último latido y apertura con pasos de 10 y 20 ms.,0,,
+07-resultados.typ,49,"La planta reproduce contactos, movimiento residual y cruces discretos de los avatares.",0,,
+07-resultados.typ,49,Los tiempos observados dependen de la discretización y de esa parametrización.,0,,
+07-resultados.typ,49,El acceso controlado y la confiabilidad del sensado condicionan la exclusión.,3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la confiabilidad del
+07-resultados.typ,49,Las intrusiones de SC-12 ilustran la ruptura de esos supuestos.,0,,
+07-resultados.typ,49,El alcance se limita a una zona y dos operarios.,3,ArticuloLACCEI2017_VDM_ControlVelocidadBeacons (1).pdf,a una zona
+07-resultados.typ,49,La correspondencia con M2 se contrasta por guardas y casos trazables.,0,,
+08-conclusiones.typ,3,La especificación Event-B conserva la exclusión entre ocupación y potencia bajo el supuesto de acceso controlado.,0,,
+08-conclusiones.typ,3,"Los refinamientos añadieron bloqueos personales, rearme y respuesta a pérdida de confirmaciones.",0,,
+08-conclusiones.typ,3,NuSMV comprobó tres propiedades de seguridad y dos de alcanzabilidad en el ciclo nominal.,3,ArticuloLACCEI2017_VDM_AccesoRedUConecta.pdf,propiedades de seguridad
+08-conclusiones.typ,5,"En CoppeliaSim, la salida de un operario conservó el enclavamiento mientras el segundo permanecía dentro.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,la salida de
+08-conclusiones.typ,5,El watchdog revocó el mando ante pérdida de latidos y el monitor identificó presencia con potencia en las dos intrusiones forzadas.,0,,
+08-conclusiones.typ,5,El ensayo de contacto pegado mostró que el diagnóstico por realimentación no equivale a apertura física del circuito simulado.,0,,
+08-conclusiones.typ,9,"Una ampliación a más zonas u operarios requiere revisar las hipótesis, regenerar las obligaciones y repetir la exploración.",0,,
+08-conclusiones.typ,9,"Para extender el alcance experimental, conviene parametrizar la desaceleración a partir de mediciones de planta e incorporar fallos de puerta y seccionador.",3,ArticuloLACCEI2017_EspecificaionFormal_SistemaBliblioteca.pdf,a partir de

@@ -15,9 +15,20 @@ Recomendación: Python estándar (`dataclasses`, `enum`, `json`, `csv`, `time`, 
 
 1. Instalar Rodin y ProB compatibles entre sí; crear proyecto de prueba y conservar versiones exactas de ambos y del JRE utilizado. Elegir una versión estable disponible al comenzar, no asumir que la última combinación es compatible.
 2. Instalar CoppeliaSim EDU y verificar acceso educativo. Guardar versión/build, motor físico, paso, SO y unidades. Probar cliente de la documentación oficial antes de construir escena.
-3. Crear entorno: `python -m venv .venv`, activarlo e instalar `coppeliasim-zmqremoteapi-client pytest matplotlib`. Una vez probado el piloto, producir `requirements.txt` con versiones exactas; no se proporciona un lock ficticiamente probado.
-4. Registrar commits, hashes de escena/modelos, configuración ProB, CPU/RAM y semillas en cada manifiesto. Publicar el entorno usado, no datos personales innecesarios.
-5. Comandos previstos después de implementar: `python -m pytest`, `python experimentos/ejecutar.py --config experimentos/escenarios.json`, `python analisis/metricas.py`, `python analisis/figuras.py`. Son el contrato de CLI a implementar, todavía no comandos disponibles.
-6. Comandos disponibles para la base: `typst compile main.typ articulo.pdf` y `python herramientas/verificar.py`.
+3. Crear un entorno virtual, activarlo e instalar `requirements.txt`.
+4. Consultar en el [README](../README.md) los comandos para verificar, ejecutar y analizar.
+5. Compilar con `typst compile main.typ articulo.pdf` y comprobar la estructura con `python herramientas/verificar.py`.
 
-La base editorial se verificará con la versión local de Typst; la escena y los modelos no se consideran instalados o ejecutados por esa comprobación.
+## Entorno utilizado para la campaña
+
+Se ejecutó CoppeliaSim EDU 4.10.0 rev0 en Linux x86_64 con Python 3.12.11,
+cliente ZeroMQ 2.0.4 y paso nominal de 20 ms. La sensibilidad volvió a
+ejecutar dos casos a 10 y 20 ms. `requirements.txt` fija las dependencias
+directas. El simulador aplica un modelo discreto de desaceleración en Lua.
+Los manifiestos conservan la versión reportada por CoppeliaSim, el sistema,
+los parámetros y las huellas de la escena, el catálogo y el código.
+
+El instalador Ubuntu 24.04 usado en Arch necesitó cargar `libsodium.so.23`
+para el complemento ZeroMQ. En una instalación compatible se utiliza la
+biblioteca provista por el sistema. Para la campaña se restringió el enlace
+del servidor a `127.0.0.1`.

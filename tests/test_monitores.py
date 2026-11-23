@@ -36,3 +36,9 @@ def test_indice_de_manifiestos_conserva_corridas(tmp_path):
     })
     contenido = indice.read_text(encoding="utf-8")
     assert "run_id" in contenido and "r-1" in contenido
+
+
+def test_monitor_rechaza_valores_desconocidos():
+    for entrada in (verdad(ocupantes_reales=None), verdad(potencia_real=None),
+                    verdad(velocidad_real_m_s=float("nan"))):
+        assert evaluar(entrada)[0]["propiedad"] == "OBSERVACION_INVALIDA"

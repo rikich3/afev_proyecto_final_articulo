@@ -38,6 +38,8 @@ class Motivo(str, Enum):
     TITULAR_DISTINTO = "TITULAR_DISTINTO"
     FASE_INCORRECTA = "FASE_INCORRECTA"
     START_NO_NUEVO = "START_NO_NUEVO"
+    DISCREPANCIA = "DISCREPANCIA"
+    ID_DESCONOCIDA = "ID_DESCONOCIDA"
 
 
 @dataclass(frozen=True)
@@ -83,6 +85,8 @@ class Estado:
     intervencion_activa: bool = False
     comandos_vistos: FrozenSet[str] = field(default_factory=frozenset)
     eventos_vistos: FrozenSet[str] = field(default_factory=frozenset)
+    corte_desde_s: Optional[float] = None
+    parada_desde_s: Optional[float] = None
 
     def con_snapshot(self, snapshot: Snapshot) -> "Estado":
         """Incorpora únicamente eventos RFID válidos y confirmaciones físicas."""

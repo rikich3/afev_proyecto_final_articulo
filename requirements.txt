@@ -1,0 +1,5 @@
+coppeliasim-zmqremoteapi-client==2.0.4
+cbor==1.0.0
+pyzmq==27.3.0
+cbor2==6.3.0
+pytest==9.2.0

@@ -1,8 +1,8 @@
 {
-  "version": 1,
-  "estado": "protocolo_definido_pendiente_piloto",
+  "version": 2,
+  "estado": "parametros_de_protocolo",
   "fecha": "2026-10-07",
-  "tipo": "especificacion_declarativa_no_ejecutor",
+  "tipo": "especificacion_declarativa_para_coppeliasim",
   "resultados_ejecutados": false,
   "alcance": {
     "zonas": 1,
@@ -1256,23 +1256,6 @@
               "solicitante_id": null
             },
             {
-              "accion": "esperar_confirmacion",
-              "condicion": "seccionador_abierto",
-              "limite_s": 2.0
-            },
-            {
-              "accion": "orden",
-              "tipo": "aplicar_bloqueo",
-              "operario_id": 1,
-              "solicitante_id": 1
-            },
-            {
-              "accion": "orden",
-              "tipo": "aplicar_bloqueo",
-              "operario_id": 2,
-              "solicitante_id": 2
-            },
-            {
               "accion": "orden",
               "tipo": "solicitar_ingreso",
               "operario_id": 1,
@@ -1280,9 +1263,9 @@
             }
           ],
           "esperado": [
-            "contacto abierto y bloqueos no autorizan ingreso con movimiento",
-            "entrada denegada mientras abs(velocidad)>epsilon_parada_m_s",
-            "si no para antes de parada_max_s: fallo sin acceso"
+            "aislamiento inhibido mientras exista movimiento residual",
+            "permiso de acceso denegado",
+            "fallo por energia residual al agotar parada_max_s"
           ]
         }
       ]

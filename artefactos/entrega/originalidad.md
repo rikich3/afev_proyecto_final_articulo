@@ -31,6 +31,37 @@ detecta por sí misma traducciones, paráfrasis cercanas, coincidencias en
 tablas/fórmulas ni fuentes ausentes del corpus. Tampoco estima un porcentaje
 de Turnitin.
 
+## Medición de similitud local con software libre
+
+Se compiló y ejecutó [Sherlock](https://github.com/diogocabral/sherlock)
+(licencia Unlicense; SHA-256 del `sherlock.c` usado:
+`5561d6977e97c8c66d59b3232919b16c03bb23d9141a938ade7cf24f9a608df9`).
+Se normalizaron mayúsculas, tildes y signos con la función `palabras` del
+comprobador local y se comparó la prosa de las secciones 00–08 con los mismos
+11 textos. Con `-z 0` (sin descarte de firmas), Sherlock informó **0 % en
+cada comparación por pares** tanto con cadenas de tres (`-n 3`) como de cinco
+palabras (`-n 5`). Su porcentaje es una razón entre firmas de *dos archivos*
+y se trunca a un entero: ese cero no significa que no existan frases comunes.
+
+Para medir directamente qué parte de la prosa coincide con *alguna* fuente,
+`herramientas/auditar_originalidad.py` cuenta una sola vez cada palabra que
+pertenece a una cadena coincidente dentro de una oración:
+
+| Longitud mínima de la cadena | Palabras cubiertas / 3342 | Cobertura local |
+|---|---:|---:|
+| 3 palabras | 255 / 3342 | 7,63 % |
+| 4 palabras | 28 / 3342 | 0,84 % |
+| 5 palabras | 0 / 3342 | 0,00 % |
+
+Las coincidencias de cuatro palabras corresponden a siete expresiones breves
+de uso general, entre ellas «el caso de aplicación» y «la verificación de
+sistemas». El denominador contiene la prosa seleccionada de 204 oraciones;
+excluye bibliografía, código, fórmulas y leyendas. Las cifras son **cobertura
+literal frente al corpus local**, no un índice de plagio ni una predicción del
+resultado de Turnitin, cuya base de comparación incluye otros documentos.
+El procedimiento y los porcentajes se reproducen con el comando de la sección
+anterior.
+
 ## Revisión de atribución por sección
 
 | Sección | Afirmaciones externas cotejadas | Resultado |

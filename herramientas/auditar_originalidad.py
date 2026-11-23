@@ -84,6 +84,30 @@ def cotejar(fuentes: list[Path]):
     return corpus, filas
 
 
+def cobertura_literal(corpus: dict[str, list[str]], tamanos=(3, 4, 5)):
+    """Cuenta palabras de la prosa cubiertas por frases del corpus, sin duplicarlas."""
+    oraciones_normalizadas = [palabras(texto) for _, _, texto in oraciones()]
+    total = sum(map(len, oraciones_normalizadas))
+    resultados = {}
+    for tamano in tamanos:
+        ventanas = {
+            tuple(texto[pos:pos + tamano])
+            for texto in corpus.values()
+            for pos in range(len(texto) - tamano + 1)
+        }
+        cubiertas = sum(
+            len({
+                indice
+                for pos in range(len(texto) - tamano + 1)
+                if tuple(texto[pos:pos + tamano]) in ventanas
+                for indice in range(pos, pos + tamano)
+            })
+            for texto in oraciones_normalizadas
+        )
+        resultados[tamano] = (cubiertas, total)
+    return resultados
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("fuentes", nargs="+", type=Path, help="PDF o TXT originales")
@@ -100,6 +124,9 @@ def main():
     alertas = sum(fila[3] >= args.umbral for fila in filas)
     print(f"{len(filas)} oraciones; {len(corpus)} fuentes únicas; "
           f"{alertas} coincidencias de {args.umbral}+ palabras consecutivas")
+    for tamano, (cubiertas, total) in cobertura_literal(corpus).items():
+        porcentaje = 100 * cubiertas / total if total else 0
+        print(f"Cobertura de {tamano} palabras: {cubiertas}/{total} ({porcentaje:.2f}%)")
 
 
 if __name__ == "__main__":

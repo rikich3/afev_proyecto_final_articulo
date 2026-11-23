@@ -3,7 +3,8 @@
 - `enunciado.png`: imagen original facilitada por el usuario (G04).
 - `arquitectura.svg`: diagrama conceptual propio de A05.
 - `rearme.svg`: diagrama conceptual propio de A23.
-- `escena.png`: captura real pendiente (A23).
-- `latencia.svg`, `obligaciones.svg`: gráficos de evidencia pendientes (A23).
+- `clases-conceptuales.svg`: diagrama UML conceptual de A23; los tipos verificables se presentan en Event-B.
+- `escena.png` muestra SC-03-a. Es un recorte del render en `datos/evidencias/rearme_inhibido.png`.
+- `model-checking.svg` resume el diagrama completo de `modelo/nusmv/transiciones.dot`.
 
-Las secciones siempre leen desde `/img/`, relativo a la raíz Typst. La compilación por defecto muestra recuadros explícitos para evidencia faltante. Activar `--input evidencias=true` exige los tres recursos pendientes; conservar sus nombres. No sustituirlos por capturas inventadas. El enunciado no se incorpora al artículo como figura experimental.
+Typst lee las figuras desde `/img/` relativo a la raíz del proyecto.

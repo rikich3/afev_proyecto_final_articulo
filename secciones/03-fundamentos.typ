@@ -1,21 +1,17 @@
 = Fundamentos
 
-== Enclavamiento y aislamiento de energía
+== Enclavamiento y control de energía
 
-Un enclavamiento condiciona las acciones de una máquina a estados y permisos establecidos. Para mantenimiento, la política de bloqueo y etiquetado exige distinguir la señal de control del aislamiento de las fuentes de energía. La referencia pública LOTO considera también la liberación de energía almacenada @osha. En este trabajo los candados personales y el seccionador se representan mediante estados explícitos; la identidad RFID no se interpreta como un dispositivo físico de aislamiento.
+El enclavamiento condiciona la energización y el acceso a estados de seguridad definidos. El procedimiento de bloqueo y etiquetado, denominado LOTO, incorpora el aislamiento y el control de energía almacenada @osha. Para el caso estudiado, un seccionador representa el aislamiento y dos bloqueos representan la participación individual de los operarios. Una puerta limita el ingreso y los sensores aportan observaciones sobre presencia y estado de la planta.
 
-La identificación de peligros y la delimitación del equipo se contextualizan en ISO 12100, que establece principios de evaluación y reducción del riesgo @iso12100. Para el acceso controlado, ISO 14119 trata los dispositivos de enclavamiento asociados a resguardos @iso14119. Esta distinción sustenta la separación conceptual entre puerta, sensor de presencia y autorización de acceso en la arquitectura propuesta.
+La evaluación de riesgos y los resguardos se contextualizan en ISO 12100 e ISO 14119 @iso12100 @iso14119. ISO 13849-1 e IEC 62061 proporcionan referencias para el diseño de controles relacionados con seguridad @iso13849 @iec62061. La parada de emergencia y la ubicación de medios de protección se contextualizan en ISO 13850 e ISO 13855 @iso13850 @iso13855. Estas referencias orientan la delimitación de funciones del prototipo académico, cuya evidencia corresponde al modelo y al entorno simulado.
 
-ISO 14118 aborda la prevención de arranques inesperados @iso14118. ISO 13849-1 proporciona un marco para partes de control relacionadas con seguridad @iso13849. IEC 62061 aborda el diseño, la integración y la validación de sistemas de control relacionados con la seguridad de máquinas @iec62061. Se utilizan como contexto de diseño; una simulación y un conjunto de invariantes no permiten asignar un nivel de prestaciones ni declarar conformidad integral con esas normas.
+== Event-B y Rodin
 
-La función de parada de emergencia se contextualiza en ISO 13850 @iso13850. La ubicación de los medios de protección respecto del acercamiento del cuerpo humano corresponde al ámbito de ISO 13855 @iso13855. Para el banco, estas referencias motivan distinguir parada solicitada, parada efectiva y posibilidad física de ingreso. Se emplean los alcances publicados de las normas, sin atribuir conformidad con cláusulas no evaluadas.
+Event-B expresa el sistema mediante contextos y máquinas. Los contextos declaran conjuntos, constantes y axiomas. Las máquinas contienen variables, invariantes y eventos. Cada evento tiene parámetros, guardas que determinan su habilitación y acciones que modifican el estado. Los refinamientos introducen detalle y requieren demostrar una relación con el nivel anterior @abrial2010.
 
-== Event-B y refinamiento
+Rodin genera obligaciones para comprobar que la inicialización establece los invariantes y que los eventos los preservan @rodin. Para una propiedad de exclusión, esto exige considerar tanto la energización como el ingreso y la salida de personas. La posibilidad de completar una intervención constituye una pregunta adicional sobre progreso, bajo condiciones del entorno. La distinción entre seguridad y vivacidad permite formular ambas preguntas por separado @lamport1977.
 
-Event-B expresa el estado mediante conjuntos, variables e invariantes y define su evolución por eventos con guardas y acciones. La verificación debe establecer que la inicialización satisface los invariantes y que cada evento habilitado los preserva. Los refinamientos incorporan detalle manteniendo una relación con el nivel abstracto @rodin. La exposición de Abrial desarrolla la notación y las reglas de obligaciones de prueba, y sirve de referencia para estructurar los niveles del caso de estudio @abrial2010.
+== Estado abstracto y observación física
 
-La distinción entre propiedades de seguridad y vivacidad aparece en el trabajo de Lamport sobre corrección de programas concurrentes @lamport1977. La comprobación de seguridad no implica automáticamente progreso. Un estado sin potencia puede ser una espera legítima o un bloqueo indeseado según el protocolo y las acciones disponibles. Por ello, la evaluación separa invariantes, análisis de estados y posibilidad de completar la secuencia de mantenimiento bajo hipótesis explícitas del entorno.
-
-== Verdad física y observación
-
-Se distinguen presencia física, presencia detectada, orden de potencia y potencia realimentada. Esta separación evita declarar segura una escena únicamente porque el controlador ordenó apagar. El tiempo hasta la apertura del contacto y el tiempo hasta la parada mecánica son observaciones diferentes; ambos condicionan cuándo se autoriza el acceso.
+El modelo abstracto representa ocupación y potencia mediante conjuntos. En la evaluación prevista, el controlador recibe sensores y emite órdenes, mientras que un monitor consulta ocupación geométrica y estado físico del contacto. Esta arquitectura permite contrastar la decisión lógica con la respuesta de la planta. La apertura del contacto y la parada mecánica se miden como sucesos diferentes, pues el movimiento residual condiciona el ingreso de mantenimiento.

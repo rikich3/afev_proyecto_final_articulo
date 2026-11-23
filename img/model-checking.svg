@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="390" viewBox="0 0 940 390">
+  <title>Diagrama de transición de estados del enclavamiento nominal en NuSMV</title>
+  <desc>Camino nominal en tres filas, guardas entre corchetes y transiciones resumidas de fallo y rearme.</desc>
+  <defs>
+    <marker id="flecha" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1L7 4L1 7Z" fill="#273d51"/>
+    </marker>
+    <style>
+      .nodo { fill:#f2f6fa; stroke:#273d51; stroke-width:1.6; }
+      .fallo { fill:#fff4f2; stroke:#854132; }
+      .linea { fill:none; stroke:#273d51; stroke-width:1.6; marker-end:url(#flecha); }
+      .guarda,.estado,.nota { font-family:"Liberation Sans",sans-serif; fill:#152638; }
+      .estado { font-size:16px; font-weight:bold; text-anchor:middle; dominant-baseline:middle; }
+      .guarda { font-size:15px; text-anchor:middle; }
+      .nota { font-size:16px; }
+    </style>
+  </defs>
+
+  <circle cx="12" cy="58" r="5" fill="#273d51"/>
+  <path class="linea" d="M17 58H40"/>
+  <path class="linea" d="M190 58H273"/>
+  <path class="linea" d="M423 58H506"/>
+  <path class="linea" d="M656 58H739"/>
+  <path class="linea" d="M814 78V163"/>
+  <path class="linea" d="M739 183H656"/>
+  <path class="linea" d="M506 183H423"/>
+  <path class="linea" d="M273 183H190"/>
+  <path class="linea" d="M115 203V282"/>
+  <path class="linea" d="M190 302H273"/>
+  <path class="linea" d="M656 302H739"/>
+
+  <g class="nodo">
+    <rect x="40" y="38" width="150" height="40" rx="10"/>
+    <rect x="273" y="38" width="150" height="40" rx="10"/>
+    <rect x="506" y="38" width="150" height="40" rx="10"/>
+    <rect x="739" y="38" width="150" height="40" rx="10"/>
+    <rect x="739" y="163" width="150" height="40" rx="10"/>
+    <rect x="506" y="163" width="150" height="40" rx="10"/>
+    <rect x="273" y="163" width="150" height="40" rx="10"/>
+    <rect x="40" y="163" width="150" height="40" rx="10"/>
+    <rect x="40" y="282" width="150" height="40" rx="10"/>
+    <rect x="273" y="282" width="150" height="40" rx="10"/>
+    <rect class="fallo" x="739" y="282" width="150" height="40" rx="10"/>
+  </g>
+  <g class="estado">
+    <text x="115" y="58">Inicio</text>
+    <text x="348" y="58">Listo</text>
+    <text x="581" y="58">Marcha</text>
+    <text x="814" y="58">Parada</text>
+    <text x="814" y="183">Aislamiento</text>
+    <text x="581" y="183">Bloqueo</text>
+    <text x="348" y="183">Verificación</text>
+    <text x="115" y="183">Mantenimiento</text>
+    <text x="115" y="302">Liberación</text>
+    <text x="348" y="302">Restablecimiento</text>
+    <text x="814" y="302">Fallo</text>
+  </g>
+  <g class="guarda">
+    <text x="232" y="20">reset</text>
+    <text x="232" y="84">[listo físico]</text>
+    <text x="465" y="20">start</text>
+    <text x="465" y="84">[listo físico]</text>
+    <text x="697" y="20">mantenimiento o stop</text>
+
+    <text x="728" y="113">aislar</text>
+    <text x="717" y="135">[cero ∧ intervención]</text>
+    <text x="697" y="154">[aislado]</text>
+    <text x="465" y="154">[ambos bloqueos]</text>
+    <text x="232" y="139">verificar</text>
+    <text x="232" y="154">[cero ∧ aislado ∧ ambos bloqueos]</text>
+    <text x="173" y="235">finalizar</text>
+    <text x="181" y="257">[zona libre]</text>
+    <text x="232" y="274">cerrar puerta</text>
+    <text x="232" y="341">[zona libre ∧ sin bloqueos]</text>
+    <text x="697" y="294">emergencia</text>
+  </g>
+  <g class="nota">
+    <text x="545" y="254" font-weight="bold">Transiciones de retorno y emergencia</text>
+    <text x="545" y="307">Cualquier fase</text>
+    <text x="545" y="342">Fallo y Restablecimiento → Listo [reset ∧ listo físico]</text>
+    <text x="545" y="365">Parada → Listo [reset ∧ cero ∧ ¬intervención]</text>
+    <text x="40" y="373">cero = ¬potencia ∧ ¬movimiento</text>
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="338" viewBox="0 0 620 338" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Diagrama UML de clases del enclavamiento</title>
+  <desc id="descripcion">Un supervisor supervisa una zona. La zona admite hasta dos ocupantes y dos bloqueos. Un operario puede ocupar a lo sumo una zona y ser titular de a lo sumo un bloqueo. Cada bloqueo se asocia a un titular y a una zona.</desc>
+  <style>
+    text { font-family:"Liberation Sans",sans-serif; fill:#152638; }
+    .clase { fill:#fff; stroke:#273d51; stroke-width:2; }
+    .cabecera { fill:#edf3f8; }
+    .separador,.asociacion { fill:none; stroke:#273d51; stroke-width:2; }
+    .nombre { font-size:24px; font-weight:700; text-anchor:middle; }
+    .atributo { font-size:19px; }
+    .multiplicidad { font-size:20px; }
+    .relacion { font-size:20px; text-anchor:middle; }
+  </style>
+
+  <g class="asociacion">
+    <path d="M256 64H364"/>
+    <path d="M131 230V159H409V110"/>
+    <path d="M552 110V230"/>
+    <path d="M256 286H364"/>
+  </g>
+
+  <g class="clase">
+    <rect x="6" y="6" width="250" height="104"/>
+    <rect x="364" y="6" width="250" height="104"/>
+    <rect x="6" y="230" width="250" height="102"/>
+    <rect x="364" y="230" width="250" height="102"/>
+  </g>
+  <g class="cabecera">
+    <path d="M7 7H255V42H7Z M365 7H613V42H365Z M7 231H255V267H7Z M365 231H613V267H365Z"/>
+  </g>
+  <path class="separador" d="M6 42H256 M364 42H614 M6 267H256 M364 267H614"/>
+
+  <g class="nombre">
+    <text x="131" y="32">Supervisor</text>
+    <text x="489" y="32">Zona</text>
+    <text x="131" y="257">Operario</text>
+    <text x="489" y="257">Bloqueo</text>
+  </g>
+  <g class="atributo">
+    <text x="16" y="69">+ fase : Fase</text>
+    <text x="16" y="95">+ rearmeVigente : Boolean</text>
+    <text x="374" y="69">+ id : ZonaId</text>
+    <text x="374" y="95">+ potenciaActiva : Boolean</text>
+    <text x="16" y="292">+ id : OperarioId</text>
+    <text x="16" y="317">+ /dentro : Boolean</text>
+    <text x="374" y="292">+ aplicado : Boolean</text>
+  </g>
+
+  <g class="multiplicidad">
+    <text x="264" y="56">1</text>
+    <text x="356" y="56" text-anchor="end">1</text>
+    <text x="420" y="135">0..1</text>
+    <text x="142" y="220">0..2</text>
+    <text x="563" y="135">1</text>
+    <text x="563" y="220">0..2</text>
+    <text x="264" y="278">1</text>
+    <text x="356" y="278" text-anchor="end">0..1</text>
+  </g>
+  <g class="relacion">
+    <text x="310" y="89">supervisa</text>
+    <text x="271" y="151">ocupación</text>
+    <text x="541" y="181" text-anchor="end">aplicación</text>
+    <text x="310" y="313">titularidad</text>
+  </g>
+</svg>

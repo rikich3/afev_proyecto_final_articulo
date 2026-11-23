@@ -1,29 +1,49 @@
-#import "/estilo.typ": recurso, evidencia, tabla
-#let resultados = json("/artefactos/resultados/resumen.json")
-#let valor(k) = { let v = resultados.at(k, default: none); if v == none { [Pendiente] } else { str(v) } }
+#import "/estilo.typ": tabla
+#let registro = json("/modelo/rodin/Enclavamiento/verificacion_m0.json")
+#let registro_m1 = json("/artefactos/verificacion/rodin/verificacion_m1.json")
+#let registro_m2 = json("/artefactos/verificacion/rodin/m2/verificacion_m2.json")
+#let ensayo = json("/artefactos/resultados/resumen.json")
 = Resultados y discusión
 
-== Evidencia cuantitativa
+== Evidencia formal disponible
 
-Esta base no contiene pruebas Rodin ejecutadas ni corridas de CoppeliaSim. La tabla siguiente lee el resumen de #recurso("A24", "artefactos/resultados/resumen.json"); los campos sin medición permanecen explícitamente pendientes. El análisis reproducible de A20 debe generar este resumen desde las evidencias, conservando la versión utilizada.
+Rodin 3.10.0 completó el chequeo estático de los tres niveles. Las pruebas se reprodujeron desde los árboles guardados en un segundo espacio de trabajo. Los registros vinculan la evidencia con las versiones exactas de las fuentes mediante SHA256.
 
 #figure(tabla(
-  [*Indicador*], [*Resultado*],
-  [PO generadas], valor("po_total"),
-  [PO demostradas], valor("po_descargadas"),
-  [Corridas ejecutadas], valor("corridas"),
-  [Violaciones físicas], valor("violaciones_fisicas"),
-  [Latencia p95 (ms)], valor("latencia_p95_ms"),
-), kind: table, caption: [Resumen de evidencia. «Pendiente» no equivale a cero.])
+  [*Máquina*], [*Demostradas / generadas*],
+  [M0], [#registro.obligaciones_demostradas / #registro.obligaciones_generadas],
+  [M1], [#registro_m1.M1_demostradas / #registro_m1.M1_generadas],
+  [M2], [#registro_m2.M2_demostradas / #registro_m2.M2_generadas],
+), kind: table, caption: [Obligaciones de prueba por máquina Event-B.])
 
-#figure(evidencia("obligaciones.svg", [Pruebas por modelo y estado]), caption: [Estado de obligaciones por refinamiento. Gráfico pendiente de evidencia A14.])
+En M0, la inicialización establece INV-01. `Energizar` y `Ingresar` la preservan mediante las guardas de zona libre y potencia apagada, respectivamente. `Cortar` y `Salir` conservan la disjunción al retirar elementos. M1 añade obligaciones sobre bloqueos, permiso y rearme. M2 incorpora caducidad de señales, confirmación de potencia y revocación de permisos.
 
-#figure(evidencia("latencia.svg", [Distribución de tiempos por escenario]), caption: [Latencias de respuesta simulada. Gráfico pendiente de datos A19–A20.])
+La estrategia utilizó simplificación, PP y veriT mediante el complemento SMT de Rodin. La reproducción comprobó #registro_m2.total_comprobadas obligaciones. Los resultados establecen la seguridad inductiva de las máquinas bajo sus hipótesis.
 
-La presentación definitiva separará resultados por escenario, tamaño de muestra y condición de supuesto. No se mezclará la intrusión forzada con el funcionamiento nominal en una única tasa. La proporción de fallos de respuesta acompañará los percentiles calculados sobre respuestas observadas. Las tablas completas se conservan en #recurso("A20", "datos/procesados/resumen.csv").
+ProB 1.16.1 analizó 10 000 y 20 000 estados de M2 en dos búsquedas sin contraejemplos observados. La segunda acotó sesiones, secuencias y edades. Ambas alcanzaron su límite de estados, por lo que sus resultados se circunscriben a la exploración realizada.
 
-== Interpretación prevista
+== Resultados de Model Checking
 
-La primera pregunta se responderá con obligaciones vigentes y exploración finita documentada. La segunda requiere correspondencia entre transiciones formales y trazas físicas, no sólo coincidencia de estados internos. La tercera se responderá con los escenarios de retardo, contacto pegado e intrusión, indicando cuáles permanecen dentro de las hipótesis y cuáles las contradicen.
+NuSMV comprobó las cinco propiedades sobre un espacio de 119 estados alcanzables, con diámetro 36. El diámetro indica la mayor distancia mínima desde los estados iniciales en número de transiciones. MC01–MC03 se satisfacen globalmente. MC04 y MC05 confirman la existencia de recorridos de mantenimiento y rearme. La selección de eventos permite esperar indefinidamente, por lo que la terminación universal del mantenimiento queda abierta.
 
-Si aparece una violación dentro del alcance, se conservará la traza y se revisará el requisito, modelo, traducción o simulador antes de repetir los experimentos afectados. Si no aparecen violaciones en las corridas, el resultado se limita a esas condiciones: una observación empírica sin fallos no establece una cota universal de seguridad. La discusión final debe reflejar los resultados obtenidos y no anticipar la aceptación de las tres preguntas.
+Como control negativo se evaluó `G !potencia`, que resultó falsa y produjo un arranque como contraejemplo. Después se retiró la guarda de permiso del ingreso del primer operario en una copia temporal del modelo. MC01 resultó falsa en esa copia y el log conservó la secuencia de intrusión durante energización. Este resultado identifica la dependencia de la propiedad respecto del acceso controlado. Los archivos de reproducción conservan fórmulas, comandos y hashes del modelo, el ejecutable y las salidas.
+
+== Validación en CoppeliaSim
+
+De #ensayo.campana corridas de campaña, #ensayo.oraculos_cumplidos cumplieron el criterio de su caso. El caso SC-09-c se clasificó como no evaluable para tiempo de corte porque el reloj se congeló al mantener el modo por pasos tras la desconexión. Las otras corridas de desconexión dejaron avanzar el reloj local. En SC-09-a, el corte ocurrió a #ensayo.corte_watchdog_sc09a.p95_ms ms del último latido aceptado (p95, $n = #ensayo.corte_watchdog_sc09a.n$ al paso nominal), dentro del presupuesto simulado de 140 ms.
+
+#figure(tabla(
+  [*Caso*], [*Observación de planta*],
+  [SC-02-a], [40 ms hasta apertura tras la orden y 320 ms adicionales hasta la parada.],
+  [SC-03-a], [Con el operario 2 dentro, ambos bloqueos permanecieron y el arranque quedó inhibido.],
+  [SC-08-a], [El contacto pegado quedó cerrado. Se diagnosticó el fallo y se denegó la entrada.],
+  [SC-12-a/b], [El monitor detectó las dos intrusiones forzadas con potencia.],
+), kind: table, caption: [Resultados representativos de las corridas instrumentadas.])
+
+#figure(image("/img/escena.png", width: 100%), caption: [SC-03-a en CoppeliaSim. El operario de chaleco naranja está fuera y el de chaleco amarillo permanece en la zona. La traza confirma potencia desactivada y ambos bloqueos aplicados.]) <fig-escena>
+
+El monitor registró #ensayo.violaciones_fisicas episodios presencia–potencia en los casos evaluables dentro de los supuestos. La @fig-escena muestra el rearme inhibido tras la salida de un operario. El contacto pegado fue una respuesta física fallida en la planta, aunque se cumplió el criterio de diagnóstico. La sensibilidad de SC-09-a mantuvo 120 ms entre último latido y apertura con pasos de 10 y 20 ms.
+
+== Amenazas a la validez
+
+La planta reproduce contactos, movimiento residual y cruces discretos de los avatares. La desaceleración es un parámetro de simulación. Los tiempos observados dependen de la discretización y de esa parametrización. El acceso controlado y la confiabilidad del sensado condicionan la exclusión. Las intrusiones de SC-12 ilustran la ruptura de esos supuestos. El alcance se limita a una zona y dos operarios. La correspondencia con M2 se contrasta por guardas y casos trazables.

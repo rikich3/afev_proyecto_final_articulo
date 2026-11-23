@@ -1,6 +1,6 @@
 // Adaptación visual de ejemplo_articulo.pdf; sin paquetes externos.
 #let formato(body) = {
-  set document(title: "Enclavamiento de seguridad para una faja minera", author: "Equipo AFEV")
+  set document(title: "Especificación formal de un entorno simulado para el enclavamiento de seguridad de una faja minera", author: "Equipo AFEV")
   set page(paper: "us-letter", margin: (top: 57pt, bottom: 72pt, left: 46pt, right: 42pt),
     numbering: "1", number-align: right + bottom)
   set text(font: "Liberation Serif", size: 10pt, lang: "es")

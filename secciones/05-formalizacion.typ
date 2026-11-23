@@ -1,33 +1,86 @@
-#import "/estilo.typ": recurso, tabla
+#import "/estilo.typ": tabla
 = Especificación formal
 
-== Estado abstracto e invariantes
+== Contexto y tipos de datos
 
-Sean $Z$ el conjunto de zonas y $O$ el conjunto de operarios. La instancia experimental utiliza $Z = {z_1}$ y $O = {o_1, o_2}$. El conjunto $P subset.eq Z$ identifica zonas con potencia activa y $U subset.eq O times Z$ relaciona operarios con su ubicación. La propiedad central INV-01 es:
+El contexto C0 fija una zona y dos operarios mediante los conjuntos portadores $Z$ y $O$ y las constantes $z_1$, $o_1$ y $o_2$. La máquina M0 ve C0. El fragmento siguiente reproduce los axiomas y los invariantes de tipo de las fuentes nativas.
 
-$ forall z in Z: not (z in P and exists o in O: (o,z) in U). $
+#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%)[
+```text
+CONTEXT C0
+SETS Z O
+CONSTANTS z1 o1 o2
+AXIOMS
+  axm1: partition(Z, {z1})
+  axm2: partition(O, {o1}, {o2})
+END
 
-En M0, una inicialización candidata establece $P = emptyset$ y $U = emptyset$. El evento abstracto de energización exige ausencia de ocupantes. El evento de ingreso normal exige aislamiento. Esta guarda representa el acceso físicamente controlado de la arquitectura; no elimina la necesidad de estudiar intrusiones fuera de ese supuesto.
+MACHINE M0
+SEES C0
+VARIABLES P U
+INVARIANTS
+  inv_P: P ⊆ Z
+  inv_U: U ⊆ O × Z
+  INV_01: ran(U) ∩ P = ∅
+```
+]
 
-En M1 se incorpora $L subset.eq O times Z$, que registra titulares de bloqueos, y una variable de fase. INV-02 exige que una zona con cualquier bloqueo no pertenezca a $P$. INV-03 impide habilitar acceso sin aislamiento y energía cero. INV-04 exige que el arranque ocurra únicamente desde la fase lista, sin ocupantes, bloqueos ni fallos, y con una nueva orden de inicio. Los tipos y las fases también forman parte de los invariantes.
+$P$ contiene las zonas energizadas y $U$ los pares operario–zona que representan ocupación. La expresión $o_1 mapsto z_1 in U$ indica que el primer operario está dentro. El rango $op("ran")(U)$ contiene las zonas ocupadas por al menos una persona. Así, INV-01 expresa RF-01 al exigir que las zonas ocupadas y energizadas sean disjuntas. El contexto fija los individuos, mientras que el invariante restringe los estados alcanzables de la máquina.
 
-== Refinamientos y eventos
+== Eventos y preservación de RF-01
+
+La inicialización establece $P := emptyset$ y $U := emptyset$. El evento de energización reproduce la condición decisiva del enclavamiento.
+
+#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%)[
+```text
+EVENT Energizar
+  ANY z
+  WHERE
+    grd1: z ∈ Z
+    grd2: z ∉ P
+    grd3: z ∉ ran(U)
+  THEN
+    act1: P ≔ P ∪ {z}
+  END
+```
+]
+
+La guarda `grd3` habilita la energización únicamente cuando la zona está libre. `Ingresar(o,z)` exige $o in O$, $z in Z$, $z in.not P$ y $o in.not op("dom")(U)$, y añade el par $o mapsto z$ a $U$. `Salir(o,z)` elimina ese par y `Cortar(z)` retira la zona de $P$. La guarda de ingreso presupone acceso normal controlado. En M0, la ausencia de potencia es abstracta. Los refinamientos incorporan el aislamiento y la confirmación de la parada.
+
+Considérese $U = {(o_1,z_1), (o_2,z_1)}$ y $P = emptyset$. Tras `Salir(o1,z1)`, permanece $U = {(o_2,z_1)}$. En consecuencia, $z_1 in op("ran")(U)$ y `Energizar(z1)` sigue deshabilitado. Sólo después de la salida del segundo operario queda satisfecha la guarda de ocupación. Esta secuencia muestra por qué RF-01 requiere conservar la identidad de cada ocupante en la relación.
+
+== Refinamientos M1 y M2
 
 #figure(tabla(
-  [*Nivel*], [*Responsabilidad*],
-  [M0 · A06], [Exclusión presencia–potencia.],
-  [M1 · A10], [Bloqueos personales y rearme secuencial.],
-  [M2 · A13], [Sensado, orden, realimentación y fallos.],
-), kind: table, caption: [Responsabilidad de los niveles de refinamiento.])
+  [*Nivel y estado*], [*Contenido*],
+  [M0, nativo y comprobado], [Ocupación, potencia y exclusión RF-01.],
+  [M1, nativo y comprobado], [Bloqueos personales, aislamiento y rearme.],
+  [M2, nativo y comprobado], [Observaciones, órdenes, confirmaciones y fallos.],
+), kind: table, caption: [Alcance de los niveles de especificación.])
 
-Un evento representativo $"RetirarBloqueo"(o,z)$ requiere $(o,z) in L$, ausencia de $o$ en la zona y fase de liberación. Su acción elimina sólo $(o,z)$ de $L$ y conserva la potencia desactivada. El último retiro no energiza automáticamente; aún deben cumplirse cierre, reset y arranque. Los eventos de parada y fallo revocan permisos de rearme.
+M1 refina M0 y ve C1, que extiende C0 con diez fases. Incorpora $L subset.eq O times Z$, los bloqueos por titular, y confirmaciones booleanas abstractas de aislamiento, energía cero, puerta y permiso. INV-02 establece $op("ran")(L) inter P = emptyset$. INV-03 exige que el permiso implique mantenimiento, potencia apagada, aislamiento, energía cero y bloqueos de ambos operarios. INV-04 restringe la energización a marcha con zona libre y sin bloqueos. El modelo tiene dieciocho eventos.
 
-M2 distingue señales observadas, órdenes de salida y confirmaciones. La relación de abstracción debe explicar cómo los estados concretos representan presencia y potencia, y qué hipótesis permiten preservar INV-01. Si se permite ingreso no controlado mientras la potencia tarda en caer, esa exclusión puede ser falsa: no es válido obtener la prueba redefiniendo potencia como la mera orden de apagar.
+`AplicarBloqueo` exige coincidencia entre solicitante y titular. `FinalizarMantenimiento` requiere la salida de todos antes de la liberación. El evento siguiente representa RF-03. Conserva $P$ y $U$ y modifica exclusivamente el bloqueo del titular.
 
-El proyecto nativo se conserva en #recurso("A06", "modelo/rodin/Enclavamiento/"). Las exportaciones #recurso("A13", "modelo/export/M2.txt") y la matriz #recurso("A13", "artefactos/diseno/correspondencia.csv") vinculan guardas y acciones con el controlador. La implementación Python es una traducción manual con evidencia de correspondencia; no se afirma generación automática de código formalmente certificado.
+#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%)[
+```text
+EVENT RetirarBloqueo
+  ANY o, z, solicitante
+  WHERE
+    grd1: o ∈ O
+    grd2: z ∈ Z
+    grd3: o ↦ z ∈ L
+    grd4: solicitante = o
+    grd5: o ∉ dom(U)
+    grd6: fase = LIBERACION
+  THEN
+    act1: L ≔ L ∖ {o ↦ z}
+  END
+```
+]
 
-== Obligaciones y alcance de la prueba
+El último retiro habilita el cierre y el restablecimiento, manteniendo la potencia apagada. `Reset` alcanza LISTO con zona libre, sin bloqueos y condiciones seguras confirmadas. Sólo un evento posterior `Energizar` puede activar potencia. La representación del solicitante sigue la hipótesis de identidad confiable. Todos los eventos son ordinarios. La prueba establece seguridad y refinamiento, mientras que convergencia y progreso universal quedan fuera de esta evidencia.
 
-La evidencia #recurso("A14", "artefactos/verificacion/obligaciones.csv") identifica obligaciones de inicialización, preservación y refinamiento por versión. Se distinguen pruebas automáticas, interactivas y pendientes. Los eventos nuevos deben clasificarse y, cuando corresponda, justificar convergencia mediante variantes. Una obligación pendiente limita cualquier afirmación de verificación completa.
+M2 separa la orden del contactor de su confirmación. El invariante `enlace_potencia` establece `contacto_real = bool(P ≠ ∅)`. Una orden de corte revoca el mando, pero $P$ conserva la potencia hasta una confirmación de apertura. Una confirmación distinta registra la parada mecánica. Los invariantes de enlace también relacionan el seccionador, la puerta y el movimiento con las variables de M1.
 
-ProB explora instancias finitas y busca contraejemplos. El informe #recurso("A17", "artefactos/verificacion/prob.md") debe registrar dominios, estados, transiciones, límites y completitud. Para analizar progreso se distingue la espera segura de un deadlock no previsto; un evento vacío siempre habilitado no demuestra que el mantenimiento pueda finalizar. Los supuestos del entorno se conservan en #recurso("A02", "artefactos/especificacion/riesgos.md").
+El contexto C2 fija un paso nominal de 20 ms y límites de tres pasos para el sensor y la apertura del contacto, y cinco para el heartbeat. Al vencer un plazo, `TickCaducado` enclava el fallo y revoca la orden, el permiso efectivo y la autorización de rearme. Si la apertura sigue pendiente al vencer su plazo, el evento registra el diagnóstico. El reinicio conserva los bloqueos e invalida el heartbeat de la sesión anterior. Estas transiciones especifican RF-05, RF-07, RF-09 y RF-10 con un reloj abstracto que debe avanzar en planta durante la desconexión.

@@ -1,9 +1,9 @@
-#import "/estilo.typ": recurso, evidencia
+#import "/estilo.typ": tabla
 = Propuesta del sistema
 
-== Requerimientos
+== Caso de aplicación y requisitos
 
-Los requerimientos del supervisor se delimitan a una faja, una zona de peligro y dos operarios. Se identifican mediante códigos estables para vincularlos con invariantes, eventos y escenarios de prueba. Su especificación y criterios de aceptación se conservan en #recurso("A01", "artefactos/especificacion/requisitos.md"), mientras que las hipótesis de validez se explicitan en #recurso("A02", "artefactos/especificacion/riesgos.md").
+Dos operarios solicitan intervenir una faja en una zona delimitada. La secuencia prevista exige parar, abrir el seccionador, confirmar los bloqueos de ambos y verificar la ausencia de movimiento residual antes de habilitar el acceso. Al terminar, cada operario sale y retira su bloqueo. El rearme exige zona libre y una orden manual, seguida de una orden de arranque nueva. Si uno permanece dentro o conserva su bloqueo, la energización debe seguir inhibida. Este caso permite formular los requisitos siguientes.
 
 - *RF-01. Exclusión presencia–potencia:* el sistema debe impedir la coexistencia de operarios y potencia activa en la zona, bajo los supuestos de acceso controlado y funcionamiento establecidos.
 - *RF-02. Aislamiento previo al acceso:* debe mantener el acceso cerrado hasta confirmar el aislamiento, la apertura del contacto y la ausencia de energía residual.
@@ -16,24 +16,26 @@ Los requerimientos del supervisor se delimitan a una faja, una zona de peligro y
 - *RF-09. Supervisión de comunicación:* ante pérdida del cliente, un watchdog local debe ordenar la apertura del contacto simulado y bloquear el acceso, sin depender del proceso desconectado.
 - *RF-10. Confirmación del corte:* debe detectar la negativa del contacto a abrir y denegar el acceso y el rearme; una orden de apagado no constituye confirmación de ausencia de potencia.
 
-La aceptación combina pruebas de invariantes y evaluación de escenarios. Los presupuestos temporales se fijan previamente en el protocolo experimental como parámetros del laboratorio. La correspondencia entre cada requerimiento y su evidencia se documenta en #recurso("A16", "artefactos/validacion/trazabilidad.csv").
+Los requisitos se agrupan en exclusión y acceso (RF-01/02), participación individual y rearme (RF-03/04/06), respuesta a fallos (RF-05/07/09/10) y registro (RF-08). La aceptación combina obligaciones formales y escenarios con observación física. El protocolo fija los presupuestos temporales antes de las corridas finales.
 
 == Alcance y arquitectura
 
-La planta simulada contiene una faja transportadora, dos operarios, sensores de presencia, identificación por eventos RFID, un contacto de potencia y un seccionador bloqueable. Se añade una puerta de acceso enclavada para representar el mecanismo que impide el ingreso normal antes de confirmar aislamiento y parada. La barrera fotoeléctrica se mantiene como sensor y no se confunde con esa restricción física.
+La escena geométrica contiene una faja, dos operarios, sensores representados visualmente, un contacto, un seccionador y una puerta articulada. Un script Lua aplica las órdenes a la escena y modela la realimentación del contacto, la desaceleración y los eventos RFID de los cruces. El watchdog local conserva su reloj y la última secuencia aceptada. La barrera fotoeléctrica se distingue de la puerta: detectar un cruce no impide por sí mismo el ingreso.
 
-La arquitectura de @fig-arquitectura separa adquisición, decisión, actuación y observación. Un único ciclo captura las entradas y procesa primero fallo o emergencia, luego parada y mantenimiento, y finalmente reset y arranque. El controlador se define como una transición pura de estado; el adaptador encapsula las llamadas a CoppeliaSim. El contrato se especifica en #recurso("A05", "artefactos/diseno/arquitectura.md").
+La arquitectura de @fig-arquitectura separa adquisición, decisión, actuación y observación. El controlador Python implementa una transición de estado que prioriza fallo o emergencia y después parada. El adaptador ZeroMQ conecta el supervisor con el script de planta. El contrato distingue observaciones previas al paso, órdenes emitidas y confirmaciones físicas posteriores.
 
-#figure(image("/img/arquitectura.svg", width: 100%), caption: [Arquitectura propuesta y canal independiente de observación física.]) <fig-arquitectura>
+#figure(image("/img/arquitectura.svg", width: 100%), caption: [Arquitectura del enclavamiento simulado. El monitor consulta la planta por un canal independiente.]) <fig-arquitectura>
 
-El acceso se autoriza sólo después de abrir el seccionador, aplicar los bloqueos previstos y verificar la ausencia de energía residual. Los dos operarios aplican sus bloqueos antes de ingresar; el alcance mínimo no admite incorporaciones durante una intervención. Cada titular retira únicamente su propio bloqueo después de salir.
+La @fig-clases presenta las entidades del dominio mediante atributos tipados, asociaciones y multiplicidades UML. Zona y Operario corresponden a los conjuntos portadores de Event-B. Potencia y ocupación se representan mediante las variables de M0. El bloqueo personal pertenece al refinamiento M1.
+
+#figure(image("/img/clases-conceptuales.svg", width: 100%), caption: [Clases y multiplicidades UML del enclavamiento para una zona y dos operarios.]) <fig-clases>
+
+La arquitectura exige que el permiso de acceso dependa de apertura del contacto, aislamiento y parada confirmados. La ocupación real procede de la geometría de la escena y la potencia real del circuito simulado. El monitor observa ambos valores para contrastar RF-01. El oráculo utiliza la posición de los avatares y el estado de la planta, con independencia de las lecturas RFID del controlador.
 
 == Secuencia de rearme
 
 La secuencia de @fig-rearme exige salida de todos los operarios, retiro de bloqueos por sus titulares, cierre de acceso, restablecimiento del circuito y reconocimiento manual. El reset prepara el sistema y no activa la potencia. El arranque requiere una orden nueva en un ciclo posterior. Un fallo invalida las autorizaciones acumuladas y conduce a fallo enclavado.
 
-#figure(image("/img/rearme.svg", width: 100%), caption: [Secuencia de liberación. Ninguna etapa posterior puede omitir una anterior; un fallo revoca el permiso.]) <fig-rearme>
+#figure(image("/img/rearme.svg", width: 100%), caption: [Liberación y rearme. La línea discontinua indica la transición a fallo desde cualquier etapa.]) <fig-rearme>
 
-La irreversibilidad se entiende como imposibilidad de saltar etapas o reutilizar permisos antiguos. No impide retornar a un estado seguro. La escena canónica se conserva en #recurso("A07", "simulacion/mina.ttt"), y @fig-escena reserva la evidencia visual de su implementación.
-
-#figure(evidencia("escena.png", [Vista de la faja, la zona y los operarios]), caption: [Banco de simulación. Captura pendiente de implementación.]) <fig-escena>
+La secuencia conserva bloqueos y ocupantes hasta confirmar su liberación. Una emergencia revoca el permiso acumulado y exige recuperar condiciones seguras antes del rearme. La puerta y el seccionador se actúan mediante sus articulaciones en la escena.

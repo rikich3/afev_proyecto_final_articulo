@@ -1,7 +1,7 @@
 #block[
-#set text(size: 9pt, weight: "bold")
+#set text(size: 9pt, weight: "regular")
 #set par(first-line-indent: 1.5em, leading: 0.4em)
-_Abstract—_ El arranque de maquinaria durante una intervención de mantenimiento exige controlar conjuntamente la presencia de personas, el aislamiento de energía y la autorización de puesta en marcha. Este trabajo propone un enclavamiento para una faja minera con una zona de peligro y dos operarios. La especificación utiliza Event-B y refinamientos sucesivos para expresar exclusión entre presencia y potencia, bloqueos individuales y rearme secuencial. Rodin sustenta la verificación deductiva y ProB complementa la exploración de estados. Un controlador Python se conecta a CoppeliaSim EDU para evaluar el comportamiento mediante escenarios nominales, órdenes simultáneas y fallos inyectados. La evaluación distingue el estado lógico de la potencia física simulada y registra tiempos de detección, corte y parada. Se presenta una base metodológica reproducible; las obligaciones descargadas y los resultados cuantitativos permanecen pendientes de ejecución. Las conclusiones se limitan al modelo, sus supuestos y la evidencia simulada, sin atribuir certificación industrial.
+_Abstract—_ El mantenimiento de una faja minera requiere impedir el arranque mientras haya personas en la zona de peligro y confirmar el aislamiento antes del ingreso. El objetivo es especificar formalmente un entorno simulado para el enclavamiento de seguridad de una faja minera. Se utiliza Event-B para modelar una zona y dos operarios, NuSMV para analizar el ciclo nominal y CoppeliaSim para evaluar el controlador. Rodin demuestra 272 obligaciones de prueba y NuSMV comprueba cinco propiedades. Los ensayos de planta corroboran el orden de acceso y la inhibición del rearme con un operario dentro. El monitor detecta la coexistencia de ocupación y potencia en dos intrusiones forzadas. La exclusión demostrada depende de los supuestos de acceso controlado y sensado.
 
-_Keywords—Enclavamiento, Event-B, verificación formal, LOTO, minería, CoppeliaSim._
+_Keywords—Enclavamiento de seguridad, Event-B, verificación formal, faja minera._
 ]

@@ -1,7 +1,9 @@
 = Conclusiones
 
-La propuesta organiza el enclavamiento de una faja minera mediante exclusión presencia–potencia, bloqueos individuales y rearme secuencial. La separación entre modelo formal, controlador y verdad física simulada permite definir qué evidencia corresponde a cada afirmación de seguridad. El alcance de una zona y dos operarios mantiene el caso de estudio realizable dentro del curso y permite examinar la liberación parcial de un bloqueo colectivo.
+La especificación Event-B conserva la exclusión entre ocupación y potencia bajo el supuesto de acceso controlado. Rodin reprodujo 272 obligaciones en M0–M2. Los refinamientos añadieron bloqueos personales, rearme y respuesta a pérdida de confirmaciones. NuSMV comprobó tres propiedades de seguridad y dos de alcanzabilidad en el ciclo nominal.
 
-La base establece una ruta de refinamiento Event-B y un protocolo experimental reproducible, pero todavía no permite concluir que las propiedades hayan sido demostradas ni que la implementación las preserve. Tales conclusiones dependen del cierre de obligaciones, la trazabilidad de transiciones y las mediciones descritas. El texto final deberá responder cada pregunta con resultados observados y señalar obligaciones pendientes o contraejemplos, si existen.
+En CoppeliaSim, la salida de un operario conservó el enclavamiento mientras el segundo permanecía dentro. El watchdog revocó el mando ante pérdida de latidos y el monitor identificó presencia con potencia en las dos intrusiones forzadas. El ensayo de contacto pegado mostró que el diagnóstico por realimentación no equivale a apertura física del circuito simulado.
 
-Como extensión se considera ampliar zonas y fuentes de energía, analizar fallos comunes y estudiar una traducción formalmente verificada hacia una plataforma de ejecución. Esas actividades exceden el prototipo simulado presentado y no se utilizan para justificar su funcionamiento actual.
+== Recomendaciones
+
+Una ampliación a más zonas u operarios requiere revisar las hipótesis, regenerar las obligaciones y repetir la exploración. Para extender el alcance experimental, conviene parametrizar la desaceleración a partir de mediciones de planta e incorporar fallos de puerta y seccionador.

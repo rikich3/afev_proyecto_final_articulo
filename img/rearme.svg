@@ -1,3 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="620" height="515" viewBox="0 0 620 515"><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#222"/></marker></defs><rect width="620" height="515" fill="white"/>
-<g fill="#f4f4f4" stroke="#222" stroke-width="2"><rect x="25" y="15" width="465" height="60"/><rect x="25" y="105" width="465" height="60"/><rect x="25" y="195" width="465" height="60"/><rect x="25" y="285" width="465" height="60"/><rect x="25" y="375" width="465" height="60"/></g>
-<g font-family="Liberation Sans,sans-serif" font-size="23" fill="#111" text-anchor="middle"><text x="258" y="53">1. Todos los operarios fuera</text><text x="258" y="143">2. Cada titular retira su bloqueo</text><text x="258" y="233">3. Cerrar acceso / restablecer</text><text x="258" y="323">4. Reset manual → listo</text><text x="258" y="413">5. Start nuevo → marcha</text><text x="310" y="480" font-size="21">Fallo en cualquier etapa: revocar permisos</text></g><g fill="none" stroke="#222" stroke-width="2" marker-end="url(#a)"><path d="M258 75V103"/><path d="M258 165V193"/><path d="M258 255V283"/><path d="M258 345V373"/><path d="M490 45H560V451"/></g><text transform="translate(548 290) rotate(-90)" font-family="Liberation Sans,sans-serif" font-size="20">fallo → estado seguro</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="533" viewBox="0 0 620 533" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Secuencia de liberación y rearme</title>
+  <desc id="descripcion">Con zona libre, cada titular retira su bloqueo. Se confirma el cierre de la puerta y luego el del seccionador. El reset manual prepara Listo con la potencia desactivada. Un start nuevo habilita Marcha en un ciclo posterior. Un fallo en cualquier etapa revoca el mando y las autorizaciones.</desc>
+  <defs>
+    <marker id="flecha" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0.5L9 5.5L0 10.5Z" fill="#273d51"/>
+    </marker>
+    <marker id="flecha-fallo" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0.5L9 5.5L0 10.5Z" fill="#854132"/>
+    </marker>
+    <style>
+      text { font-family:"Liberation Sans",sans-serif; fill:#152638; text-anchor:middle; }
+      .titulo { font-size:23px; font-weight:700; }
+      .detalle { font-size:21px; }
+      .etapa { fill:#fff; stroke:#273d51; stroke-width:2; }
+      .estado { fill:#edf3f8; }
+      .flujo { fill:none; stroke:#273d51; stroke-width:2.4; marker-end:url(#flecha); }
+      .desvio { fill:none; stroke:#854132; stroke-width:2.2; stroke-dasharray:6 4; }
+      .fallo { fill:#fcf4f2; stroke:#854132; stroke-width:2; }
+    </style>
+  </defs>
+
+  <g class="flujo">
+    <path d="M276 60V81"/>
+    <path d="M276 135V156"/>
+    <path d="M276 210V231"/>
+    <path d="M276 285V306"/>
+    <path d="M276 360V381"/>
+  </g>
+  <path class="desvio" d="M546 33H588 M546 108H588 M546 183H588 M546 258H588 M546 333H588 M546 408H588"/>
+  <path class="desvio" d="M588 33V492H546" marker-end="url(#flecha-fallo)"/>
+  <g fill="#854132">
+    <circle cx="588" cy="33" r="3"/>
+    <circle cx="588" cy="108" r="3"/>
+    <circle cx="588" cy="183" r="3"/>
+    <circle cx="588" cy="258" r="3"/>
+    <circle cx="588" cy="333" r="3"/>
+    <circle cx="588" cy="408" r="3"/>
+  </g>
+
+  <g class="etapa">
+    <rect x="6" y="6" width="540" height="54" rx="7"/>
+    <rect x="6" y="81" width="540" height="54" rx="7"/>
+    <rect x="6" y="156" width="540" height="54" rx="7"/>
+    <rect x="6" y="231" width="540" height="54" rx="7"/>
+    <rect class="estado" x="6" y="306" width="540" height="54" rx="7"/>
+    <rect class="estado" x="6" y="381" width="540" height="54" rx="7"/>
+  </g>
+  <rect class="fallo" x="6" y="461" width="540" height="65" rx="7"/>
+
+  <g class="titulo">
+    <text x="276" y="28">Confirmar zona libre</text>
+    <text x="276" y="103">Retirar los bloqueos</text>
+    <text x="276" y="178">Cerrar el acceso</text>
+    <text x="276" y="253">Restablecer el circuito</text>
+    <text x="276" y="328">Reset manual</text>
+    <text x="276" y="403">Nueva orden de arranque</text>
+    <text x="276" y="488">Fallo enclavado</text>
+  </g>
+  <g class="detalle">
+    <text x="276" y="50">Ambos operarios fuera</text>
+    <text x="276" y="125">Cada titular retira el suyo</text>
+    <text x="276" y="200">Confirmar puerta cerrada</text>
+    <text x="276" y="275">Confirmar seccionador cerrado</text>
+    <text x="276" y="350">LISTO con potencia desactivada</text>
+    <text x="276" y="425">MARCHA en un ciclo posterior al reset</text>
+    <text x="276" y="513">Orden de corte · entrada y rearme inhibidos</text>
+  </g>
+</svg>

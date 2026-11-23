@@ -1,0 +1,71 @@
+{
+  "campana": "determinista",
+  "capturas": {
+    "mantenimiento_ambos": {
+      "archivo": "mantenimiento_ambos.png",
+      "sha256": "17ef0cde2185ccdb3703cc597bc4abfb2028b5f140920c1396a34b615963acf0",
+      "t_sim_s": 0.6800000000000003,
+      "tick": 35
+    }
+  },
+  "clasificacion": "cumple_oraculo",
+  "coppeliasim": "4.10.0.0",
+  "error": null,
+  "esquema_version": 1,
+  "factores": {},
+  "fuentes_sha256": {
+    "experimentos/coppelia.py": "ebe03cca4dd973d7126c7ade7f580d51f015c9a5a3e52152daece508ae3926c7",
+    "experimentos/escenarios.json": "a85bf0713d522df0cd8334d190e79e7949a83255f81586338240952c6da2bf57",
+    "requirements.txt": "d50d3b4ae318859ca8ec0a9af03a9dac4d3560e79e88f24e0aa72cd36c51bf2e",
+    "simulacion/mina_modelada.ttt": "d6ca9783022628533a627329425c9d171ed134b1d1cffe1426ab901ad8619e7e",
+    "simulacion/scripts/planta.lua": "f621c469faac38661519836f1f6b50d9147230601c352d0d57c00f2fb5a23fec",
+    "simulacion/scripts/watchdog.lua": "e81d353c08c26ac4a3117204181b9dd9e350976b2cfc2fba51bb3cdefbf4d598",
+    "software/controlador.py": "1f8aef732ff3ee9a8750fd372598ae20c2cdbd0b4c0dca5373ca9a6fdfdd8b91",
+    "software/coppelia.py": "ec3632516ee13ae7bda2c45c77c2c495603e9a205d0dde77972de3ad2b95c0e8",
+    "software/estado.py": "b68aedf679e0e4a106d972b0fb54a8e3a8885e594a0291c91db25f58177bf293",
+    "software/monitores.py": "0b809739ddd682943ba25e5f11e6abc3a558c152d04268396a987ae562ca3908"
+  },
+  "observaciones": {
+    "apertura_desde_orden_ms": 40.0,
+    "fixture": {
+      "bloqueos": [],
+      "contacto_cerrado": true,
+      "fase": "MARCHA",
+      "ocupantes": [],
+      "puerta_cerrada": true,
+      "seccionador_abierto": false,
+      "velocidad_m_s": 0.5
+    },
+    "parada_desde_apertura_ms": 320.0
+  },
+  "oraculo_catalogo": [
+    "acceso solo tras contacto abierto, aislamiento, dos bloqueos y parada",
+    "orden_contactor=false durante intervencion",
+    "violaciones_fisicas=0"
+  ],
+  "parametros": {
+    "contact_open_delay_s": 0.02,
+    "contact_open_timeout_s": 0.06,
+    "detect_order_budget_s": 0.04,
+    "epsilon_parada_m_s": 0.001,
+    "heartbeat_period_s": 0.02,
+    "heartbeat_timeout_s": 0.1,
+    "incident_cut_budget_s": 0.16,
+    "parada_max_s": 2.0,
+    "scenario_timeout_s": 15.0,
+    "sensor_timeout_s": 0.06,
+    "step_s": 0.02,
+    "velocidad_nominal_m_s": 0.5,
+    "watchdog_cut_budget_s": 0.14
+  },
+  "python": "3.12.11",
+  "registros": 35,
+  "resultados_experimentales": true,
+  "run_id": "determinista-sc-02-a-fijo-39b1aa31",
+  "scenario_id": "SC-02-a",
+  "seed": null,
+  "sha256_traza": "4aca0ea060daf81735d5e0802af41b929cba44f9f901cec6cc11e0f12c22f754",
+  "so": "Linux-7.2.9-arch1-1-x86_64-with-glibc2.44",
+  "tipo_ejecucion": "coppeliasim_zeromq",
+  "traza": "determinista-sc-02-a-fijo-39b1aa31.jsonl"
+}

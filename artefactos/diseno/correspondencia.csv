@@ -1,6 +1,11 @@
 elemento_event_b,abstraccion,funcion_python,precondicion,postcondicion,prueba,estado
-P,potencia activa abstracta,PlantaDeterminista.contacto_cerrado,contacto real confirmado,marca potencia real,test_integracion.py::test_integracion_reset_start_activa_planta_sin_ocupar_zona,borrador
-U,ocupantes identificados,Estado.ocupantes,evento RFID válido,conserva presencia por operario,test_controlador.py::test_presencia_con_potencia_enclava_fallo,borrador
-INV_01,exclusión presencia-potencia,software.monitores.evaluar,verdad física postpaso,detecta ocupante y potencia,test_monitores.py::test_monitor_detecta_violacion_fisica_conocida,implementado_sin_prueba_Rodin
-DetectarFallo,fallo seguro,software.controlador.step,sensor inseguro o watchdog,contactor apagado y fase FALLO,test_integracion.py::test_integracion_watchdog_lleva_a_fallo_y_corte,borrador
-RetirarBloqueo,retiro personal,software.controlador.step,titular coincide y fase LIBERACION,retira sólo bloqueo propio,test_secuencias.py::test_retiro_ajeno_se_rechaza_y_conserva_bloqueo,borrador
+P,Potencia activa,PlantaCoppelia;planta.lua::verdad,Contacto y seccionador,Potencia = contacto ∧ ¬aislamiento,SC-01-a;SC-08;SC-09,Observado
+U,Identidades en la zona,Estado.con_snapshot,RFID válido y nuevo,Conjunto de ocupantes por ingreso y salida,SC-03-a;SC-07-c;SC-10-d,Observado
+INV-01,Exclusión presencia–potencia,software.monitores.evaluar,Geometría y potencia simuladas,Detecta coexistencia RF-01,SC-01;SC-02;SC-12,Monitor y control negativo
+ConfirmarParada;Aislar,Cero antes de aislar,software.controlador.step,Contacto abierto y velocidad bajo umbral,Avanza de parada a aislamiento,SC-02-a;SC-13-b,Guardas ensayadas
+RetirarBloqueo,Retiro personal,software.controlador.step,Liberación sin ocupación y solicitante titular,Orden de retiro y confirmación física,SC-03;SC-10,Guarda ensayada
+Reset;SolicitarArranque,Rearme y arranque separados,software.controlador.step,"Zona libre, cero, puerta cerrada y sin bloqueos",Autoriza uso posterior de una orden start nueva,SC-01;SC-05;SC-13-a,Guardas ensayadas
+orden_contactor;contacto_real,Mando y confirmación,Salidas.orden_contactor;Snapshot.contacto_cerrado,"Tras retirar orden, esperar realimentación",Diagnostica falta de apertura al vencer plazo,SC-08,Plazo y fallo ensayados
+DatoInvalido;Discrepancia;TickCaducado,Calidad y caducidad,software.controlador.step,"Observación inválida, discrepante o caducada","Revoca orden, permiso y rearme",SC-06;SC-07,Guardas ensayadas
+ReiniciarSupervisor,Invalidación de sesión de mando,software.controlador.reiniciar;PlantaCoppelia.nueva_sesion,Nueva sesión con estado de planta disponible o desconocido,Mantiene bloqueo físico y deja mando y permiso desactivados,SC-11,Cambio lógico de sesión ensayado
+RecibirHeartbeat;TickCaducado,Watchdog local,simulacion/scripts/watchdog.lua,Sólo aumenta secuencia dentro de sesión actual,Caducidad sin tráfico y corte local simulado,SC-09,Observado con reloj autónomo

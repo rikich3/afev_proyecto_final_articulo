@@ -1,20 +1,20 @@
 # A08 — Protocolo experimental previo
 
-Versión 1, 2026-10-07. Protocolo y catálogo preparados; revisión cruzada y
-piloto pendientes. [Escenarios JSON](../../experimentos/escenarios.json) es
-la configuración declarativa de referencia. No incluye un ejecutor ni
-resultados de simulación.
+El [catálogo JSON](../../experimentos/escenarios.json) conserva los casos y
+parámetros del protocolo. El ejecutor implementa las variantes y genera
+trazas por corrida. Los resultados se encuentran en
+[el análisis de campaña](../resultados/analisis.md).
 
 ## Preguntas y variables
 
-P1: ¿Los modelos preservan exclusión presencia–potencia y orden de rearme bajo sus supuestos? Evidencia: Rodin y ProB. P2: ¿El controlador conserva el comportamiento especificado en la planta simulada? Evidencia: monitores físicos y trazabilidad. P3: ¿Qué límites exhibe frente a retardo, fallos e intrusión fuera de supuestos? Evidencia: latencias, contraejemplos y condiciones de fallo.
+P1: ¿Los modelos preservan exclusión presencia–potencia y orden de rearme bajo sus supuestos? Evidencia: Rodin, NuSMV y exploración complementaria de ProB. P2: ¿El controlador conserva el comportamiento especificado en la planta simulada? Evidencia: monitores físicos y trazabilidad. P3: ¿Qué límites exhibe frente a retardo, fallos e intrusión fuera de supuestos? Evidencia: latencias, contraejemplos y condiciones de fallo.
 
 Unidad experimental: una corrida con escena restablecida, estado inicial conocido, escenario y semilla. Factores: escenario, retardo de señal (0/1/3 ticks) y paso (10/20 ms para sensibilidad). La intervención nominal requiere los dos titulares de A05; la participación de uno solo se ensaya como intento de acceso rechazado, no como intervención nominal alternativa. Mantener versión, geometría, motor y duración constantes dentro de cada comparación. Piloto de tres corridas antes de congelar el protocolo. Plan principal pequeño: una ejecución por caso determinista y 30 semillas (0–29) por escenario con jitter/retardo variable, inicialmente SC-06/07/09. Son 90 corridas estocásticas, no 90 evidencias independientes por tick. No tratar repeticiones idénticas deterministas como muestras independientes. Si falta tiempo, declarar el número real, sin rellenarlo.
 
 Los parámetros siguientes fijan la versión del piloto; su congelación para
 las corridas finales exige ejecutar el piloto y justificar cualquier cambio.
 Son valores de laboratorio, sin significado normativo o certificación.
-El JSON conserva sus nombres y unidades para el futuro ejecutor.
+El JSON conserva sus nombres y unidades.
 
 | Parámetro JSON | Valor | Justificación / uso |
 |---|---:|---|
@@ -77,7 +77,7 @@ JSONL: `run_id`, `scenario_id`, `seed`, `tick`, `t_sim_s`, `t_wall_ns`, `inputs`
 | Disponibilidad nominal | Ciclos nominales completados / ciclos nominales pedidos. | No penalizar denegación correcta en escenarios de fallo. |
 | Falsos cortes | Cortes no solicitados sin peligro/fallo según oráculo / oportunidades nominales de marcha. | Definir ventana y denominador antes de medir. |
 
-Calcular mediana, p95 y máximo por escenario, con n explícito. p95: método de rango más próximo, posición ceil(0.95*n) en observaciones ordenadas. No interpretar máximos empíricos como cotas demostradas. Intervalos de confianza por remuestreo de corridas (p. ej., 2000 remuestreos y semilla fija), nunca de ticks correlacionados. Ausencias = null/N/A; cero sólo si se midió cero. Datos crudos inmutables; todo CSV/figura se regenera desde ellos. Ningún resultado experimental está ejecutado todavía.
+Calcular mediana, p95 y máximo por escenario, con n explícito. p95: método de rango más próximo, posición ceil(0.95*n) en observaciones ordenadas. No interpretar máximos empíricos como cotas demostradas. Intervalos de confianza por remuestreo de corridas (p. ej., 2000 remuestreos y semilla fija), nunca de ticks correlacionados. Ausencias = null/N/A; cero sólo si se midió cero. Datos crudos inmutables; todo CSV/figura se regenera desde ellos. El análisis publica el tamaño de cada grupo y distingue los tiempos no evaluables.
 
 ## Preparación y ejecución del catálogo
 
@@ -87,8 +87,7 @@ lista de órdenes original e inversa, capturadas juntas; SC-06 usa retardos de
 Las 13 comprobaciones escalares de frontera se reportan aparte; no se cuentan
 como corridas independientes hasta que cada una tenga preparación y registro.
 
-El catálogo es una especificación de pasos para A12/A15/A18, no un lenguaje
-con intérprete ya implementado. `orden` usa los tipos de A05; el ejecutor debe
+El ejecutor interpreta los pasos del catálogo para A12/A15/A18. `orden` usa los tipos de A05; el ejecutor debe
 generar `command_id`/`event_id` nuevos salvo repetición deliberada. Las órdenes
 personales incluyen titular y solicitante; el retiro ajeno de SC-10-b debe
 rechazarse. Un evento de planta describe ingreso/salida física y su evento
@@ -102,16 +101,15 @@ sigue energizada. Si una confirmación de preparación no llega, registrar
 `fallo_preparacion`; no continuar con una precondición ficticia. Un paso de
 espera tiene límite; una instrucción siguiente no fuerza la confirmación.
 
-Para SC-13-b se mantiene movimiento residual antes de completar la verificación
-de cero, de modo que los bloqueos no concedan permiso de entrada por sí solos.
+En SC-13-b se mantiene movimiento residual tras abrir el contacto. La guarda de
+M2 inhibe el aislamiento hasta confirmar cero, y se diagnostica la espera vencida.
 SC-03-a verifica el retiro prematuro; SC-03-b parte de liberación con ambos
 operarios fuera y comprueba que un solo bloqueo restante impide rearme.
 
 ### Piloto y congelación
 
-El piloto tiene tres corridas: SC-01-a, SC-02-a y SC-09-a. Requiere controlador,
-planta funcional, watchdog, monitor y registro, que se implementarán después
-de esta semana. Comprobar transiciones, edades, latencias y recuperación de
+El piloto tiene tres corridas: SC-01-a, SC-02-a y SC-09-a. Comprueba controlador,
+planta, watchdog, monitor y registro. Comprobar transiciones, edades, latencias y recuperación de
 estado; verificar además que SC-12 detecta una violación física conocida
 antes de confiar en el monitor de las corridas finales.
 
@@ -157,16 +155,8 @@ la corrida hasta su final/timeout; registrar el denominador real.
 
 A08 entrega este protocolo y `experimentos/escenarios.json`, con trazabilidad
 RF→escenario, fixtures, pasos, criterios, parámetros, semillas y fronteras.
-Los comandos del ejecutor/análisis permanecen planificados en A15/A20.
-Los resultados físicos siguen sin ejecutar; las pruebas de M0 corresponden a
-A06 y no se presentan como corridas de CoppeliaSim.
-
-Comprobaciones de archivos disponibles:
-
-```sh
-python -m json.tool experimentos/escenarios.json > /dev/null
-python herramientas/verificar.py
-```
-
-Estado: protocolo y catálogo definidos; revisión del equipo y piloto pendientes.
-Revisor / fecha / observaciones: pendiente.
+Las instrucciones para ejecutar y reproducir se encuentran en el
+[README principal](../../README.md). La campaña final ejecutó los tres
+pilotos, 41 corridas deterministas, 90 estocásticas y cuatro de
+sensibilidad. La revisión independiente por otro integrante se registra
+en [reproducción](../entrega/reproduccion.md).

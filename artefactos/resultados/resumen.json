@@ -1,9 +1,35 @@
 {
-  "estado": "pendiente",
-  "corridas": null,
-  "violaciones_fisicas": null,
-  "po_total": null,
-  "po_descargadas": null,
-  "latencia_p95_ms": null,
+  "estado": "calculado",
+  "corridas": 138,
+  "campana": 135,
+  "oraculos_cumplidos": 134,
+  "por_grupo": {
+    "determinista": {
+      "cumple_oraculo": 40,
+      "no_evaluable": 1
+    },
+    "estocastica": {
+      "cumple_oraculo": 90
+    },
+    "piloto": {
+      "cumple_oraculo": 3
+    },
+    "sensibilidad": {
+      "cumple_oraculo": 4
+    }
+  },
+  "violaciones_fisicas": 0,
+  "intrusiones_detectadas": 2,
+  "contactos_sin_apertura": 1,
+  "corte_watchdog_sc09a": {
+    "n": 31,
+    "mediana_ms": 120.0,
+    "p95_ms": 120.0,
+    "max_ms": 120.0
+  },
+  "sensibilidad_watchdog_ms": {
+    "0.01": 120.0,
+    "0.02": 120.0
+  },
   "fuente": "datos/procesados/resumen.csv"
 }

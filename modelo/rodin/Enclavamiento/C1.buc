@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.extendsContext name="ext_C0" org.eventb.core.target="C0" />
+    <org.eventb.core.carrierSet name="FASES" org.eventb.core.identifier="FASES" />
+    <org.eventb.core.constant name="INICIO_SEGURO" org.eventb.core.identifier="INICIO_SEGURO" />
+    <org.eventb.core.constant name="LISTO" org.eventb.core.identifier="LISTO" />
+    <org.eventb.core.constant name="MARCHA" org.eventb.core.identifier="MARCHA" />
+    <org.eventb.core.constant name="PARADA" org.eventb.core.identifier="PARADA" />
+    <org.eventb.core.constant name="AISLAMIENTO" org.eventb.core.identifier="AISLAMIENTO" />
+    <org.eventb.core.constant name="BLOQUEO" org.eventb.core.identifier="BLOQUEO" />
+    <org.eventb.core.constant name="VERIFICACION_CERO" org.eventb.core.identifier="VERIFICACION_CERO" />
+    <org.eventb.core.constant name="MANTENIMIENTO" org.eventb.core.identifier="MANTENIMIENTO" />
+    <org.eventb.core.constant name="LIBERACION" org.eventb.core.identifier="LIBERACION" />
+    <org.eventb.core.constant name="RESTABLECIMIENTO" org.eventb.core.identifier="RESTABLECIMIENTO" />
+    <org.eventb.core.axiom name="axm_fases" org.eventb.core.label="axm_fases" org.eventb.core.predicate="partition(FASES, {INICIO_SEGURO}, {LISTO}, {MARCHA}, {PARADA}, {AISLAMIENTO}, {BLOQUEO}, {VERIFICACION_CERO}, {MANTENIMIENTO}, {LIBERACION}, {RESTABLECIMIENTO})" />
+</org.eventb.core.contextFile>

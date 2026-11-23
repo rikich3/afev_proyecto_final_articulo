@@ -1,0 +1,29 @@
+{
+  "fecha_utc": "2026-11-23T04:34:30.083257+00:00",
+  "modo": "reproduccion",
+  "rodin": "3.10.0.202607010932-881664d81",
+  "jdk": "openjdk version \"21.0.12.1\" 2026-08-18",
+  "chequeo_estatico": "sin_errores",
+  "M2_generadas": 188,
+  "M2_demostradas": 188,
+  "total_comprobadas": 272,
+  "sha256_fuentes": {
+    "modelo/rodin/Enclavamiento/C0.buc": "b1bad9008f2e4d20a1ab6baa12be214c015c4253ef70007774fa3766b769d66c",
+    "modelo/rodin/Enclavamiento/M0.bum": "b8ad8cdf2a3b620c0b1d0c91fdd7833335488fd852273b54e01f9383f4be571c",
+    "modelo/rodin/Enclavamiento/C1.buc": "702644974865349ea42a923d308f1b24ba62ddd4abb49a3702dcd7f11d7b189f",
+    "modelo/rodin/Enclavamiento/M1.bum": "eb6efb9fa118e371023e460d7d35d7c8b77c0e02ee0eab02493397e54f496948",
+    "modelo/rodin/Enclavamiento/M0.bpr": "ec48a42d236b3d7b32e0781acc7f0735c2828914e2de18c9d924e9b866d34b89",
+    "modelo/rodin/Enclavamiento/M1.bpr": "3ae524fabe6fecf4519d896c7b2c1866fcb1806c97390438ce7bb2e9ecc0a90d",
+    "modelo/rodin/Enclavamiento/C2.buc": "1a9929a79d33cf69440e91ec59f220bc59788d4cac4770608963d2f93e2e2102",
+    "modelo/rodin/Enclavamiento/M2.bum": "b4414b2e1d9403d4dd564b4425bd5491f76102cd6f7621e1bf9af8bad2f68457",
+    "modelo/rodin/Enclavamiento/M2.bpr": "96b08307bf7a1d02a61e811d47c316bc0cd6a02fcf5b4976eddb3d22c4e45caf"
+  },
+  "sha256_log": "39dffd1b3f31e517d464742ec6186b95edb3a55bacfb58f061731a583e21a438",
+  "sha256_estados": "0dda3f9b3439cc8cf351deb5afbbd15c02964d8fd39dabd9520c47d96a0295de",
+  "sha256_complementos_smt": {
+    "org.eventb.smt.core_1.4.0.c5fa8c25.jar": "3396233304cc0f22662c2b4551ceda6cea8ee5fd48ce4167208b96df4e3e8b40",
+    "org.eventb.smt.plugin_1.5.0.c5fa8c25.jar": "4e2e7e1be69c648a6c2e5d831a213b659e5e1af961742f0c137159e59e3789e8",
+    "org.eventb.smt.verit.linux_1.1.0.c5fa8c25.jar": "93c1ba7f6fa15f2a9060d384456af7cfe452f7f6a40e0120394b60b61fa4ed6d",
+    "org.eventb.smt.verit.plugin_1.1.0.c5fa8c25.jar": "88655e4c8437335a44b036b31baa0a262ad511cb52ffe6c939bbe7627c5d91ef"
+  }
+}

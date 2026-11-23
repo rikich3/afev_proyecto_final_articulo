@@ -1,0 +1,1 @@
+<plugin><extension point="org.eclipse.core.runtime.applications" id="run"><application><run class="org.afev.proofs.VerificarM1"/></application></extension></plugin>

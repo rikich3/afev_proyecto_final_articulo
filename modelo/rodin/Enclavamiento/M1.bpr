@@ -1,0 +1,1590 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="INITIALISATION/INV_02/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(∅ ⦂ ℙ(O×Z))∩(∅ ⦂ ℙ(Z))=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒INICIO_SEGURO=MANTENIMIENTO∧(∅ ⦂ ℙ(Z))=(∅ ⦂ ℙ(Z))∧FALSE=TRUE∧TRUE=TRUE∧(∅ ⦂ ℙ(O×Z))=O × Z∧TRUE=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(Z))≠(∅ ⦂ ℙ(Z))⇒INICIO_SEGURO=MARCHA∧(∅ ⦂ ℙ(O×Z))=(∅ ⦂ ℙ(O×Z))∧(∅ ⦂ ℙ(O×Z))=(∅ ⦂ ℙ(O×Z))∧FALSE=FALSE∧TRUE=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv_titulares/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dom(∅ ⦂ ℙ(O×Z))⊆dom(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv_bloqueo_aislado/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(O×Z))≠(∅ ⦂ ℙ(O×Z))⇒FALSE=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="INICIO_SEGURO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒(∅ ⦂ ℙ(O×Z))=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="INICIO_SEGURO=LISTO⇒(∅ ⦂ ℙ(Z))=(∅ ⦂ ℙ(Z))∧(∅ ⦂ ℙ(O×Z))=(∅ ⦂ ℙ(O×Z))∧FALSE=FALSE∧TRUE=TRUE∧TRUE=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Reset/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒LISTO=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Reset/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒LISTO=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Reset/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="LISTO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Reset/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cero=TRUE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="aislado=FALSE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="permiso=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="LISTO=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="puerta_cerrada=TRUE"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="L=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Energizar/INV_02/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(L)∩(P∪{z})=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="L=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Energizar/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒MARCHA=MANTENIMIENTO∧P∪{z}=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧FALSE=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Energizar/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="aislado=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permiso=FALSE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="fase=LISTO"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="puerta_cerrada=TRUE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P∪{z}≠(∅ ⦂ ℙ(Z))⇒MARCHA=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="L=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="fase∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Energizar/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LISTO"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="MARCHA∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="fase∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Energizar/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="MARCHA=LISTO⇒P∪{z}=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧FALSE=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Cortar/INV_02/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(L)∩(P ∖ {z})=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="z∈P"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="L≠(∅ ⦂ ℙ(O×Z))⇒aislado=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Cortar/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒PARADA=MANTENIMIENTO∧P ∖ {z}=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Cortar/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P ∖ {z}≠(∅ ⦂ ℙ(Z))⇒PARADA=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P={z}"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Cortar/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PARADA∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Cortar/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PARADA=LISTO⇒P ∖ {z}=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarMantenimiento/INV_02/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(L)∩(P ∖ {z})=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="z∈P"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="L≠(∅ ⦂ ℙ(O×Z))⇒aislado=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarMantenimiento/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒PARADA=MANTENIMIENTO∧P ∖ {z}=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarMantenimiento/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P ∖ {z}≠(∅ ⦂ ℙ(Z))⇒PARADA=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P={z}"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarMantenimiento/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PARADA∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarMantenimiento/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PARADA=LISTO⇒P ∖ {z}=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarDesdeListo/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LISTO"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="fase=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒PARADA=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarDesdeListo/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒PARADA=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LISTO"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="fase=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarDesdeListo/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PARADA∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SolicitarDesdeListo/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PARADA=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="ConfirmarParada/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cero=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧TRUE=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="ConfirmarParada/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=PARADA"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="fase=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧TRUE=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Aislar/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒AISLAMIENTO=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧TRUE=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="fase=PARADA"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Aislar/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒AISLAMIENTO=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧TRUE=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Aislar/inv_bloqueo_aislado/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="L≠(∅ ⦂ ℙ(O×Z))⇒TRUE=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Aislar/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="AISLAMIENTO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Aislar/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="AISLAMIENTO=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧TRUE=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="PrepararBloqueos/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒BLOQUEO=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=AISLAMIENTO"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="PrepararBloqueos/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒BLOQUEO=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="PrepararBloqueos/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="BLOQUEO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="PrepararBloqueos/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="BLOQUEO=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AplicarBloqueo/INV_02/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(L∪{o ↦ z})∩P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AplicarBloqueo/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L∪{o ↦ z}=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="o ↦ z∉L"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AplicarBloqueo/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L∪{o ↦ z}=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AplicarBloqueo/inv_titulares/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dom(U)⊆dom(L∪{o ↦ z})"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="dom(U)⊆dom(L)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AplicarBloqueo/inv_bloqueo_aislado/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="aislado=TRUE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="L∪{o ↦ z}≠(∅ ⦂ ℙ(O×Z))⇒aislado=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AplicarBloqueo/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=BLOQUEO"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="fase=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L∪{o ↦ z}=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CompletarBloqueos/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒VERIFICACION_CERO=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="fase=BLOQUEO"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CompletarBloqueos/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="L=O × Z"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="ran(L)∩P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒VERIFICACION_CERO=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CompletarBloqueos/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VERIFICACION_CERO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CompletarBloqueos/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VERIFICACION_CERO=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AutorizarAcceso/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cero=TRUE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="L=O × Z"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="aislado=TRUE"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒MANTENIMIENTO=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧FALSE=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AutorizarAcceso/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒MANTENIMIENTO=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧FALSE=TRUE∧TRUE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AutorizarAcceso/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="MANTENIMIENTO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="AutorizarAcceso/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="MANTENIMIENTO=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧FALSE=TRUE∧TRUE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Ingresar/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U∪{o ↦ z}=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=TRUE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Ingresar/inv_titulares/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=TRUE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dom(U∪{o ↦ z})⊆dom(L)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Ingresar/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=MANTENIMIENTO"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="fase∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U∪{o ↦ z}=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Salir/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U ∖ {o ↦ z}=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="o ↦ z∈U"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Salir/inv_titulares/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dom(U ∖ {o ↦ z})⊆dom(L)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="dom(U)⊆dom(L)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Salir/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="o ↦ z∈U"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="fase∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="fase∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U ∖ {o ↦ z}=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="FinalizarMantenimiento/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒LIBERACION=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="FinalizarMantenimiento/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=MANTENIMIENTO"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒LIBERACION=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="FinalizarMantenimiento/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="LIBERACION∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="FinalizarMantenimiento/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="LIBERACION=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="RetirarBloqueo/INV_02/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="o ↦ z∈L"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(L ∖ {o ↦ z})∩P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="RetirarBloqueo/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LIBERACION"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L ∖ {o ↦ z}=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="RetirarBloqueo/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L ∖ {o ↦ z}=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="o ↦ z∈L"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="RetirarBloqueo/inv_titulares/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LIBERACION"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="fase∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="dom(U)⊆dom(L ∖ {o ↦ z})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="RetirarBloqueo/inv_bloqueo_aislado/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="L ∖ {o ↦ z}≠(∅ ⦂ ℙ(O×Z))⇒aislado=TRUE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="o ↦ z∈L"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="L≠(∅ ⦂ ℙ(O×Z))⇒aislado=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="RetirarBloqueo/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="o" org.eventb.core.type="O"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="z" org.eventb.core.type="Z"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="fase=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L ∖ {o ↦ z}=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LIBERACION"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CerrarAcceso/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=FALSE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒RESTABLECIMIENTO=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧TRUE=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CerrarAcceso/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒RESTABLECIMIENTO=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧TRUE=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=LIBERACION"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CerrarAcceso/inv_zona_libre/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RESTABLECIMIENTO∈{INICIO_SEGURO,LISTO,MARCHA,LIBERACION,RESTABLECIMIENTO}⇒U=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="CerrarAcceso/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RESTABLECIMIENTO=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧aislado=FALSE∧cero=TRUE∧TRUE=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Restablecer/INV_03/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="aislado" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧FALSE=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permiso=TRUE⇒fase=MANTENIMIENTO∧P=(∅ ⦂ ℙ(Z))∧aislado=TRUE∧cero=TRUE∧L=O × Z∧puerta_cerrada=FALSE"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="puerta_cerrada=TRUE"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Restablecer/INV_04/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="U" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="P≠(∅ ⦂ ℙ(Z))⇒fase=MARCHA∧U=(∅ ⦂ ℙ(O×Z))∧L=(∅ ⦂ ℙ(O×Z))∧FALSE=FALSE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="P=(∅ ⦂ ℙ(Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Restablecer/inv_bloqueo_aislado/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="L≠(∅ ⦂ ℙ(O×Z))⇒FALSE=TRUE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="L=(∅ ⦂ ℙ(O×Z))"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Restablecer/inv_listo/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="FASES,O,Z">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="NewPP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="2000"/>
+            <org.eventb.core.prString name=".maxSteps" org.eventb.core.prSValue="3000"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="L" org.eventb.core.type="ℙ(O×Z)"/>
+        <org.eventb.core.prIdent name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="LISTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="P" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.prIdent name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="cero" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="fase" org.eventb.core.type="FASES"/>
+        <org.eventb.core.prIdent name="permiso" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="puerta_cerrada" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="fase=LISTO⇒P=(∅ ⦂ ℙ(Z))∧L=(∅ ⦂ ℙ(O×Z))∧FALSE=FALSE∧cero=TRUE∧puerta_cerrada=TRUE∧permiso=FALSE"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="fase=RESTABLECIMIENTO"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.pp.pp:1"/>
+    </org.eventb.core.prProof>
+</org.eventb.core.prFile>

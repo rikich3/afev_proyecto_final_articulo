@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.extendsContext name="ext_C1" org.eventb.core.target="C1" />
+    <org.eventb.core.constant name="LIM_SENSOR" org.eventb.core.identifier="LIM_SENSOR" />
+    <org.eventb.core.axiom name="axm_LIM_SENSOR" org.eventb.core.label="axm_LIM_SENSOR" org.eventb.core.predicate="LIM_SENSOR = 3" />
+    <org.eventb.core.constant name="LIM_HEARTBEAT" org.eventb.core.identifier="LIM_HEARTBEAT" />
+    <org.eventb.core.axiom name="axm_LIM_HEARTBEAT" org.eventb.core.label="axm_LIM_HEARTBEAT" org.eventb.core.predicate="LIM_HEARTBEAT = 5" />
+    <org.eventb.core.constant name="LIM_APERTURA" org.eventb.core.identifier="LIM_APERTURA" />
+    <org.eventb.core.axiom name="axm_LIM_APERTURA" org.eventb.core.label="axm_LIM_APERTURA" org.eventb.core.predicate="LIM_APERTURA = 3" />
+    <org.eventb.core.constant name="PASO_MS" org.eventb.core.identifier="PASO_MS" />
+    <org.eventb.core.axiom name="axm_PASO_MS" org.eventb.core.label="axm_PASO_MS" org.eventb.core.predicate="PASO_MS = 20" />
+</org.eventb.core.contextFile>

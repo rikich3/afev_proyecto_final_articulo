@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="O" org.eventb.core.type="ℙ(O)"/>
+        <org.eventb.core.poIdentifier name="Z" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.poIdentifier name="o1" org.eventb.core.type="O"/>
+        <org.eventb.core.poIdentifier name="o2" org.eventb.core.type="O"/>
+        <org.eventb.core.poIdentifier name="z1" org.eventb.core.type="Z"/>
+        <org.eventb.core.poPredicate name="z2" org.eventb.core.predicate="partition(Z,{z1})" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#axm1"/>
+        <org.eventb.core.poPredicate name="z3" org.eventb.core.predicate="partition(O,{o1},{o2})" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#axm2"/>
+        <org.eventb.core.poIdentifier name="FASES" org.eventb.core.type="ℙ(FASES)"/>
+        <org.eventb.core.poIdentifier name="PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.poIdentifier name="LISTO" org.eventb.core.type="FASES"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Enclavamiento/C1.bpo|org.eventb.core.poFile#C1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#axm_fases"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

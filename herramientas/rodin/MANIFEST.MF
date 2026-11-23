@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AFEV Proof Runner
+Bundle-SymbolicName: org.afev.proofs;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.equinox.app,org.rodinp.core,org.eventb.core,org.eventb.core.seqprover
+

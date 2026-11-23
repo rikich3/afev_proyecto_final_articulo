@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5" org.eventb.core.comment="M2: interfaz por solicitudes y confirmaciones. Fallo concreto enclavado conserva fase abstracta M1. Ticks nominales de 20 ms. Sin intrusión ni avería nominal de puerta/seccionador.">
+    <org.eventb.core.refinesMachine name="ref_M1" org.eventb.core.target="M1" />
+    <org.eventb.core.seesContext name="sees_C2" org.eventb.core.target="C2" />
+    <org.eventb.core.variable name="P" org.eventb.core.identifier="P" />
+    <org.eventb.core.variable name="U" org.eventb.core.identifier="U" />
+    <org.eventb.core.variable name="L" org.eventb.core.identifier="L" />
+    <org.eventb.core.variable name="fase" org.eventb.core.identifier="fase" />
+    <org.eventb.core.variable name="aislado" org.eventb.core.identifier="aislado" />
+    <org.eventb.core.variable name="cero" org.eventb.core.identifier="cero" />
+    <org.eventb.core.variable name="puerta_cerrada" org.eventb.core.identifier="puerta_cerrada" />
+    <org.eventb.core.variable name="permiso" org.eventb.core.identifier="permiso" />
+    <org.eventb.core.variable name="intervencion" org.eventb.core.identifier="intervencion" />
+    <org.eventb.core.variable name="orden_contactor" org.eventb.core.identifier="orden_contactor" />
+    <org.eventb.core.variable name="contacto_real" org.eventb.core.identifier="contacto_real" />
+    <org.eventb.core.variable name="seccionador_real" org.eventb.core.identifier="seccionador_real" />
+    <org.eventb.core.variable name="puerta_real_cerrada" org.eventb.core.identifier="puerta_real_cerrada" />
+    <org.eventb.core.variable name="movimiento_real" org.eventb.core.identifier="movimiento_real" />
+    <org.eventb.core.variable name="permiso_acceso" org.eventb.core.identifier="permiso_acceso" />
+    <org.eventb.core.variable name="fallo" org.eventb.core.identifier="fallo" />
+    <org.eventb.core.variable name="datos_validos" org.eventb.core.identifier="datos_validos" />
+    <org.eventb.core.variable name="esperando_apertura" org.eventb.core.identifier="esperando_apertura" />
+    <org.eventb.core.variable name="contacto_pegado" org.eventb.core.identifier="contacto_pegado" />
+    <org.eventb.core.variable name="mantenimiento_pendiente" org.eventb.core.identifier="mantenimiento_pendiente" />
+    <org.eventb.core.variable name="emergencia_activa" org.eventb.core.identifier="emergencia_activa" />
+    <org.eventb.core.variable name="fallo_contacto" org.eventb.core.identifier="fallo_contacto" />
+    <org.eventb.core.variable name="rearme_vigente" org.eventb.core.identifier="rearme_vigente" />
+    <org.eventb.core.variable name="edad_sensor" org.eventb.core.identifier="edad_sensor" />
+    <org.eventb.core.variable name="edad_heartbeat" org.eventb.core.identifier="edad_heartbeat" />
+    <org.eventb.core.variable name="secuencia_heartbeat" org.eventb.core.identifier="secuencia_heartbeat" />
+    <org.eventb.core.variable name="sesion" org.eventb.core.identifier="sesion" />
+    <org.eventb.core.variable name="edad_apertura" org.eventb.core.identifier="edad_apertura" />
+    <org.eventb.core.variable name="presencia_observada" org.eventb.core.identifier="presencia_observada" />
+    <org.eventb.core.invariant name="tipo_orden_contactor" org.eventb.core.label="tipo_orden_contactor" org.eventb.core.predicate="orden_contactor ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_contacto_real" org.eventb.core.label="tipo_contacto_real" org.eventb.core.predicate="contacto_real ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_seccionador_real" org.eventb.core.label="tipo_seccionador_real" org.eventb.core.predicate="seccionador_real ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_puerta_real_cerrada" org.eventb.core.label="tipo_puerta_real_cerrada" org.eventb.core.predicate="puerta_real_cerrada ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_movimiento_real" org.eventb.core.label="tipo_movimiento_real" org.eventb.core.predicate="movimiento_real ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_permiso_acceso" org.eventb.core.label="tipo_permiso_acceso" org.eventb.core.predicate="permiso_acceso ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_fallo" org.eventb.core.label="tipo_fallo" org.eventb.core.predicate="fallo ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_datos_validos" org.eventb.core.label="tipo_datos_validos" org.eventb.core.predicate="datos_validos ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_esperando_apertura" org.eventb.core.label="tipo_esperando_apertura" org.eventb.core.predicate="esperando_apertura ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_contacto_pegado" org.eventb.core.label="tipo_contacto_pegado" org.eventb.core.predicate="contacto_pegado ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_mantenimiento_pendiente" org.eventb.core.label="tipo_mantenimiento_pendiente" org.eventb.core.predicate="mantenimiento_pendiente ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_emergencia_activa" org.eventb.core.label="tipo_emergencia_activa" org.eventb.core.predicate="emergencia_activa ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_fallo_contacto" org.eventb.core.label="tipo_fallo_contacto" org.eventb.core.predicate="fallo_contacto ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_rearme_vigente" org.eventb.core.label="tipo_rearme_vigente" org.eventb.core.predicate="rearme_vigente ∈ BOOL" />
+    <org.eventb.core.invariant name="tipo_edad_sensor" org.eventb.core.label="tipo_edad_sensor" org.eventb.core.predicate="edad_sensor ∈ ℕ" />
+    <org.eventb.core.invariant name="tipo_edad_heartbeat" org.eventb.core.label="tipo_edad_heartbeat" org.eventb.core.predicate="edad_heartbeat ∈ ℕ" />
+    <org.eventb.core.invariant name="tipo_secuencia_heartbeat" org.eventb.core.label="tipo_secuencia_heartbeat" org.eventb.core.predicate="secuencia_heartbeat ∈ ℕ" />
+    <org.eventb.core.invariant name="tipo_sesion" org.eventb.core.label="tipo_sesion" org.eventb.core.predicate="sesion ∈ ℕ" />
+    <org.eventb.core.invariant name="tipo_edad_apertura" org.eventb.core.label="tipo_edad_apertura" org.eventb.core.predicate="edad_apertura ∈ ℕ" />
+    <org.eventb.core.invariant name="tipo_presencia" org.eventb.core.label="tipo_presencia" org.eventb.core.predicate="presencia_observada ⊆ O" />
+    <org.eventb.core.invariant name="enlace_potencia" org.eventb.core.label="enlace_potencia" org.eventb.core.predicate="contacto_real = bool(P ≠ ∅)" />
+    <org.eventb.core.invariant name="enlace_aislamiento" org.eventb.core.label="enlace_aislamiento" org.eventb.core.predicate="seccionador_real = aislado" />
+    <org.eventb.core.invariant name="enlace_puerta" org.eventb.core.label="enlace_puerta" org.eventb.core.predicate="puerta_real_cerrada = puerta_cerrada" />
+    <org.eventb.core.invariant name="enlace_parada" org.eventb.core.label="enlace_parada" org.eventb.core.predicate="movimiento_real = bool(cero = FALSE)" />
+    <org.eventb.core.invariant name="INV_05" org.eventb.core.label="INV_05" org.eventb.core.predicate="fallo = TRUE ⇒ orden_contactor = FALSE ∧ permiso_acceso = FALSE" />
+    <org.eventb.core.invariant name="INV_06" org.eventb.core.label="INV_06" org.eventb.core.predicate="permiso_acceso = TRUE ⇒ permiso = TRUE ∧ fallo = FALSE ∧ datos_validos = TRUE ∧ edad_sensor &lt; LIM_SENSOR ∧ edad_heartbeat &lt; LIM_HEARTBEAT ∧ presencia_observada = dom(U)" />
+    <org.eventb.core.invariant name="INV_07" org.eventb.core.label="INV_07" org.eventb.core.predicate="permiso_acceso = TRUE ⇒ contacto_real = FALSE ∧ seccionador_real = TRUE ∧ movimiento_real = FALSE ∧ L = O × Z" />
+    <org.eventb.core.invariant name="INV_08" org.eventb.core.label="INV_08" org.eventb.core.predicate="orden_contactor = TRUE ⇒ fallo = FALSE ∧ datos_validos = TRUE ∧ edad_sensor &lt; LIM_SENSOR ∧ edad_heartbeat &lt; LIM_HEARTBEAT ∧ fase ∈ {LISTO, MARCHA} ∧ U = ∅ ∧ L = ∅ ∧ aislado = FALSE ∧ puerta_cerrada = TRUE ∧ permiso_acceso = FALSE ∧ presencia_observada = dom(U)" />
+    <org.eventb.core.invariant name="inv_espera" org.eventb.core.label="inv_espera" org.eventb.core.predicate="esperando_apertura = TRUE ⇒ orden_contactor = FALSE ∧ contacto_real = TRUE" />
+    <org.eventb.core.invariant name="inv_edad_apertura" org.eventb.core.label="inv_edad_apertura" org.eventb.core.predicate="esperando_apertura = FALSE ⇒ edad_apertura = 0" />
+    <org.eventb.core.invariant name="inv_diagnostico" org.eventb.core.label="inv_diagnostico" org.eventb.core.predicate="fallo_contacto = TRUE ⇒ fallo = TRUE" />
+    <org.eventb.core.invariant name="inv_rearme_fallo" org.eventb.core.label="inv_rearme_fallo" org.eventb.core.predicate="fallo = TRUE ⇒ rearme_vigente = FALSE" />
+    <org.eventb.core.invariant name="inv_rearme_orden" org.eventb.core.label="inv_rearme_orden" org.eventb.core.predicate="orden_contactor = TRUE ∧ fase = LISTO ⇒ rearme_vigente = TRUE" />
+    <org.eventb.core.event name="INITIALISATION" org.eventb.core.label="INITIALISATION" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ ∅" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="U ≔ ∅" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="L ≔ ∅" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="fase ≔ INICIO_SEGURO" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="aislado ≔ FALSE" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="cero ≔ TRUE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="puerta_cerrada ≔ TRUE" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="intervencion ≔ FALSE" />
+        <org.eventb.core.action name="act10" org.eventb.core.label="act10" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act11" org.eventb.core.label="act11" org.eventb.core.assignment="contacto_real ≔ FALSE" />
+        <org.eventb.core.action name="act12" org.eventb.core.label="act12" org.eventb.core.assignment="seccionador_real ≔ FALSE" />
+        <org.eventb.core.action name="act13" org.eventb.core.label="act13" org.eventb.core.assignment="puerta_real_cerrada ≔ TRUE" />
+        <org.eventb.core.action name="act14" org.eventb.core.label="act14" org.eventb.core.assignment="movimiento_real ≔ FALSE" />
+        <org.eventb.core.action name="act15" org.eventb.core.label="act15" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act16" org.eventb.core.label="act16" org.eventb.core.assignment="fallo ≔ FALSE" />
+        <org.eventb.core.action name="act17" org.eventb.core.label="act17" org.eventb.core.assignment="datos_validos ≔ TRUE" />
+        <org.eventb.core.action name="act18" org.eventb.core.label="act18" org.eventb.core.assignment="esperando_apertura ≔ FALSE" />
+        <org.eventb.core.action name="act19" org.eventb.core.label="act19" org.eventb.core.assignment="contacto_pegado ≔ FALSE" />
+        <org.eventb.core.action name="act20" org.eventb.core.label="act20" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+        <org.eventb.core.action name="act21" org.eventb.core.label="act21" org.eventb.core.assignment="emergencia_activa ≔ FALSE" />
+        <org.eventb.core.action name="act22" org.eventb.core.label="act22" org.eventb.core.assignment="fallo_contacto ≔ FALSE" />
+        <org.eventb.core.action name="act23" org.eventb.core.label="act23" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+        <org.eventb.core.action name="act24" org.eventb.core.label="act24" org.eventb.core.assignment="edad_sensor ≔ 0" />
+        <org.eventb.core.action name="act25" org.eventb.core.label="act25" org.eventb.core.assignment="edad_heartbeat ≔ 0" />
+        <org.eventb.core.action name="act26" org.eventb.core.label="act26" org.eventb.core.assignment="secuencia_heartbeat ≔ 0" />
+        <org.eventb.core.action name="act27" org.eventb.core.label="act27" org.eventb.core.assignment="sesion ≔ 0" />
+        <org.eventb.core.action name="act28" org.eventb.core.label="act28" org.eventb.core.assignment="edad_apertura ≔ 0" />
+        <org.eventb.core.action name="act29" org.eventb.core.label="act29" org.eventb.core.assignment="presencia_observada ≔ ∅" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Reset" org.eventb.core.label="Reset" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Reset" org.eventb.core.target="Reset" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase ∈ {INICIO_SEGURO, RESTABLECIMIENTO, PARADA}" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="aislado = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="puerta_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="permiso = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="intervencion = FALSE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd11" org.eventb.core.label="grd11" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd12" org.eventb.core.label="grd12" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd13" org.eventb.core.label="grd13" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd14" org.eventb.core.label="grd14" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd15" org.eventb.core.label="grd15" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.guard name="grd16" org.eventb.core.label="grd16" org.eventb.core.predicate="orden_contactor = FALSE" />
+        <org.eventb.core.guard name="grd17" org.eventb.core.label="grd17" org.eventb.core.predicate="esperando_apertura = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ LISTO" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="rearme_vigente ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Energizar" org.eventb.core.label="Energizar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Energizar" org.eventb.core.target="Energizar" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∉ P" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="z ∉ ran(U)" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="aislado = FALSE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="puerta_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="permiso = FALSE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd11" org.eventb.core.label="grd11" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd12" org.eventb.core.label="grd12" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd13" org.eventb.core.label="grd13" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd14" org.eventb.core.label="grd14" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd15" org.eventb.core.label="grd15" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.guard name="grd16" org.eventb.core.label="grd16" org.eventb.core.predicate="orden_contactor = TRUE" />
+        <org.eventb.core.guard name="grd17" org.eventb.core.label="grd17" org.eventb.core.predicate="contacto_pegado = FALSE" />
+        <org.eventb.core.guard name="grd18" org.eventb.core.label="grd18" org.eventb.core.predicate="rearme_vigente = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ P ∪ {z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ MARCHA" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="cero ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="contacto_real ≔ TRUE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="movimiento_real ≔ TRUE" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Cortar" org.eventb.core.label="Cortar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Cortar" org.eventb.core.target="Cortar" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ P" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = {z}" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="fase = MARCHA" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="esperando_apertura = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="contacto_pegado = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="mantenimiento_pendiente = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ P ∖ {z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ PARADA" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="intervencion ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="contacto_real ≔ FALSE" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="esperando_apertura ≔ FALSE" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="edad_apertura ≔ 0" />
+        <org.eventb.core.action name="act10" org.eventb.core.label="act10" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="SolicitarMantenimiento" org.eventb.core.label="SolicitarMantenimiento" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_SolicitarMantenimiento" org.eventb.core.target="SolicitarMantenimiento" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ P" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = {z}" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="fase = MARCHA" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="esperando_apertura = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="contacto_pegado = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="mantenimiento_pendiente = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ P ∖ {z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ PARADA" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="intervencion ≔ TRUE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="contacto_real ≔ FALSE" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="esperando_apertura ≔ FALSE" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="edad_apertura ≔ 0" />
+        <org.eventb.core.action name="act10" org.eventb.core.label="act10" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="SolicitarDesdeListo" org.eventb.core.label="SolicitarDesdeListo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_SolicitarDesdeListo" org.eventb.core.target="SolicitarDesdeListo" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ PARADA" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="intervencion ≔ TRUE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="ConfirmarParada" org.eventb.core.label="ConfirmarParada" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_ConfirmarParada" org.eventb.core.target="ConfirmarParada" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = PARADA" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="cero = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="cero ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="movimiento_real ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Aislar" org.eventb.core.label="Aislar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Aislar" org.eventb.core.target="Aislar" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = PARADA" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="intervencion = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="aislado ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ AISLAMIENTO" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="seccionador_real ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="PrepararBloqueos" org.eventb.core.label="PrepararBloqueos" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_PrepararBloqueos" org.eventb.core.target="PrepararBloqueos" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = AISLAMIENTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ BLOQUEO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="AplicarBloqueo" org.eventb.core.label="AplicarBloqueo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_AplicarBloqueo" org.eventb.core.target="AplicarBloqueo" />
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.parameter name="solicitante" org.eventb.core.identifier="solicitante" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="solicitante = o" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="fase = BLOQUEO" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="o ↦ z ∉ L" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd11" org.eventb.core.label="grd11" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd12" org.eventb.core.label="grd12" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd13" org.eventb.core.label="grd13" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="L ≔ L ∪ {o ↦ z}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="CompletarBloqueos" org.eventb.core.label="CompletarBloqueos" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_CompletarBloqueos" org.eventb.core.target="CompletarBloqueos" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = BLOQUEO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="L = O × Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ VERIFICACION_CERO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="AutorizarAcceso" org.eventb.core.label="AutorizarAcceso" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_AutorizarAcceso" org.eventb.core.target="AutorizarAcceso" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = VERIFICACION_CERO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="L = O × Z" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd11" org.eventb.core.label="grd11" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ MANTENIMIENTO" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="permiso ≔ TRUE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="puerta_cerrada ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="puerta_real_cerrada ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="permiso_acceso ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Ingresar" org.eventb.core.label="Ingresar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Ingresar" org.eventb.core.target="Ingresar" />
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="z ∉ P" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="o ∉ dom(U)" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="fase = MANTENIMIENTO" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="permiso = TRUE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="o ↦ z ∈ L" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd11" org.eventb.core.label="grd11" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd12" org.eventb.core.label="grd12" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd13" org.eventb.core.label="grd13" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.guard name="grd14" org.eventb.core.label="grd14" org.eventb.core.predicate="permiso_acceso = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="U ≔ U ∪ {o ↦ z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="presencia_observada ≔ presencia_observada ∪ {o}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Salir" org.eventb.core.label="Salir" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Salir" org.eventb.core.target="Salir" />
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="o ↦ z ∈ U" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="U ≔ U ∖ {o ↦ z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="presencia_observada ≔ dom(U ∖ {o ↦ z})" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="FinalizarMantenimiento" org.eventb.core.label="FinalizarMantenimiento" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_FinalizarMantenimiento" org.eventb.core.target="FinalizarMantenimiento" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = MANTENIMIENTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ LIBERACION" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="RetirarBloqueo" org.eventb.core.label="RetirarBloqueo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_RetirarBloqueo" org.eventb.core.target="RetirarBloqueo" />
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.parameter name="solicitante" org.eventb.core.identifier="solicitante" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="o ↦ z ∈ L" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="solicitante = o" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="o ∉ dom(U)" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="fase = LIBERACION" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="L ≔ L ∖ {o ↦ z}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="CerrarAcceso" org.eventb.core.label="CerrarAcceso" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_CerrarAcceso" org.eventb.core.target="CerrarAcceso" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = LIBERACION" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="permiso = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="puerta_cerrada ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ RESTABLECIMIENTO" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="puerta_real_cerrada ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Restablecer" org.eventb.core.label="Restablecer" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Restablecer" org.eventb.core.target="Restablecer" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = RESTABLECIMIENTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="puerta_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="aislado ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="intervencion ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="seccionador_real ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="ResetListo" org.eventb.core.label="ResetListo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="orden_contactor = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="rearme_vigente = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="rearme_vigente ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="SolicitarArranque" org.eventb.core.label="SolicitarArranque" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fallo = FALSE" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="orden_contactor = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="esperando_apertura = FALSE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="rearme_vigente = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="orden_contactor ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="CancelarArranque" org.eventb.core.label="CancelarArranque" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="rearme_vigente = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="OrdenarParada" org.eventb.core.label="OrdenarParada" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = MARCHA" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="contacto_real = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="esperando_apertura = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="esperando_apertura ≔ TRUE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="edad_apertura ≔ 0" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="OrdenarMantenimiento" org.eventb.core.label="OrdenarMantenimiento" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = MARCHA" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="contacto_real = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="esperando_apertura = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="esperando_apertura ≔ TRUE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="edad_apertura ≔ 0" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="mantenimiento_pendiente ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="DatoInvalido" org.eventb.core.label="DatoInvalido" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fallo ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="esperando_apertura ≔ contacto_real" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="datos_validos ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Discrepancia" org.eventb.core.label="Discrepancia" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.parameter name="observados" org.eventb.core.identifier="observados" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="observados ⊆ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="observados ≠ dom(U)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fallo ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="esperando_apertura ≔ contacto_real" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="presencia_observada ≔ observados" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="datos_validos ≔ FALSE" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="edad_sensor ≔ 0" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="ActualizarSensor" org.eventb.core.label="ActualizarSensor" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="presencia_observada ≔ dom(U)" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="datos_validos ≔ TRUE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="edad_sensor ≔ 0" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="RecibirHeartbeat" org.eventb.core.label="RecibirHeartbeat" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.parameter name="sesion_recibida" org.eventb.core.identifier="sesion_recibida" />
+        <org.eventb.core.parameter name="secuencia" org.eventb.core.identifier="secuencia" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="sesion_recibida = sesion" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="secuencia ∈ ℕ" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="secuencia &gt; secuencia_heartbeat" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="secuencia_heartbeat ≔ secuencia" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="edad_heartbeat ≔ 0" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="TickVigente" org.eventb.core.label="TickVigente" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.parameter name="a" org.eventb.core.identifier="a" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ ℕ" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="esperando_apertura = TRUE ⇒ a = edad_apertura + 1" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="esperando_apertura = FALSE ⇒ a = 0" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="¬(edad_sensor + 1 ≥ LIM_SENSOR ∨ edad_heartbeat + 1 ≥ LIM_HEARTBEAT ∨ (esperando_apertura = TRUE ∧ a ≥ LIM_APERTURA))" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="edad_sensor ≔ edad_sensor + 1" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="edad_heartbeat ≔ edad_heartbeat + 1" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="edad_apertura ≔ a" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="TickCaducado" org.eventb.core.label="TickCaducado" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.parameter name="a" org.eventb.core.identifier="a" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="a ∈ ℕ" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="esperando_apertura = TRUE ⇒ a = edad_apertura + 1" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="esperando_apertura = FALSE ⇒ a = 0" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="edad_sensor + 1 ≥ LIM_SENSOR ∨ edad_heartbeat + 1 ≥ LIM_HEARTBEAT ∨ (esperando_apertura = TRUE ∧ a ≥ LIM_APERTURA)" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fallo ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="esperando_apertura ≔ contacto_real" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="edad_sensor ≔ edad_sensor + 1" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="edad_heartbeat ≔ edad_heartbeat + 1" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="edad_apertura ≔ a" />
+        <org.eventb.core.action name="act10" org.eventb.core.label="act10" org.eventb.core.assignment="fallo_contacto ≔ bool(fallo_contacto = TRUE ∨ (esperando_apertura = TRUE ∧ a ≥ LIM_APERTURA))" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="PegarContacto" org.eventb.core.label="PegarContacto" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="contacto_real = TRUE" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="contacto_pegado = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="contacto_pegado ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="RepararContacto" org.eventb.core.label="RepararContacto" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fallo = TRUE" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="orden_contactor = FALSE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="contacto_pegado = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="contacto_pegado ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Emergencia" org.eventb.core.label="Emergencia" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fallo ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="esperando_apertura ≔ contacto_real" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="emergencia_activa ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="LiberarEmergencia" org.eventb.core.label="LiberarEmergencia" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="emergencia_activa = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="emergencia_activa ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="ReiniciarSupervisor" org.eventb.core.label="ReiniciarSupervisor" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fallo ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="orden_contactor ≔ FALSE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso_acceso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="rearme_vigente ≔ FALSE" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="esperando_apertura ≔ contacto_real" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="mantenimiento_pendiente ≔ FALSE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="datos_validos ≔ FALSE" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="sesion ≔ sesion + 1" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="secuencia_heartbeat ≔ 0" />
+        <org.eventb.core.action name="act10" org.eventb.core.label="act10" org.eventb.core.assignment="edad_heartbeat ≔ LIM_HEARTBEAT" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="ReconocerFallo" org.eventb.core.label="ReconocerFallo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fallo = TRUE" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="contacto_real = FALSE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="movimiento_real = FALSE" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="puerta_real_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="(L = ∅ ∧ aislado = FALSE ∧ fase ∈ {INICIO_SEGURO, LISTO, PARADA, RESTABLECIMIENTO}) ∨ (aislado = TRUE ∧ fase ∈ {AISLAMIENTO, BLOQUEO, VERIFICACION_CERO})" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="emergencia_activa = FALSE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="contacto_pegado = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="datos_validos = TRUE" />
+        <org.eventb.core.guard name="grd10" org.eventb.core.label="grd10" org.eventb.core.predicate="presencia_observada = dom(U)" />
+        <org.eventb.core.guard name="grd11" org.eventb.core.label="grd11" org.eventb.core.predicate="edad_sensor &lt; LIM_SENSOR" />
+        <org.eventb.core.guard name="grd12" org.eventb.core.label="grd12" org.eventb.core.predicate="edad_heartbeat &lt; LIM_HEARTBEAT" />
+        <org.eventb.core.guard name="grd13" org.eventb.core.label="grd13" org.eventb.core.predicate="esperando_apertura = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fallo ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fallo_contacto ≔ FALSE" />
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

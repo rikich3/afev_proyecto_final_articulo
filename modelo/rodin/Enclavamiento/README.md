@@ -1,4 +1,15 @@
-# A06 — Modelo abstracto C0/M0
+# A06/A10/A13 — C0/M0, C1/M1 y C2/M2
+
+C1 extiende C0 con diez fases. M1 refina M0 con bloqueos personales,
+aislamiento, energía cero y rearme mediante Reset seguido de Energizar.
+M1 tiene 18 eventos y 79 obligaciones demostradas, reproducidas desde árboles
+guardados en otro workspace. C1/M1 son fuentes nativas importables junto a
+C0/M0. Ver `../../../artefactos/verificacion/rodin/README.md` para comandos,
+propiedades, registros y límites. C2/M2 incorpora la interfaz y los fallos.
+Sus 188 obligaciones demostradas se detallan en
+`../../../artefactos/verificacion/rodin/m2/README.md`.
+
+## Registro original de M0
 
 Modelo nativo generado y comprobado con **Rodin 3.10.0**. C0 y M0 pasan el
 chequeo estático, y las **5 obligaciones generadas están demostradas**.
@@ -103,8 +114,8 @@ Estos son pasos esperados, no resultados ejecutados con ProB:
 6. Salir o2: Energizar vuelve a estar habilitado.
 
 Los eventos son abstractos: `Energizar` no implementa todavía la secuencia
-reset/start de A05. M1 deberá fortalecer las guardas con bloqueos, aislamiento,
-energía cero y fases; M2 añadirá observaciones, realimentación y fallos.
+reset/start de A05. M1 fortalece las guardas con bloqueos, aislamiento, energía cero y fases.
+M2 añadirá observaciones, realimentación y fallos.
 
 ## Alcance de la evidencia
 

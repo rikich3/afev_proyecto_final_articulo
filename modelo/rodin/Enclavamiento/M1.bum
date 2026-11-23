@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5" org.eventb.core.comment="M1: refinamiento de seguridad LOTO. Confirmaciones abstractas. Eventos ordinarios, sin afirmacion de convergencia o progreso universal.">
+    <org.eventb.core.refinesMachine name="ref_M0" org.eventb.core.target="M0" />
+    <org.eventb.core.seesContext name="sees_C1" org.eventb.core.target="C1" />
+    <org.eventb.core.variable name="P" org.eventb.core.identifier="P" />
+    <org.eventb.core.variable name="U" org.eventb.core.identifier="U" />
+    <org.eventb.core.variable name="L" org.eventb.core.identifier="L" />
+    <org.eventb.core.variable name="fase" org.eventb.core.identifier="fase" />
+    <org.eventb.core.variable name="aislado" org.eventb.core.identifier="aislado" />
+    <org.eventb.core.variable name="cero" org.eventb.core.identifier="cero" />
+    <org.eventb.core.variable name="puerta_cerrada" org.eventb.core.identifier="puerta_cerrada" />
+    <org.eventb.core.variable name="permiso" org.eventb.core.identifier="permiso" />
+    <org.eventb.core.variable name="intervencion" org.eventb.core.identifier="intervencion" />
+    <org.eventb.core.invariant name="inv_L" org.eventb.core.label="inv_L" org.eventb.core.predicate="L ⊆ O × Z" />
+    <org.eventb.core.invariant name="inv_fase" org.eventb.core.label="inv_fase" org.eventb.core.predicate="fase ∈ FASES" />
+    <org.eventb.core.invariant name="inv_aislado" org.eventb.core.label="inv_aislado" org.eventb.core.predicate="aislado ∈ BOOL" />
+    <org.eventb.core.invariant name="inv_cero" org.eventb.core.label="inv_cero" org.eventb.core.predicate="cero ∈ BOOL" />
+    <org.eventb.core.invariant name="inv_puerta" org.eventb.core.label="inv_puerta" org.eventb.core.predicate="puerta_cerrada ∈ BOOL" />
+    <org.eventb.core.invariant name="inv_permiso" org.eventb.core.label="inv_permiso" org.eventb.core.predicate="permiso ∈ BOOL" />
+    <org.eventb.core.invariant name="inv_intervencion" org.eventb.core.label="inv_intervencion" org.eventb.core.predicate="intervencion ∈ BOOL" />
+    <org.eventb.core.invariant name="INV_02" org.eventb.core.label="INV_02" org.eventb.core.predicate="ran(L) ∩ P = ∅" />
+    <org.eventb.core.invariant name="INV_03" org.eventb.core.label="INV_03" org.eventb.core.predicate="permiso = TRUE ⇒ fase = MANTENIMIENTO ∧ P = ∅ ∧ aislado = TRUE ∧ cero = TRUE ∧ L = O × Z ∧ puerta_cerrada = FALSE" />
+    <org.eventb.core.invariant name="INV_04" org.eventb.core.label="INV_04" org.eventb.core.predicate="P ≠ ∅ ⇒ fase = MARCHA ∧ U = ∅ ∧ L = ∅ ∧ aislado = FALSE ∧ puerta_cerrada = TRUE ∧ permiso = FALSE" />
+    <org.eventb.core.invariant name="inv_titulares" org.eventb.core.label="inv_titulares" org.eventb.core.predicate="dom(U) ⊆ dom(L)" />
+    <org.eventb.core.invariant name="inv_bloqueo_aislado" org.eventb.core.label="inv_bloqueo_aislado" org.eventb.core.predicate="L ≠ ∅ ⇒ aislado = TRUE" />
+    <org.eventb.core.invariant name="inv_zona_libre" org.eventb.core.label="inv_zona_libre" org.eventb.core.predicate="fase ∈ {INICIO_SEGURO, LISTO, MARCHA, LIBERACION, RESTABLECIMIENTO} ⇒ U = ∅" />
+    <org.eventb.core.invariant name="inv_listo" org.eventb.core.label="inv_listo" org.eventb.core.predicate="fase = LISTO ⇒ P = ∅ ∧ L = ∅ ∧ aislado = FALSE ∧ cero = TRUE ∧ puerta_cerrada = TRUE ∧ permiso = FALSE" />
+    <org.eventb.core.event name="INITIALISATION" org.eventb.core.label="INITIALISATION" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ ∅" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="U ≔ ∅" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="L ≔ ∅" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="fase ≔ INICIO_SEGURO" />
+        <org.eventb.core.action name="act5" org.eventb.core.label="act5" org.eventb.core.assignment="aislado ≔ FALSE" />
+        <org.eventb.core.action name="act6" org.eventb.core.label="act6" org.eventb.core.assignment="cero ≔ TRUE" />
+        <org.eventb.core.action name="act7" org.eventb.core.label="act7" org.eventb.core.assignment="puerta_cerrada ≔ TRUE" />
+        <org.eventb.core.action name="act8" org.eventb.core.label="act8" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act9" org.eventb.core.label="act9" org.eventb.core.assignment="intervencion ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Reset" org.eventb.core.label="Reset" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase ∈ {INICIO_SEGURO, RESTABLECIMIENTO, PARADA}" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="aislado = FALSE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="puerta_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="permiso = FALSE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="intervencion = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ LISTO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Energizar" org.eventb.core.label="Energizar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Energizar" org.eventb.core.target="Energizar" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∉ P" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="z ∉ ran(U)" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="aislado = FALSE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd8" org.eventb.core.label="grd8" org.eventb.core.predicate="puerta_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd9" org.eventb.core.label="grd9" org.eventb.core.predicate="permiso = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ P ∪ {z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ MARCHA" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="cero ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Cortar" org.eventb.core.label="Cortar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Cortar" org.eventb.core.target="Cortar" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ P" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = {z}" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="fase = MARCHA" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ P ∖ {z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ PARADA" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="intervencion ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="SolicitarMantenimiento" org.eventb.core.label="SolicitarMantenimiento" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Cortar" org.eventb.core.target="Cortar" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="z ∈ P" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = {z}" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="fase = MARCHA" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="P ≔ P ∖ {z}" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ PARADA" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act4" org.eventb.core.label="act4" org.eventb.core.assignment="intervencion ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="SolicitarDesdeListo" org.eventb.core.label="SolicitarDesdeListo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = LISTO" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ PARADA" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="intervencion ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="ConfirmarParada" org.eventb.core.label="ConfirmarParada" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = PARADA" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="cero = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="cero ≔ TRUE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Aislar" org.eventb.core.label="Aislar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = PARADA" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="intervencion = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="aislado ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ AISLAMIENTO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="PrepararBloqueos" org.eventb.core.label="PrepararBloqueos" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = AISLAMIENTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ BLOQUEO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="AplicarBloqueo" org.eventb.core.label="AplicarBloqueo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.parameter name="solicitante" org.eventb.core.identifier="solicitante" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="solicitante = o" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="fase = BLOQUEO" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="o ↦ z ∉ L" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="L ≔ L ∪ {o ↦ z}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="CompletarBloqueos" org.eventb.core.label="CompletarBloqueos" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = BLOQUEO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="L = O × Z" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ VERIFICACION_CERO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="AutorizarAcceso" org.eventb.core.label="AutorizarAcceso" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = VERIFICACION_CERO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="cero = TRUE" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="L = O × Z" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="fase ≔ MANTENIMIENTO" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="permiso ≔ TRUE" />
+        <org.eventb.core.action name="act3" org.eventb.core.label="act3" org.eventb.core.assignment="puerta_cerrada ≔ FALSE" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Ingresar" org.eventb.core.label="Ingresar" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Ingresar" org.eventb.core.target="Ingresar" />
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="z ∉ P" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="o ∉ dom(U)" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="fase = MANTENIMIENTO" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="permiso = TRUE" />
+        <org.eventb.core.guard name="grd7" org.eventb.core.label="grd7" org.eventb.core.predicate="o ↦ z ∈ L" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="U ≔ U ∪ {o ↦ z}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Salir" org.eventb.core.label="Salir" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.refinesEvent name="ref_Salir" org.eventb.core.target="Salir" />
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="o ↦ z ∈ U" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="U ≔ U ∖ {o ↦ z}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="FinalizarMantenimiento" org.eventb.core.label="FinalizarMantenimiento" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = MANTENIMIENTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="permiso ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ LIBERACION" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="RetirarBloqueo" org.eventb.core.label="RetirarBloqueo" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.parameter name="o" org.eventb.core.identifier="o" />
+        <org.eventb.core.parameter name="z" org.eventb.core.identifier="z" />
+        <org.eventb.core.parameter name="solicitante" org.eventb.core.identifier="solicitante" />
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="o ∈ O" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="z ∈ Z" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="o ↦ z ∈ L" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="solicitante = o" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="o ∉ dom(U)" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="fase = LIBERACION" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="L ≔ L ∖ {o ↦ z}" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="CerrarAcceso" org.eventb.core.label="CerrarAcceso" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = LIBERACION" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="permiso = FALSE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="puerta_cerrada ≔ TRUE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="fase ≔ RESTABLECIMIENTO" />
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Restablecer" org.eventb.core.label="Restablecer" org.eventb.core.convergence="0" org.eventb.core.extended="false">
+        <org.eventb.core.guard name="grd1" org.eventb.core.label="grd1" org.eventb.core.predicate="fase = RESTABLECIMIENTO" />
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="grd2" org.eventb.core.predicate="L = ∅" />
+        <org.eventb.core.guard name="grd3" org.eventb.core.label="grd3" org.eventb.core.predicate="U = ∅" />
+        <org.eventb.core.guard name="grd4" org.eventb.core.label="grd4" org.eventb.core.predicate="P = ∅" />
+        <org.eventb.core.guard name="grd5" org.eventb.core.label="grd5" org.eventb.core.predicate="puerta_cerrada = TRUE" />
+        <org.eventb.core.guard name="grd6" org.eventb.core.label="grd6" org.eventb.core.predicate="aislado = TRUE" />
+        <org.eventb.core.action name="act1" org.eventb.core.label="act1" org.eventb.core.assignment="aislado ≔ FALSE" />
+        <org.eventb.core.action name="act2" org.eventb.core.label="act2" org.eventb.core.assignment="intervencion ≔ FALSE" />
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

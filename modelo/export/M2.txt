@@ -1,27 +1,556 @@
-REFINEMENT M2
+MACHINE M2
 REFINES M1
-SEES C0
-VARIABLES
-  P U L fase contacto_real seccionador_real puerta_real velocidad fallo orden_contactor permiso_acceso
+SEES C2
+VARIABLES P U L fase aislado cero puerta_cerrada permiso intervencion orden_contactor contacto_real seccionador_real puerta_real_cerrada movimiento_real permiso_acceso fallo datos_validos esperando_apertura contacto_pegado mantenimiento_pendiente emergencia_activa fallo_contacto rearme_vigente edad_sensor edad_heartbeat secuencia_heartbeat sesion edad_apertura presencia_observada
 INVARIANTS
-  inv_tipos: contacto_real ∈ BOOL ∧ seccionador_real ∈ BOOL ∧ puerta_real ∈ BOOL ∧ fallo ∈ BOOL
-  inv_velocidad: velocidad ∈ NAT
-  inv_enlace_potencia: contacto_real = TRUE ⇒ P = Z
-  inv_enlace_corte: P = ∅ ⇒ orden_contactor = FALSE
-  INV_01: ran(U) ∩ P = ∅
-  INV_03: permiso_acceso = TRUE ⇒ contacto_real = FALSE ∧ seccionador_real = TRUE ∧ velocidad = 0 ∧ L = O × Z
-  INV_05: fallo = TRUE ⇒ orden_contactor = FALSE ∧ permiso_acceso = FALSE
+tipo_orden_contactor: orden_contactor ∈ BOOL
+tipo_contacto_real: contacto_real ∈ BOOL
+tipo_seccionador_real: seccionador_real ∈ BOOL
+tipo_puerta_real_cerrada: puerta_real_cerrada ∈ BOOL
+tipo_movimiento_real: movimiento_real ∈ BOOL
+tipo_permiso_acceso: permiso_acceso ∈ BOOL
+tipo_fallo: fallo ∈ BOOL
+tipo_datos_validos: datos_validos ∈ BOOL
+tipo_esperando_apertura: esperando_apertura ∈ BOOL
+tipo_contacto_pegado: contacto_pegado ∈ BOOL
+tipo_mantenimiento_pendiente: mantenimiento_pendiente ∈ BOOL
+tipo_emergencia_activa: emergencia_activa ∈ BOOL
+tipo_fallo_contacto: fallo_contacto ∈ BOOL
+tipo_rearme_vigente: rearme_vigente ∈ BOOL
+tipo_edad_sensor: edad_sensor ∈ ℕ
+tipo_edad_heartbeat: edad_heartbeat ∈ ℕ
+tipo_secuencia_heartbeat: secuencia_heartbeat ∈ ℕ
+tipo_sesion: sesion ∈ ℕ
+tipo_edad_apertura: edad_apertura ∈ ℕ
+tipo_presencia: presencia_observada ⊆ O
+enlace_potencia: contacto_real = bool(P ≠ ∅)
+enlace_aislamiento: seccionador_real = aislado
+enlace_puerta: puerta_real_cerrada = puerta_cerrada
+enlace_parada: movimiento_real = bool(cero = FALSE)
+INV_05: fallo = TRUE ⇒ orden_contactor = FALSE ∧ permiso_acceso = FALSE
+INV_06: permiso_acceso = TRUE ⇒ permiso = TRUE ∧ fallo = FALSE ∧ datos_validos = TRUE ∧ edad_sensor < LIM_SENSOR ∧ edad_heartbeat < LIM_HEARTBEAT ∧ presencia_observada = dom(U)
+INV_07: permiso_acceso = TRUE ⇒ contacto_real = FALSE ∧ seccionador_real = TRUE ∧ movimiento_real = FALSE ∧ L = O × Z
+INV_08: orden_contactor = TRUE ⇒ fallo = FALSE ∧ datos_validos = TRUE ∧ edad_sensor < LIM_SENSOR ∧ edad_heartbeat < LIM_HEARTBEAT ∧ fase ∈ {LISTO, MARCHA} ∧ U = ∅ ∧ L = ∅ ∧ aislado = FALSE ∧ puerta_cerrada = TRUE ∧ permiso_acceso = FALSE ∧ presencia_observada = dom(U)
+inv_espera: esperando_apertura = TRUE ⇒ orden_contactor = FALSE ∧ contacto_real = TRUE
+inv_edad_apertura: esperando_apertura = FALSE ⇒ edad_apertura = 0
+inv_diagnostico: fallo_contacto = TRUE ⇒ fallo = TRUE
+inv_rearme_fallo: fallo = TRUE ⇒ rearme_vigente = FALSE
+inv_rearme_orden: orden_contactor = TRUE ∧ fase = LISTO ⇒ rearme_vigente = TRUE
 EVENTS
-  DetectarFallo
-    WHEN fallo = TRUE ∨ contacto_real = TRUE ∧ ran(U) ≠ ∅
-    THEN orden_contactor ≔ FALSE || permiso_acceso ≔ FALSE || fase ≔ FALLO END
-  ConfirmarApertura
-    WHEN orden_contactor = FALSE ∧ contacto_real = FALSE
-    THEN P ≔ ∅ END
-  AutorizarAcceso
-    WHEN fase = MANTENIMIENTO ∧ contacto_real = FALSE ∧ seccionador_real = TRUE ∧ velocidad = 0 ∧ L = O × Z
-    THEN permiso_acceso ≔ TRUE END
+ EVENT INITIALISATION [ordinary]
+  WHERE
+  THEN
+   act1: P ≔ ∅
+   act2: U ≔ ∅
+   act3: L ≔ ∅
+   act4: fase ≔ INICIO_SEGURO
+   act5: aislado ≔ FALSE
+   act6: cero ≔ TRUE
+   act7: puerta_cerrada ≔ TRUE
+   act8: permiso ≔ FALSE
+   act9: intervencion ≔ FALSE
+   act10: orden_contactor ≔ FALSE
+   act11: contacto_real ≔ FALSE
+   act12: seccionador_real ≔ FALSE
+   act13: puerta_real_cerrada ≔ TRUE
+   act14: movimiento_real ≔ FALSE
+   act15: permiso_acceso ≔ FALSE
+   act16: fallo ≔ FALSE
+   act17: datos_validos ≔ TRUE
+   act18: esperando_apertura ≔ FALSE
+   act19: contacto_pegado ≔ FALSE
+   act20: mantenimiento_pendiente ≔ FALSE
+   act21: emergencia_activa ≔ FALSE
+   act22: fallo_contacto ≔ FALSE
+   act23: rearme_vigente ≔ FALSE
+   act24: edad_sensor ≔ 0
+   act25: edad_heartbeat ≔ 0
+   act26: secuencia_heartbeat ≔ 0
+   act27: sesion ≔ 0
+   act28: edad_apertura ≔ 0
+   act29: presencia_observada ≔ ∅
+ END
+ EVENT Reset REFINES Reset [ordinary]
+  WHERE
+   grd1: fase ∈ {INICIO_SEGURO, RESTABLECIMIENTO, PARADA}
+   grd2: P = ∅
+   grd3: U = ∅
+   grd4: L = ∅
+   grd5: aislado = FALSE
+   grd6: cero = TRUE
+   grd7: puerta_cerrada = TRUE
+   grd8: permiso = FALSE
+   grd9: intervencion = FALSE
+   grd10: fallo = FALSE
+   grd11: datos_validos = TRUE
+   grd12: edad_sensor < LIM_SENSOR
+   grd13: edad_heartbeat < LIM_HEARTBEAT
+   grd14: emergencia_activa = FALSE
+   grd15: presencia_observada = dom(U)
+   grd16: orden_contactor = FALSE
+   grd17: esperando_apertura = FALSE
+  THEN
+   act1: fase ≔ LISTO
+   act2: permiso_acceso ≔ FALSE
+   act3: rearme_vigente ≔ TRUE
+ END
+ EVENT Energizar REFINES Energizar [ordinary]
+  ANY z
+  WHERE
+   grd1: z ∈ Z
+   grd2: z ∉ P
+   grd3: z ∉ ran(U)
+   grd4: fase = LISTO
+   grd5: L = ∅
+   grd6: aislado = FALSE
+   grd7: cero = TRUE
+   grd8: puerta_cerrada = TRUE
+   grd9: permiso = FALSE
+   grd10: fallo = FALSE
+   grd11: datos_validos = TRUE
+   grd12: edad_sensor < LIM_SENSOR
+   grd13: edad_heartbeat < LIM_HEARTBEAT
+   grd14: emergencia_activa = FALSE
+   grd15: presencia_observada = dom(U)
+   grd16: orden_contactor = TRUE
+   grd17: contacto_pegado = FALSE
+   grd18: rearme_vigente = TRUE
+  THEN
+   act1: P ≔ P ∪ {z}
+   act2: fase ≔ MARCHA
+   act3: cero ≔ FALSE
+   act4: contacto_real ≔ TRUE
+   act5: movimiento_real ≔ TRUE
+   act6: rearme_vigente ≔ FALSE
+ END
+ EVENT Cortar REFINES Cortar [ordinary]
+  ANY z
+  WHERE
+   grd1: z ∈ P
+   grd2: P = {z}
+   grd3: fase = MARCHA
+   grd4: esperando_apertura = TRUE
+   grd5: contacto_pegado = FALSE
+   grd6: mantenimiento_pendiente = FALSE
+  THEN
+   act1: P ≔ P ∖ {z}
+   act2: fase ≔ PARADA
+   act3: permiso ≔ FALSE
+   act4: intervencion ≔ FALSE
+   act5: contacto_real ≔ FALSE
+   act6: orden_contactor ≔ FALSE
+   act7: permiso_acceso ≔ FALSE
+   act8: esperando_apertura ≔ FALSE
+   act9: edad_apertura ≔ 0
+   act10: mantenimiento_pendiente ≔ FALSE
+ END
+ EVENT SolicitarMantenimiento REFINES SolicitarMantenimiento [ordinary]
+  ANY z
+  WHERE
+   grd1: z ∈ P
+   grd2: P = {z}
+   grd3: fase = MARCHA
+   grd4: esperando_apertura = TRUE
+   grd5: contacto_pegado = FALSE
+   grd6: mantenimiento_pendiente = TRUE
+  THEN
+   act1: P ≔ P ∖ {z}
+   act2: fase ≔ PARADA
+   act3: permiso ≔ FALSE
+   act4: intervencion ≔ TRUE
+   act5: contacto_real ≔ FALSE
+   act6: orden_contactor ≔ FALSE
+   act7: permiso_acceso ≔ FALSE
+   act8: esperando_apertura ≔ FALSE
+   act9: edad_apertura ≔ 0
+   act10: mantenimiento_pendiente ≔ FALSE
+ END
+ EVENT SolicitarDesdeListo REFINES SolicitarDesdeListo [ordinary]
+  WHERE
+   grd1: fase = LISTO
+   grd2: fallo = FALSE
+   grd3: datos_validos = TRUE
+   grd4: edad_sensor < LIM_SENSOR
+   grd5: edad_heartbeat < LIM_HEARTBEAT
+   grd6: emergencia_activa = FALSE
+   grd7: presencia_observada = dom(U)
+  THEN
+   act1: fase ≔ PARADA
+   act2: intervencion ≔ TRUE
+   act3: orden_contactor ≔ FALSE
+   act4: permiso_acceso ≔ FALSE
+   act5: rearme_vigente ≔ FALSE
+ END
+ EVENT ConfirmarParada REFINES ConfirmarParada [ordinary]
+  WHERE
+   grd1: fase = PARADA
+   grd2: P = ∅
+   grd3: cero = FALSE
+  THEN
+   act1: cero ≔ TRUE
+   act2: movimiento_real ≔ FALSE
+ END
+ EVENT Aislar REFINES Aislar [ordinary]
+  WHERE
+   grd1: fase = PARADA
+   grd2: intervencion = TRUE
+   grd3: P = ∅
+   grd4: cero = TRUE
+   grd5: fallo = FALSE
+   grd6: datos_validos = TRUE
+   grd7: edad_sensor < LIM_SENSOR
+   grd8: edad_heartbeat < LIM_HEARTBEAT
+   grd9: emergencia_activa = FALSE
+   grd10: presencia_observada = dom(U)
+  THEN
+   act1: aislado ≔ TRUE
+   act2: fase ≔ AISLAMIENTO
+   act3: seccionador_real ≔ TRUE
+ END
+ EVENT PrepararBloqueos REFINES PrepararBloqueos [ordinary]
+  WHERE
+   grd1: fase = AISLAMIENTO
+   grd2: aislado = TRUE
+   grd3: P = ∅
+   grd4: cero = TRUE
+   grd5: fallo = FALSE
+   grd6: datos_validos = TRUE
+   grd7: edad_sensor < LIM_SENSOR
+   grd8: edad_heartbeat < LIM_HEARTBEAT
+   grd9: emergencia_activa = FALSE
+   grd10: presencia_observada = dom(U)
+  THEN
+   act1: fase ≔ BLOQUEO
+ END
+ EVENT AplicarBloqueo REFINES AplicarBloqueo [ordinary]
+  ANY o, z, solicitante
+  WHERE
+   grd1: o ∈ O
+   grd2: z ∈ Z
+   grd3: solicitante = o
+   grd4: fase = BLOQUEO
+   grd5: aislado = TRUE
+   grd6: P = ∅
+   grd7: o ↦ z ∉ L
+   grd8: fallo = FALSE
+   grd9: datos_validos = TRUE
+   grd10: edad_sensor < LIM_SENSOR
+   grd11: edad_heartbeat < LIM_HEARTBEAT
+   grd12: emergencia_activa = FALSE
+   grd13: presencia_observada = dom(U)
+  THEN
+   act1: L ≔ L ∪ {o ↦ z}
+ END
+ EVENT CompletarBloqueos REFINES CompletarBloqueos [ordinary]
+  WHERE
+   grd1: fase = BLOQUEO
+   grd2: L = O × Z
+   grd3: fallo = FALSE
+   grd4: datos_validos = TRUE
+   grd5: edad_sensor < LIM_SENSOR
+   grd6: edad_heartbeat < LIM_HEARTBEAT
+   grd7: emergencia_activa = FALSE
+   grd8: presencia_observada = dom(U)
+  THEN
+   act1: fase ≔ VERIFICACION_CERO
+ END
+ EVENT AutorizarAcceso REFINES AutorizarAcceso [ordinary]
+  WHERE
+   grd1: fase = VERIFICACION_CERO
+   grd2: P = ∅
+   grd3: aislado = TRUE
+   grd4: cero = TRUE
+   grd5: L = O × Z
+   grd6: fallo = FALSE
+   grd7: datos_validos = TRUE
+   grd8: edad_sensor < LIM_SENSOR
+   grd9: edad_heartbeat < LIM_HEARTBEAT
+   grd10: emergencia_activa = FALSE
+   grd11: presencia_observada = dom(U)
+  THEN
+   act1: fase ≔ MANTENIMIENTO
+   act2: permiso ≔ TRUE
+   act3: puerta_cerrada ≔ FALSE
+   act4: puerta_real_cerrada ≔ FALSE
+   act5: permiso_acceso ≔ TRUE
+ END
+ EVENT Ingresar REFINES Ingresar [ordinary]
+  ANY o, z
+  WHERE
+   grd1: o ∈ O
+   grd2: z ∈ Z
+   grd3: z ∉ P
+   grd4: o ∉ dom(U)
+   grd5: fase = MANTENIMIENTO
+   grd6: permiso = TRUE
+   grd7: o ↦ z ∈ L
+   grd8: fallo = FALSE
+   grd9: datos_validos = TRUE
+   grd10: edad_sensor < LIM_SENSOR
+   grd11: edad_heartbeat < LIM_HEARTBEAT
+   grd12: emergencia_activa = FALSE
+   grd13: presencia_observada = dom(U)
+   grd14: permiso_acceso = TRUE
+  THEN
+   act1: U ≔ U ∪ {o ↦ z}
+   act2: presencia_observada ≔ presencia_observada ∪ {o}
+ END
+ EVENT Salir REFINES Salir [ordinary]
+  ANY o, z
+  WHERE
+   grd1: o ∈ O
+   grd2: z ∈ Z
+   grd3: o ↦ z ∈ U
+  THEN
+   act1: U ≔ U ∖ {o ↦ z}
+   act2: presencia_observada ≔ dom(U ∖ {o ↦ z})
+ END
+ EVENT FinalizarMantenimiento REFINES FinalizarMantenimiento [ordinary]
+  WHERE
+   grd1: fase = MANTENIMIENTO
+   grd2: U = ∅
+  THEN
+   act1: permiso ≔ FALSE
+   act2: fase ≔ LIBERACION
+   act3: permiso_acceso ≔ FALSE
+ END
+ EVENT RetirarBloqueo REFINES RetirarBloqueo [ordinary]
+  ANY o, z, solicitante
+  WHERE
+   grd1: o ∈ O
+   grd2: z ∈ Z
+   grd3: o ↦ z ∈ L
+   grd4: solicitante = o
+   grd5: o ∉ dom(U)
+   grd6: fase = LIBERACION
+  THEN
+   act1: L ≔ L ∖ {o ↦ z}
+ END
+ EVENT CerrarAcceso REFINES CerrarAcceso [ordinary]
+  WHERE
+   grd1: fase = LIBERACION
+   grd2: L = ∅
+   grd3: U = ∅
+   grd4: permiso = FALSE
+  THEN
+   act1: puerta_cerrada ≔ TRUE
+   act2: fase ≔ RESTABLECIMIENTO
+   act3: puerta_real_cerrada ≔ TRUE
+ END
+ EVENT Restablecer REFINES Restablecer [ordinary]
+  WHERE
+   grd1: fase = RESTABLECIMIENTO
+   grd2: L = ∅
+   grd3: U = ∅
+   grd4: P = ∅
+   grd5: puerta_cerrada = TRUE
+   grd6: aislado = TRUE
+  THEN
+   act1: aislado ≔ FALSE
+   act2: intervencion ≔ FALSE
+   act3: seccionador_real ≔ FALSE
+ END
+ EVENT ResetListo [ordinary]
+  WHERE
+   grd1: fallo = FALSE
+   grd2: datos_validos = TRUE
+   grd3: edad_sensor < LIM_SENSOR
+   grd4: edad_heartbeat < LIM_HEARTBEAT
+   grd5: emergencia_activa = FALSE
+   grd6: presencia_observada = dom(U)
+   grd7: fase = LISTO
+   grd8: orden_contactor = FALSE
+   grd9: rearme_vigente = FALSE
+  THEN
+   act1: rearme_vigente ≔ TRUE
+ END
+ EVENT SolicitarArranque [ordinary]
+  WHERE
+   grd1: fallo = FALSE
+   grd2: datos_validos = TRUE
+   grd3: edad_sensor < LIM_SENSOR
+   grd4: edad_heartbeat < LIM_HEARTBEAT
+   grd5: emergencia_activa = FALSE
+   grd6: presencia_observada = dom(U)
+   grd7: fase = LISTO
+   grd8: orden_contactor = FALSE
+   grd9: esperando_apertura = FALSE
+   grd10: rearme_vigente = TRUE
+  THEN
+   act1: orden_contactor ≔ TRUE
+ END
+ EVENT CancelarArranque [ordinary]
+  WHERE
+   grd1: fase = LISTO
+   grd2: rearme_vigente = TRUE
+  THEN
+   act1: orden_contactor ≔ FALSE
+   act2: rearme_vigente ≔ FALSE
+ END
+ EVENT OrdenarParada [ordinary]
+  WHERE
+   grd1: fase = MARCHA
+   grd2: contacto_real = TRUE
+   grd3: esperando_apertura = FALSE
+  THEN
+   act1: orden_contactor ≔ FALSE
+   act2: permiso_acceso ≔ FALSE
+   act3: esperando_apertura ≔ TRUE
+   act4: edad_apertura ≔ 0
+   act5: mantenimiento_pendiente ≔ FALSE
+ END
+ EVENT OrdenarMantenimiento [ordinary]
+  WHERE
+   grd1: fase = MARCHA
+   grd2: contacto_real = TRUE
+   grd3: esperando_apertura = FALSE
+  THEN
+   act1: orden_contactor ≔ FALSE
+   act2: permiso_acceso ≔ FALSE
+   act3: esperando_apertura ≔ TRUE
+   act4: edad_apertura ≔ 0
+   act5: mantenimiento_pendiente ≔ TRUE
+ END
+ EVENT DatoInvalido [ordinary]
+  WHERE
+   grd1: datos_validos = TRUE
+  THEN
+   act1: fallo ≔ TRUE
+   act2: orden_contactor ≔ FALSE
+   act3: permiso_acceso ≔ FALSE
+   act4: rearme_vigente ≔ FALSE
+   act5: esperando_apertura ≔ contacto_real
+   act6: mantenimiento_pendiente ≔ FALSE
+   act7: datos_validos ≔ FALSE
+ END
+ EVENT Discrepancia [ordinary]
+  ANY observados
+  WHERE
+   grd1: observados ⊆ O
+   grd2: observados ≠ dom(U)
+  THEN
+   act1: fallo ≔ TRUE
+   act2: orden_contactor ≔ FALSE
+   act3: permiso_acceso ≔ FALSE
+   act4: rearme_vigente ≔ FALSE
+   act5: esperando_apertura ≔ contacto_real
+   act6: mantenimiento_pendiente ≔ FALSE
+   act7: presencia_observada ≔ observados
+   act8: datos_validos ≔ FALSE
+   act9: edad_sensor ≔ 0
+ END
+ EVENT ActualizarSensor [ordinary]
+  WHERE
+  THEN
+   act1: presencia_observada ≔ dom(U)
+   act2: datos_validos ≔ TRUE
+   act3: edad_sensor ≔ 0
+ END
+ EVENT RecibirHeartbeat [ordinary]
+  ANY sesion_recibida, secuencia
+  WHERE
+   grd1: sesion_recibida = sesion
+   grd2: secuencia ∈ ℕ
+   grd3: secuencia > secuencia_heartbeat
+  THEN
+   act1: secuencia_heartbeat ≔ secuencia
+   act2: edad_heartbeat ≔ 0
+ END
+ EVENT TickVigente [ordinary]
+  ANY a
+  WHERE
+   grd1: a ∈ ℕ
+   grd2: esperando_apertura = TRUE ⇒ a = edad_apertura + 1
+   grd3: esperando_apertura = FALSE ⇒ a = 0
+   grd4: ¬(edad_sensor + 1 ≥ LIM_SENSOR ∨ edad_heartbeat + 1 ≥ LIM_HEARTBEAT ∨ (esperando_apertura = TRUE ∧ a ≥ LIM_APERTURA))
+  THEN
+   act1: edad_sensor ≔ edad_sensor + 1
+   act2: edad_heartbeat ≔ edad_heartbeat + 1
+   act3: edad_apertura ≔ a
+ END
+ EVENT TickCaducado [ordinary]
+  ANY a
+  WHERE
+   grd1: a ∈ ℕ
+   grd2: esperando_apertura = TRUE ⇒ a = edad_apertura + 1
+   grd3: esperando_apertura = FALSE ⇒ a = 0
+   grd4: edad_sensor + 1 ≥ LIM_SENSOR ∨ edad_heartbeat + 1 ≥ LIM_HEARTBEAT ∨ (esperando_apertura = TRUE ∧ a ≥ LIM_APERTURA)
+  THEN
+   act1: fallo ≔ TRUE
+   act2: orden_contactor ≔ FALSE
+   act3: permiso_acceso ≔ FALSE
+   act4: rearme_vigente ≔ FALSE
+   act5: esperando_apertura ≔ contacto_real
+   act6: mantenimiento_pendiente ≔ FALSE
+   act7: edad_sensor ≔ edad_sensor + 1
+   act8: edad_heartbeat ≔ edad_heartbeat + 1
+   act9: edad_apertura ≔ a
+   act10: fallo_contacto ≔ bool(fallo_contacto = TRUE ∨ (esperando_apertura = TRUE ∧ a ≥ LIM_APERTURA))
+ END
+ EVENT PegarContacto [ordinary]
+  WHERE
+   grd1: contacto_real = TRUE
+   grd2: contacto_pegado = FALSE
+  THEN
+   act1: contacto_pegado ≔ TRUE
+ END
+ EVENT RepararContacto [ordinary]
+  WHERE
+   grd1: fallo = TRUE
+   grd2: orden_contactor = FALSE
+   grd3: contacto_pegado = TRUE
+  THEN
+   act1: contacto_pegado ≔ FALSE
+ END
+ EVENT Emergencia [ordinary]
+  WHERE
+   grd1: emergencia_activa = FALSE
+  THEN
+   act1: fallo ≔ TRUE
+   act2: orden_contactor ≔ FALSE
+   act3: permiso_acceso ≔ FALSE
+   act4: rearme_vigente ≔ FALSE
+   act5: esperando_apertura ≔ contacto_real
+   act6: mantenimiento_pendiente ≔ FALSE
+   act7: emergencia_activa ≔ TRUE
+ END
+ EVENT LiberarEmergencia [ordinary]
+  WHERE
+   grd1: emergencia_activa = TRUE
+  THEN
+   act1: emergencia_activa ≔ FALSE
+ END
+ EVENT ReiniciarSupervisor [ordinary]
+  WHERE
+  THEN
+   act1: fallo ≔ TRUE
+   act2: orden_contactor ≔ FALSE
+   act3: permiso_acceso ≔ FALSE
+   act4: rearme_vigente ≔ FALSE
+   act5: esperando_apertura ≔ contacto_real
+   act6: mantenimiento_pendiente ≔ FALSE
+   act7: datos_validos ≔ FALSE
+   act8: sesion ≔ sesion + 1
+   act9: secuencia_heartbeat ≔ 0
+   act10: edad_heartbeat ≔ LIM_HEARTBEAT
+ END
+ EVENT ReconocerFallo [ordinary]
+  WHERE
+   grd1: fallo = TRUE
+   grd2: contacto_real = FALSE
+   grd3: movimiento_real = FALSE
+   grd4: U = ∅
+   grd5: puerta_real_cerrada = TRUE
+   grd6: (L = ∅ ∧ aislado = FALSE ∧ fase ∈ {INICIO_SEGURO, LISTO, PARADA, RESTABLECIMIENTO}) ∨ (aislado = TRUE ∧ fase ∈ {AISLAMIENTO, BLOQUEO, VERIFICACION_CERO})
+   grd7: emergencia_activa = FALSE
+   grd8: contacto_pegado = FALSE
+   grd9: datos_validos = TRUE
+   grd10: presencia_observada = dom(U)
+   grd11: edad_sensor < LIM_SENSOR
+   grd12: edad_heartbeat < LIM_HEARTBEAT
+   grd13: esperando_apertura = FALSE
+  THEN
+   act1: fallo ≔ FALSE
+   act2: fallo_contacto ≔ FALSE
+ END
 END
-
-NOTA: borrador legible de M2. Requiere traducción a proyecto Rodin nativo,
-revisión de tipos y descarga de POs antes de cualquier afirmación formal.

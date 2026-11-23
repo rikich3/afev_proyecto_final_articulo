@@ -1,0 +1,21 @@
+{
+  "fecha_utc": "2026-11-23T04:33:51.463495+00:00",
+  "modo": "demostracion",
+  "rodin": "3.10.0.202607010932-881664d81",
+  "jdk": "openjdk version \"21.0.12.1\" 2026-08-18",
+  "chequeo_estatico": "sin_errores",
+  "M2_generadas": 188,
+  "M2_demostradas": 188,
+  "total_comprobadas": 272,
+  "sha256_fuentes": {
+    "modelo/rodin/Enclavamiento/C0.buc": "b1bad9008f2e4d20a1ab6baa12be214c015c4253ef70007774fa3766b769d66c",
+    "modelo/rodin/Enclavamiento/M0.bum": "b8ad8cdf2a3b620c0b1d0c91fdd7833335488fd852273b54e01f9383f4be571c",
+    "modelo/rodin/Enclavamiento/C1.buc": "702644974865349ea42a923d308f1b24ba62ddd4abb49a3702dcd7f11d7b189f",
+    "modelo/rodin/Enclavamiento/M1.bum": "eb6efb9fa118e371023e460d7d35d7c8b77c0e02ee0eab02493397e54f496948",
+    "modelo/rodin/Enclavamiento/C2.buc": "1a9929a79d33cf69440e91ec59f220bc59788d4cac4770608963d2f93e2e2102",
+    "modelo/rodin/Enclavamiento/M2.bum": "b4414b2e1d9403d4dd564b4425bd5491f76102cd6f7621e1bf9af8bad2f68457",
+    "modelo/rodin/Enclavamiento/M2.bpr": "96b08307bf7a1d02a61e811d47c316bc0cd6a02fcf5b4976eddb3d22c4e45caf"
+  },
+  "sha256_log": "915193b7ab4a0e4119bdc5f34ecf1837a3e3eeded2fd04527036c8d0c0dc2414",
+  "sha256_estados": "0dda3f9b3439cc8cf351deb5afbbd15c02964d8fd39dabd9520c47d96a0295de"
+}

@@ -1,30 +1,218 @@
-REFINEMENT M1
+MACHINE M1
 REFINES M0
-SEES C0
-VARIABLES
-  P U L fase
+SEES C1
+VARIABLES P U L fase aislado cero puerta_cerrada permiso intervencion
 INVARIANTS
-  inv_P: P ⊆ Z
-  inv_U: U ⊆ O × Z
   inv_L: L ⊆ O × Z
-  inv_fase: fase ∈ {INICIO_SEGURO, LISTO, MARCHA, PARADA, AISLAMIENTO, BLOQUEO, MANTENIMIENTO, LIBERACION, RESTABLECIMIENTO, FALLO}
-  INV_01: ran(U) ∩ P = ∅
+  inv_fase: fase ∈ FASES
+  inv_aislado: aislado ∈ BOOL
+  inv_cero: cero ∈ BOOL
+  inv_puerta: puerta_cerrada ∈ BOOL
+  inv_permiso: permiso ∈ BOOL
+  inv_intervencion: intervencion ∈ BOOL
   INV_02: ran(L) ∩ P = ∅
-  INV_03: fase = MANTENIMIENTO ⇒ P = ∅ ∧ L = O × Z
-  INV_04: fase = MARCHA ⇒ U = ∅ ∧ L = ∅
+  INV_03: permiso = TRUE ⇒ fase = MANTENIMIENTO ∧ P = ∅ ∧ aislado = TRUE ∧ cero = TRUE ∧ L = O × Z ∧ puerta_cerrada = FALSE
+  INV_04: P ≠ ∅ ⇒ fase = MARCHA ∧ U = ∅ ∧ L = ∅ ∧ aislado = FALSE ∧ puerta_cerrada = TRUE ∧ permiso = FALSE
+  inv_titulares: dom(U) ⊆ dom(L)
+  inv_bloqueo_aislado: L ≠ ∅ ⇒ aislado = TRUE
+  inv_zona_libre: fase ∈ {INICIO_SEGURO, LISTO, MARCHA, LIBERACION, RESTABLECIMIENTO} ⇒ U = ∅
+  inv_listo: fase = LISTO ⇒ P = ∅ ∧ L = ∅ ∧ aislado = FALSE ∧ cero = TRUE ∧ puerta_cerrada = TRUE ∧ permiso = FALSE
 EVENTS
-  INITIALISATION REFINES INITIALISATION
-    THEN P ≔ ∅ || U ≔ ∅ || L ≔ ∅ || fase ≔ INICIO_SEGURO END
-  AplicarBloqueo
-    ANY o,z WHERE o ∈ O ∧ z ∈ Z ∧ fase = BLOQUEO ∧ P = ∅ THEN L ≔ L ∪ {o ↦ z} END
-  AutorizarMantenimiento
-    REFINES Ingresar
-    ANY o,z WHERE o ∈ O ∧ z ∈ Z ∧ fase = MANTENIMIENTO ∧ L = O × Z ∧ P = ∅ ∧ o ∉ dom(U)
-    THEN U ≔ U ∪ {o ↦ z} END
-  RetirarBloqueo
-    ANY o,z WHERE o ↦ z ∈ L ∧ o ∉ dom(U) ∧ fase = LIBERACION
-    THEN L ≔ L ∖ {o ↦ z} END
+  EVENT INITIALISATION [ordinary]
+    THEN
+      act1: P ≔ ∅
+      act2: U ≔ ∅
+      act3: L ≔ ∅
+      act4: fase ≔ INICIO_SEGURO
+      act5: aislado ≔ FALSE
+      act6: cero ≔ TRUE
+      act7: puerta_cerrada ≔ TRUE
+      act8: permiso ≔ FALSE
+      act9: intervencion ≔ FALSE
+    END
+  EVENT Reset [ordinary]
+    WHERE
+      grd1: fase ∈ {INICIO_SEGURO, RESTABLECIMIENTO, PARADA}
+      grd2: P = ∅
+      grd3: U = ∅
+      grd4: L = ∅
+      grd5: aislado = FALSE
+      grd6: cero = TRUE
+      grd7: puerta_cerrada = TRUE
+      grd8: permiso = FALSE
+      grd9: intervencion = FALSE
+    THEN
+      act1: fase ≔ LISTO
+    END
+  EVENT Energizar REFINES Energizar [ordinary]
+    ANY z
+    WHERE
+      grd1: z ∈ Z
+      grd2: z ∉ P
+      grd3: z ∉ ran(U)
+      grd4: fase = LISTO
+      grd5: L = ∅
+      grd6: aislado = FALSE
+      grd7: cero = TRUE
+      grd8: puerta_cerrada = TRUE
+      grd9: permiso = FALSE
+    THEN
+      act1: P ≔ P ∪ {z}
+      act2: fase ≔ MARCHA
+      act3: cero ≔ FALSE
+    END
+  EVENT Cortar REFINES Cortar [ordinary]
+    ANY z
+    WHERE
+      grd1: z ∈ P
+      grd2: P = {z}
+      grd3: fase = MARCHA
+    THEN
+      act1: P ≔ P ∖ {z}
+      act2: fase ≔ PARADA
+      act3: permiso ≔ FALSE
+      act4: intervencion ≔ FALSE
+    END
+  EVENT SolicitarMantenimiento REFINES Cortar [ordinary]
+    ANY z
+    WHERE
+      grd1: z ∈ P
+      grd2: P = {z}
+      grd3: fase = MARCHA
+    THEN
+      act1: P ≔ P ∖ {z}
+      act2: fase ≔ PARADA
+      act3: permiso ≔ FALSE
+      act4: intervencion ≔ TRUE
+    END
+  EVENT SolicitarDesdeListo [ordinary]
+    WHERE
+      grd1: fase = LISTO
+    THEN
+      act1: fase ≔ PARADA
+      act2: intervencion ≔ TRUE
+    END
+  EVENT ConfirmarParada [ordinary]
+    WHERE
+      grd1: fase = PARADA
+      grd2: P = ∅
+      grd3: cero = FALSE
+    THEN
+      act1: cero ≔ TRUE
+    END
+  EVENT Aislar [ordinary]
+    WHERE
+      grd1: fase = PARADA
+      grd2: intervencion = TRUE
+      grd3: P = ∅
+      grd4: cero = TRUE
+    THEN
+      act1: aislado ≔ TRUE
+      act2: fase ≔ AISLAMIENTO
+    END
+  EVENT PrepararBloqueos [ordinary]
+    WHERE
+      grd1: fase = AISLAMIENTO
+      grd2: aislado = TRUE
+      grd3: P = ∅
+      grd4: cero = TRUE
+    THEN
+      act1: fase ≔ BLOQUEO
+    END
+  EVENT AplicarBloqueo [ordinary]
+    ANY o, z, solicitante
+    WHERE
+      grd1: o ∈ O
+      grd2: z ∈ Z
+      grd3: solicitante = o
+      grd4: fase = BLOQUEO
+      grd5: aislado = TRUE
+      grd6: P = ∅
+      grd7: o ↦ z ∉ L
+    THEN
+      act1: L ≔ L ∪ {o ↦ z}
+    END
+  EVENT CompletarBloqueos [ordinary]
+    WHERE
+      grd1: fase = BLOQUEO
+      grd2: L = O × Z
+    THEN
+      act1: fase ≔ VERIFICACION_CERO
+    END
+  EVENT AutorizarAcceso [ordinary]
+    WHERE
+      grd1: fase = VERIFICACION_CERO
+      grd2: P = ∅
+      grd3: aislado = TRUE
+      grd4: cero = TRUE
+      grd5: L = O × Z
+    THEN
+      act1: fase ≔ MANTENIMIENTO
+      act2: permiso ≔ TRUE
+      act3: puerta_cerrada ≔ FALSE
+    END
+  EVENT Ingresar REFINES Ingresar [ordinary]
+    ANY o, z
+    WHERE
+      grd1: o ∈ O
+      grd2: z ∈ Z
+      grd3: z ∉ P
+      grd4: o ∉ dom(U)
+      grd5: fase = MANTENIMIENTO
+      grd6: permiso = TRUE
+      grd7: o ↦ z ∈ L
+    THEN
+      act1: U ≔ U ∪ {o ↦ z}
+    END
+  EVENT Salir REFINES Salir [ordinary]
+    ANY o, z
+    WHERE
+      grd1: o ∈ O
+      grd2: z ∈ Z
+      grd3: o ↦ z ∈ U
+    THEN
+      act1: U ≔ U ∖ {o ↦ z}
+    END
+  EVENT FinalizarMantenimiento [ordinary]
+    WHERE
+      grd1: fase = MANTENIMIENTO
+      grd2: U = ∅
+    THEN
+      act1: permiso ≔ FALSE
+      act2: fase ≔ LIBERACION
+    END
+  EVENT RetirarBloqueo [ordinary]
+    ANY o, z, solicitante
+    WHERE
+      grd1: o ∈ O
+      grd2: z ∈ Z
+      grd3: o ↦ z ∈ L
+      grd4: solicitante = o
+      grd5: o ∉ dom(U)
+      grd6: fase = LIBERACION
+    THEN
+      act1: L ≔ L ∖ {o ↦ z}
+    END
+  EVENT CerrarAcceso [ordinary]
+    WHERE
+      grd1: fase = LIBERACION
+      grd2: L = ∅
+      grd3: U = ∅
+      grd4: permiso = FALSE
+    THEN
+      act1: puerta_cerrada ≔ TRUE
+      act2: fase ≔ RESTABLECIMIENTO
+    END
+  EVENT Restablecer [ordinary]
+    WHERE
+      grd1: fase = RESTABLECIMIENTO
+      grd2: L = ∅
+      grd3: U = ∅
+      grd4: P = ∅
+      grd5: puerta_cerrada = TRUE
+      grd6: aislado = TRUE
+    THEN
+      act1: aislado ≔ FALSE
+      act2: intervencion ≔ FALSE
+    END
 END
-
-NOTA: borrador legible de M1. Aún no existe una máquina nativa Rodin ni POs
-generadas para este refinamiento; no se debe presentar como modelo comprobado.

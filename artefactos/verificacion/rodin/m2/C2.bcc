@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/Enclavamiento/C1.bcc|org.eventb.core.scContextFile#C1" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.extendsContext#ext_C1"/>
+    <org.eventb.core.scInternalContext name="C0">
+        <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(Z,{z1})" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#axm1" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(O,{o1},{o2})" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#axm2" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scCarrierSet name="O" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#O" org.eventb.core.type="ℙ(O)"/>
+        <org.eventb.core.scCarrierSet name="Z" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#Z" org.eventb.core.type="ℙ(Z)"/>
+        <org.eventb.core.scConstant name="o1" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#o1" org.eventb.core.type="O"/>
+        <org.eventb.core.scConstant name="o2" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#o2" org.eventb.core.type="O"/>
+        <org.eventb.core.scConstant name="z1" org.eventb.core.source="/Enclavamiento/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#z1" org.eventb.core.type="Z"/>
+    </org.eventb.core.scInternalContext>
+    <org.eventb.core.scInternalContext name="C1">
+        <org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/Enclavamiento/C0.bcc|org.eventb.core.scContextFile#C0" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.extendsContext#ext_C0"/>
+        <org.eventb.core.scAxiom name="C1" org.eventb.core.label="axm_fases" org.eventb.core.predicate="partition(FASES,{INICIO_SEGURO},{LISTO},{MARCHA},{PARADA},{AISLAMIENTO},{BLOQUEO},{VERIFICACION_CERO},{MANTENIMIENTO},{LIBERACION},{RESTABLECIMIENTO})" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.axiom#axm_fases" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scConstant name="PARADA" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#PARADA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="INICIO_SEGURO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#INICIO_SEGURO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="BLOQUEO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#BLOQUEO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scCarrierSet name="FASES" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.carrierSet#FASES" org.eventb.core.type="ℙ(FASES)"/>
+        <org.eventb.core.scConstant name="RESTABLECIMIENTO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#RESTABLECIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="MARCHA" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#MARCHA" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="MANTENIMIENTO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#MANTENIMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="VERIFICACION_CERO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#VERIFICACION_CERO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="AISLAMIENTO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#AISLAMIENTO" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="LIBERACION" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#LIBERACION" org.eventb.core.type="FASES"/>
+        <org.eventb.core.scConstant name="LISTO" org.eventb.core.source="/Enclavamiento/C1.buc|org.eventb.core.contextFile#C1|org.eventb.core.constant#LISTO" org.eventb.core.type="FASES"/>
+    </org.eventb.core.scInternalContext>
+    <org.eventb.core.scAxiom name="C2" org.eventb.core.label="axm_LIM_SENSOR" org.eventb.core.predicate="LIM_SENSOR=3" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.axiom#axm_LIM_SENSOR" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="C3" org.eventb.core.label="axm_LIM_HEARTBEAT" org.eventb.core.predicate="LIM_HEARTBEAT=5" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.axiom#axm_LIM_HEARTBEAT" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="C4" org.eventb.core.label="axm_LIM_APERTURA" org.eventb.core.predicate="LIM_APERTURA=3" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.axiom#axm_LIM_APERTURA" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="C5" org.eventb.core.label="axm_PASO_MS" org.eventb.core.predicate="PASO_MS=20" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.axiom#axm_PASO_MS" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scConstant name="PASO_MS" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.constant#PASO_MS" org.eventb.core.type="ℤ"/>
+    <org.eventb.core.scConstant name="LIM_APERTURA" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.constant#LIM_APERTURA" org.eventb.core.type="ℤ"/>
+    <org.eventb.core.scConstant name="LIM_SENSOR" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.constant#LIM_SENSOR" org.eventb.core.type="ℤ"/>
+    <org.eventb.core.scConstant name="LIM_HEARTBEAT" org.eventb.core.source="/Enclavamiento/C2.buc|org.eventb.core.contextFile#C2|org.eventb.core.constant#LIM_HEARTBEAT" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>

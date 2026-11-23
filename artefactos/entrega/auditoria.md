@@ -17,6 +17,7 @@
   El artículo conserva la observación de intrusión y del contacto pegado.
 - Se verificaron en local las 18 pruebas Python, las rutas del registro y
   la compilación del manuscrito en siete páginas, incluidas referencias.
-  El PDF de entrega añade la evidencia NuSMV como octava página.
+  La evidencia de NuSMV se conserva en los logs y el manifiesto del repositorio,
+  sin añadir una página al artículo.
 - Event-B es el lenguaje formal definido para la parte 1. La presentación y
   el video quedaron fuera del alcance acordado.

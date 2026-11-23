@@ -5,16 +5,14 @@ Artículo y código para una faja, una zona y dos operarios. Rodin reproduce
 propiedades del ciclo nominal. Python controla la escena CoppeliaSim por
 ZeroMQ. La campaña conserva trazas, manifiestos, capturas y resultados.
 
-- [PDF de entrega con anexo NuSMV (8 páginas)](articulo_entrega.pdf),
-  [manuscrito sin anexo (7 páginas)](articulo.pdf) y
+- [Artículo final (7 páginas)](articulo.pdf) y
   [escena integrada](simulacion/mina_integrada.ttt).
 - [Registro de artefactos](artefactos/artefactos.md) y [plan semanal](docs/plan_semanal.md).
 - [Requisitos](artefactos/especificacion/requisitos.md), [supuestos](artefactos/especificacion/riesgos.md),
   [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md).
 - [Resultados de integración](artefactos/validacion/integracion.md) y [trazabilidad](artefactos/validacion/trazabilidad.csv).
 - [Auditoría de originalidad y atribución](artefactos/entrega/originalidad.md).
-- [Anexo NuSMV incorporado al PDF de entrega](artefactos/verificacion/nusmv/evidencia.pdf),
-  con [modelo y logs reproducibles](modelo/nusmv/README.md).
+- [Modelo y logs de NuSMV](modelo/nusmv/README.md).
 
 ## Verificación y pruebas
 
@@ -61,15 +59,14 @@ directorio de salida nuevo para cada reproducción.
 
 ```sh
 typst compile main.typ articulo.pdf
-typst compile artefactos/verificacion/nusmv/evidencia.typ artefactos/verificacion/nusmv/evidencia.pdf
-qpdf --empty --pages articulo.pdf artefactos/verificacion/nusmv/evidencia.pdf -- articulo_entrega.pdf
 python herramientas/verificar.py
-pdfinfo articulo_entrega.pdf
+pdfinfo articulo.pdf
 ```
 
 La compilación registrada usa Typst 0.14.2 y las fuentes Liberation Serif y
-Liberation Mono. El manuscrito emplea tamaño carta, dos columnas y referencias
-IEEE; el anexo ocupa la octava página en una columna.
+Liberation Mono. El artículo emplea tamaño carta, dos columnas y referencias
+IEEE. Los registros de NuSMV permanecen en el repositorio como evidencia
+técnica; no se añaden como anexo al PDF.
 Ver el [procedimiento de reproducción](artefactos/entrega/reproduccion.md).
 La carpeta `entregable_02/` conserva un avance histórico y no define el
 manuscrito vigente.

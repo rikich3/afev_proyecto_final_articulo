@@ -5,9 +5,8 @@
 - Parte 2. Model Checking con NuSMV 2.6.0, una de las herramientas admitidas
   por la consigna. Cubre un modelo de estados del comportamiento nominal con
   tres propiedades de seguridad, dos de alcanzabilidad y controles negativos.
-  El [anexo PDF de NuSMV](../verificacion/nusmv/evidencia.pdf) está incorporado
-  como octava página del [PDF de entrega](../../articulo_entrega.pdf) y remite
-  a los logs y hashes reproducibles.
+  El [modelo y los logs](../../modelo/nusmv/README.md) conservan los resultados
+  y hashes reproducibles. Esta evidencia técnica no se adjunta al artículo.
 - Demostración de la planta. El artículo incorpora una captura y una tabla
   breve. El repositorio conserva escena, código, datos y reproducción.
 - La presentación y el video quedan fuera del alcance acordado.

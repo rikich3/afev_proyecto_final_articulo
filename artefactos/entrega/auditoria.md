@@ -16,6 +16,7 @@
 - Se comprobó el caso representado en la captura, su traza y su hash.
   El artículo conserva la observación de intrusión y del contacto pegado.
 - Se verificaron en local las 18 pruebas Python, las rutas del registro y
-  la compilación en siete páginas, incluidas referencias.
-- Queda confirmar con la docente la aceptación de Event-B en la parte 1.
-  La presentación y el video quedaron fuera del alcance acordado.
+  la compilación del manuscrito en siete páginas, incluidas referencias.
+  El PDF de entrega añade la evidencia NuSMV como octava página.
+- Event-B es el lenguaje formal definido para la parte 1. La presentación y
+  el video quedaron fuera del alcance acordado.

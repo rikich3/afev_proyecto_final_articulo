@@ -36,7 +36,7 @@ Todas las rutas son relativas a la raíz del repositorio. Los códigos son estab
 | A25 | Auditoría de requisitos y fuentes | `artefactos/entrega/auditoria.md`; `artefactos/entrega/originalidad.md`; `artefactos/entrega/originalidad.csv` | Revisión cruzada de RF/INV, cifras, citas, enlaces y prosa frente a fuentes originales. | Comprobación editorial, trazabilidad y cotejo de originalidad local completados | I1 | 7 |
 | A26 | Reproducción independiente | `artefactos/entrega/reproduccion.md` | Un integrante reproduce modelos, pruebas, experimento y PDF de otro. | Repetición local ejecutada; revisión por otro integrante pendiente | I2 | 7 |
 | A27 | Demostración y entrega técnica | `artefactos/entrega/guion.md`; `artefactos/entrega/demo.mp4`; `artefactos/entrega/manifest.sha256` | Guion corto, video y hashes de la versión entregada. | Escena, código, evidencias y huellas preparadas; video fuera de alcance | I3 | 7 |
-| A28 | Artículo final e integración editorial | `main.typ`; `estilo.typ`; `metadatos.typ`; `secciones/09-referencias.typ`; `articulo.pdf` | Compilación, autores, estilo basado en ejemplo y revisión final. | Artículo integrado y compilado en siete páginas | I4 | 7 |
+| A28 | Artículo final e integración editorial | `main.typ`; `estilo.typ`; `metadatos.typ`; `secciones/09-referencias.typ`; `articulo.pdf`; `articulo_entrega.pdf` | Compilación, autores, estilo basado en ejemplo y anexo NuSMV adjunto. | Manuscrito de siete páginas; PDF de entrega de ocho páginas con anexo | I4 | 7 |
 
 ## Convenciones y aceptación
 

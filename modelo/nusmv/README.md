@@ -24,13 +24,15 @@ El script conserva logs y hashes de modelo, binario y logs en
 copia temporal generada retirando únicamente la guarda de ingreso del primer
 operario. El log incluye el contraejemplo de MC01.
 
-Para adjuntar la evidencia de esta parte sin ampliar el artículo principal,
-usar el PDF de una página
-[`artefactos/verificacion/nusmv/evidencia.pdf`](../../artefactos/verificacion/nusmv/evidencia.pdf).
-La fuente editable es `evidencia.typ` en la misma carpeta. Se recompila con:
+La evidencia está adjunta como página 8 del
+[PDF de entrega](../../articulo_entrega.pdf). El
+[anexo de una página](../../artefactos/verificacion/nusmv/evidencia.pdf)
+también se conserva por separado. La fuente editable es `evidencia.typ`
+en la misma carpeta. Se recompila y une con:
 
 ```sh
 typst compile artefactos/verificacion/nusmv/evidencia.typ artefactos/verificacion/nusmv/evidencia.pdf
+qpdf --empty --pages articulo.pdf artefactos/verificacion/nusmv/evidencia.pdf -- articulo_entrega.pdf
 ```
 
 El PDF resume las cinco propiedades, el control negativo y el contraejemplo

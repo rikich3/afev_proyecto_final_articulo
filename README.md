@@ -5,13 +5,15 @@ Artículo y código para una faja, una zona y dos operarios. Rodin reproduce
 propiedades del ciclo nominal. Python controla la escena CoppeliaSim por
 ZeroMQ. La campaña conserva trazas, manifiestos, capturas y resultados.
 
-- [Artículo compilado](articulo.pdf) y [escena integrada](simulacion/mina_integrada.ttt).
+- [PDF de entrega con anexo NuSMV (8 páginas)](articulo_entrega.pdf),
+  [manuscrito sin anexo (7 páginas)](articulo.pdf) y
+  [escena integrada](simulacion/mina_integrada.ttt).
 - [Registro de artefactos](artefactos/artefactos.md) y [plan semanal](docs/plan_semanal.md).
 - [Requisitos](artefactos/especificacion/requisitos.md), [supuestos](artefactos/especificacion/riesgos.md),
   [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md).
 - [Resultados de integración](artefactos/validacion/integracion.md) y [trazabilidad](artefactos/validacion/trazabilidad.csv).
 - [Auditoría de originalidad y atribución](artefactos/entrega/originalidad.md).
-- [Evidencia NuSMV para adjuntar (PDF de una página)](artefactos/verificacion/nusmv/evidencia.pdf),
+- [Anexo NuSMV incorporado al PDF de entrega](artefactos/verificacion/nusmv/evidencia.pdf),
   con [modelo y logs reproducibles](modelo/nusmv/README.md).
 
 ## Verificación y pruebas
@@ -28,9 +30,8 @@ python herramientas/verificar_nusmv.py --bin /ruta/al/ejecutable/NuSMV
 python -m pytest -q
 ```
 
-La suite local pasó 18 pruebas. La parte 1 usa Event-B siguiendo las
-observaciones transmitidas de la docente. Queda confirmar con ella la
-sustitución de VDM++ de la consigna original.
+La suite local pasó 18 pruebas. La parte 1 usa Event-B como lenguaje de
+especificación formal, con modelos y pruebas reproducibles en Rodin.
 
 ## Reproducir CoppeliaSim
 
@@ -60,18 +61,23 @@ directorio de salida nuevo para cada reproducción.
 
 ```sh
 typst compile main.typ articulo.pdf
+typst compile artefactos/verificacion/nusmv/evidencia.typ artefactos/verificacion/nusmv/evidencia.pdf
+qpdf --empty --pages articulo.pdf artefactos/verificacion/nusmv/evidencia.pdf -- articulo_entrega.pdf
 python herramientas/verificar.py
-pdfinfo articulo.pdf
+pdfinfo articulo_entrega.pdf
 ```
 
 La compilación registrada usa Typst 0.14.2 y las fuentes Liberation Serif y
-Liberation Mono. El PDF emplea tamaño carta, dos columnas y referencias IEEE.
+Liberation Mono. El manuscrito emplea tamaño carta, dos columnas y referencias
+IEEE; el anexo ocupa la octava página en una columna.
 Ver el [procedimiento de reproducción](artefactos/entrega/reproduccion.md).
+La carpeta `entregable_02/` conserva un avance histórico y no define el
+manuscrito vigente.
 
 ## Historial y versiones
 
 Los cambios se registran por entregable, con el formato
 `tipo(alcance): descripción` de [Conventional Commits](docs/versionado.md).
 Las etiquetas `vMAJOR.MINOR.PATCH` identifican versiones reproducibles del
-artículo y sus artefactos. La serie `v0.9.x` es candidata: quedan la
-revisión cruzada del equipo y la confirmación docente del uso de Event-B.
+artículo y sus artefactos. Las versiones `v0.x` son candidatas hasta la
+revisión cruzada del equipo.

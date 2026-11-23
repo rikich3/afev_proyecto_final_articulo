@@ -1,15 +1,16 @@
 #let registro = json("manifiesto.json")
 
 #set document(
-  title: "Evidencia de Model Checking con NuSMV",
+  title: "Anexo A. Evidencia de Model Checking con NuSMV",
   author: "Equipo AFEV",
 )
-#set page(paper: "a4", margin: (x: 18mm, y: 17mm), numbering: "1")
+#set page(paper: "us-letter", margin: (x: 18mm, y: 17mm), numbering: "1")
+#counter(page).update(8)
 #set text(font: "Liberation Sans", size: 9pt, lang: "es")
 #set par(justify: true, leading: 0.42em, spacing: 0.6em)
 #show table.cell: set text(size: 8pt)
 
-#text(size: 15pt, weight: "bold")[Evidencia de Model Checking con NuSMV]
+#text(size: 15pt, weight: "bold")[Anexo A. Evidencia de Model Checking con NuSMV]
 #v(3pt)
 
 *Proyecto:* Enclavamiento de seguridad de una faja minera \

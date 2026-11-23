@@ -1,0 +1,24 @@
+{
+  "modelo": "modelo/nusmv/enclavamiento.smv",
+  "sha256_modelo": "27dfe5050b713bc692a46835d5f20f3f584ab4af212378704838d7485a69f34b",
+  "sha256_binario": "4b7f800ee7ab5a832112d864996f318830b4e0989b99af8339b19ee88b9871d6",
+  "comando": [
+    "NuSMV",
+    "-r",
+    "modelo/nusmv/enclavamiento.smv"
+  ],
+  "version": "*** This is NuSMV 2.6.0 (compiled on Wed Oct 14 15:36:56 2015)",
+  "resultados": [
+    "-- specification EF ((fase = MANTENIMIENTO & dentro1) & dentro2)  is true",
+    "-- specification EF (fase = LISTO & ciclo_completado)  is true",
+    "-- specification  G !(ocupada & potencia)  is true",
+    "-- specification  G (permiso_acceso -> ((aislado & energia_cero) & ambos_bloqueos))  is true",
+    "-- specification  G (bloqueada -> !potencia)  is true",
+    "-- specification  G !potencia  is false"
+  ],
+  "sensibilidad": "MC01 falsa al permitir ingreso sin permiso",
+  "sha256_logs": {
+    "intrusion.log": "5da2d501e2cf0aa90ef0f2326f95d93837c346be2021e7800f54e7725e932312",
+    "ejecucion.log": "990caef94fb2b0e9db3cf912cbcfc35b660f4eb4f6371d00b028dd630edcf1ea"
+  }
+}

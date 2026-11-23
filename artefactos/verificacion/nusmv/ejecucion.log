@@ -1,0 +1,98 @@
+*** This is NuSMV 2.6.0 (compiled on Wed Oct 14 15:36:56 2015)
+*** Enabled addons are: compass
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Please report bugs to <Please report bugs to <nusmv-users@fbk.eu>>
+
+*** Copyright (c) 2010-2014, Fondazione Bruno Kessler
+
+*** This version of NuSMV is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of NuSMV is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+-- specification EF ((fase = MANTENIMIENTO & dentro1) & dentro2)  is true
+-- specification EF (fase = LISTO & ciclo_completado)  is true
+-- specification  G !(ocupada & potencia)  is true
+-- specification  G (permiso_acceso -> ((aislado & energia_cero) & ambos_bloqueos))  is true
+-- specification  G (bloqueada -> !potencia)  is true
+-- specification  G !potencia  is false
+-- as demonstrated by the following execution sequence
+Trace Description: LTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    fase = INICIO
+    potencia = FALSE
+    movimiento = FALSE
+    aislado = FALSE
+    puerta_cerrada = TRUE
+    dentro1 = FALSE
+    dentro2 = FALSE
+    bloqueo1 = FALSE
+    bloqueo2 = FALSE
+    intervencion = FALSE
+    ciclo_completado = FALSE
+    permiso_acceso = FALSE
+    ambos_ingresaron = FALSE
+    listo_fisico = TRUE
+    ambos_bloqueos = FALSE
+    energia_cero = TRUE
+    bloqueada = FALSE
+    ocupada = FALSE
+    reponer = FALSE
+    cerrar = FALSE
+    quitar2 = FALSE
+    quitar1 = FALSE
+    terminar = FALSE
+    entrar2 = FALSE
+    entrar1 = FALSE
+    parar_movimiento = FALSE
+    cortar = FALSE
+    parar = FALSE
+    solicitar = FALSE
+    arrancar = FALSE
+    reconocer = TRUE
+  -> Input: 1.2 <-
+    evento = reset
+  -> State: 1.2 <-
+    fase = LISTO
+    arrancar = TRUE
+    reconocer = FALSE
+  -> Input: 1.3 <-
+    evento = start
+  -> State: 1.3 <-
+    fase = MARCHA
+    potencia = TRUE
+    movimiento = TRUE
+    listo_fisico = FALSE
+    energia_cero = FALSE
+    parar = TRUE
+    arrancar = FALSE
+  -> Input: 1.4 <-
+    evento = stop
+  -> State: 1.4 <-
+    fase = PARADA
+    cortar = TRUE
+    parar = FALSE
+  -> Input: 1.5 <-
+    evento = abrir_contacto
+  -> State: 1.5 <-
+    potencia = FALSE
+    parar_movimiento = TRUE
+    cortar = FALSE
+  -> Input: 1.6 <-
+    evento = detener
+  -- Loop starts here
+  -> State: 1.6 <-
+    movimiento = FALSE
+    listo_fisico = TRUE
+    energia_cero = TRUE
+    parar_movimiento = FALSE
+  -> Input: 1.7 <-
+    evento = mantenimiento
+  -> State: 1.7 <-
+system diameter: 36
+reachable states: 119 (2^6.89482) out of 45056 (2^15.4594)

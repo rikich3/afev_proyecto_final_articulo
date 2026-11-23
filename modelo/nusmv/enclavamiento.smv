@@ -1,0 +1,138 @@
+-- Abstraccion finita nominal: una zona y dos operarios.
+-- El entorno elige un evento por transicion. Las confirmaciones son asincronas.
+-- Puerta y seccionador funcionan. La intrusion y el contacto pegado requieren
+-- modelos de fallo separados. No se representan segundos ni timeouts.
+MODULE main
+IVAR
+  evento : {esperar, reset, start, mantenimiento, stop, abrir_contacto,
+    detener, aislar, aplicar1, aplicar2, verificar, ingresar1, ingresar2,
+    salir1, salir2, finalizar, retirar1, retirar2, cerrar_puerta,
+    restablecer, emergencia};
+VAR
+  fase : {INICIO, LISTO, MARCHA, PARADA, AISLAMIENTO, BLOQUEO,
+    VERIFICACION, MANTENIMIENTO, LIBERACION, RESTABLECIMIENTO, FALLO};
+  potencia : boolean;
+  movimiento : boolean;
+  aislado : boolean;
+  puerta_cerrada : boolean;
+  dentro1 : boolean;
+  dentro2 : boolean;
+  bloqueo1 : boolean;
+  bloqueo2 : boolean;
+  intervencion : boolean;
+  ciclo_completado : boolean;
+  permiso_acceso : boolean;
+  ambos_ingresaron : boolean;
+DEFINE
+  ocupada := dentro1 | dentro2;
+  bloqueada := bloqueo1 | bloqueo2;
+  energia_cero := !potencia & !movimiento;
+  ambos_bloqueos := bloqueo1 & bloqueo2;
+  listo_fisico := !ocupada & !bloqueada & energia_cero & !aislado & puerta_cerrada;
+  reconocer := evento = reset & fase in {INICIO, RESTABLECIMIENTO, FALLO} & listo_fisico;
+  arrancar := evento = start & fase = LISTO & listo_fisico;
+  solicitar := evento = mantenimiento & fase in {LISTO, MARCHA};
+  parar := evento = stop & fase in {LISTO, MARCHA};
+  cortar := evento = abrir_contacto & fase in {PARADA, FALLO};
+  parar_movimiento := evento = detener & !potencia;
+  entrar1 := evento = ingresar1 & permiso_acceso & !dentro1;
+  entrar2 := evento = ingresar2 & permiso_acceso & !dentro2;
+  terminar := evento = finalizar & fase = MANTENIMIENTO & !ocupada;
+  quitar1 := evento = retirar1 & fase = LIBERACION & !dentro1;
+  quitar2 := evento = retirar2 & fase = LIBERACION & !dentro2;
+  cerrar := evento = cerrar_puerta & fase = LIBERACION & !ocupada & !bloqueada;
+  reponer := evento = restablecer & fase = RESTABLECIMIENTO & !ocupada & !bloqueada & puerta_cerrada;
+ASSIGN
+  init(fase) := INICIO;
+  init(potencia) := FALSE;
+  init(movimiento) := FALSE;
+  init(aislado) := FALSE;
+  init(puerta_cerrada) := TRUE;
+  init(dentro1) := FALSE;
+  init(dentro2) := FALSE;
+  init(bloqueo1) := FALSE;
+  init(bloqueo2) := FALSE;
+  init(intervencion) := FALSE;
+  init(ciclo_completado) := FALSE;
+  init(permiso_acceso) := FALSE;
+  init(ambos_ingresaron) := FALSE;
+  next(fase) := case
+    evento = emergencia : FALLO;
+    reconocer : LISTO;
+    arrancar : MARCHA;
+    solicitar | parar : PARADA;
+    fase = PARADA & energia_cero & !intervencion & evento = reset : LISTO;
+    fase = PARADA & energia_cero & intervencion & evento = aislar : AISLAMIENTO;
+    fase = AISLAMIENTO & aislado : BLOQUEO;
+    fase = BLOQUEO & ambos_bloqueos : VERIFICACION;
+    fase = VERIFICACION & evento = verificar & energia_cero & aislado & ambos_bloqueos : MANTENIMIENTO;
+    terminar : LIBERACION;
+    cerrar : RESTABLECIMIENTO;
+    TRUE : fase;
+  esac;
+  next(potencia) := case
+    arrancar : TRUE;
+    cortar : FALSE;
+    TRUE : potencia;
+  esac;
+  next(movimiento) := case
+    arrancar : TRUE;
+    parar_movimiento : FALSE;
+    TRUE : movimiento;
+  esac;
+  next(aislado) := case
+    fase = PARADA & energia_cero & intervencion & evento = aislar : TRUE;
+    reponer : FALSE;
+    TRUE : aislado;
+  esac;
+  next(puerta_cerrada) := case
+    fase = VERIFICACION & evento = verificar & energia_cero & aislado & ambos_bloqueos : FALSE;
+    cerrar : TRUE;
+    TRUE : puerta_cerrada;
+  esac;
+  next(dentro1) := case
+    entrar1 : TRUE;
+    evento = salir1 : FALSE;
+    TRUE : dentro1;
+  esac;
+  next(dentro2) := case
+    entrar2 : TRUE;
+    evento = salir2 : FALSE;
+    TRUE : dentro2;
+  esac;
+  next(bloqueo1) := case
+    evento = aplicar1 & fase = BLOQUEO & aislado & energia_cero : TRUE;
+    quitar1 : FALSE;
+    TRUE : bloqueo1;
+  esac;
+  next(bloqueo2) := case
+    evento = aplicar2 & fase = BLOQUEO & aislado & energia_cero : TRUE;
+    quitar2 : FALSE;
+    TRUE : bloqueo2;
+  esac;
+  next(intervencion) := case
+    solicitar : TRUE;
+    reconocer : FALSE;
+    TRUE : intervencion;
+  esac;
+  next(permiso_acceso) := case
+    evento = emergencia | terminar : FALSE;
+    fase = VERIFICACION & evento = verificar & energia_cero & aislado & ambos_bloqueos : TRUE;
+    TRUE : permiso_acceso;
+  esac;
+  next(ambos_ingresaron) := case
+    reconocer : FALSE;
+    dentro1 & dentro2 : TRUE;
+    TRUE : ambos_ingresaron;
+  esac;
+  next(ciclo_completado) := ciclo_completado |
+    (reconocer & fase = RESTABLECIMIENTO & ambos_ingresaron);
+-- Propiedades universales de seguridad (LTL).
+LTLSPEC NAME MC01 := G !(ocupada & potencia);
+LTLSPEC NAME MC02 := G (permiso_acceso -> (aislado & energia_cero & ambos_bloqueos));
+LTLSPEC NAME MC03 := G (bloqueada -> !potencia);
+-- Testigo de posibilidad (CTL), sin hipotesis de equidad.
+CTLSPEC NAME MC04 := EF (fase = MANTENIMIENTO & dentro1 & dentro2);
+CTLSPEC NAME MC05 := EF (fase = LISTO & ciclo_completado);
+-- Control negativo: la energizacion debe ser alcanzable. Se espera FALSE.
+LTLSPEC NAME CONTROL_NEGATIVO := G !potencia;

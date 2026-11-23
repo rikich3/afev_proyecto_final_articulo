@@ -1,8 +1,24 @@
 {
-  "estado": "preparada_pendiente_de_ejecucion",
+  "estado": "ejecutada_exploracion_no_exhaustiva",
   "modelo_objetivo": "M2",
-  "dominios_finitos": {"zonas": 1, "operarios": 2},
-  "comprobaciones": ["violacion_invariantes", "deadlock", "cobertura_eventos"],
-  "registrar": ["version_ProB", "limite_estados", "limite_tiempo_s", "estados", "transiciones", "completitud", "contraejemplos"],
-  "nota": "No ejecutar ni afirmar resultados hasta crear y validar M2 nativo en Rodin."
+  "dominios_finitos": {
+    "zonas": 1,
+    "operarios": 2
+  },
+  "comprobaciones": [
+    "violacion_invariantes",
+    "deadlock",
+    "cobertura_eventos"
+  ],
+  "registrar": [
+    "version_ProB",
+    "limite_estados",
+    "limite_tiempo_s",
+    "estados",
+    "transiciones",
+    "completitud",
+    "contraejemplos"
+  ],
+  "nota": "M2 nativo está disponible. Declarar cotas de edades y secuencias, o límites de búsqueda, antes de interpretar la exploración.",
+  "resultados": "artefactos/verificacion/prob/manifiesto.json"
 }

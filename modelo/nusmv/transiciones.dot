@@ -1,0 +1,41 @@
+digraph Enclavamiento {
+  graph [rankdir=TB, bgcolor="white", nodesep=0.45, ranksep=0.65];
+  node [shape=box, style="rounded", fontname="Liberation Sans", fontsize=16];
+  edge [fontname="Liberation Sans", fontsize=12];
+  inicio [label="INICIO", peripheries=2];
+  listo [label="LISTO"];
+  marcha [label="MARCHA"];
+  parada [label="PARADA"];
+  aislamiento [label="AISLAMIENTO"];
+  bloqueo [label="BLOQUEO"];
+  verificacion [label="VERIFICACION"];
+  mantenimiento [label="MANTENIMIENTO"];
+  liberacion [label="LIBERACION"];
+  restablecimiento [label="RESTABLECIMIENTO"];
+  fallo [label="FALLO"];
+  inicio -> listo [label="reset [listo_fisico]"];
+  listo -> marcha [label="start [listo_fisico]\npotencia:=TRUE; movimiento:=TRUE"];
+  marcha -> parada [label="mantenimiento / intervencion:=TRUE\nstop / intervencion:=FALSE"];
+  listo -> parada [label="mantenimiento o stop"];
+  parada -> parada [label="abrir_contacto / potencia:=FALSE\ndetener [!potencia] / movimiento:=FALSE"];
+  parada -> listo [label="reset [energia_cero y !intervencion]"];
+  parada -> aislamiento [label="aislar [energia_cero y intervencion]\naislado:=TRUE"];
+  aislamiento -> bloqueo [label="[aislado]"];
+  bloqueo -> bloqueo [label="aplicar1 o aplicar2 [aislado y energia_cero]\nbloqueo del titular:=TRUE"];
+  bloqueo -> verificacion [label="[ambos_bloqueos]"];
+  verificacion -> mantenimiento [label="verificar [energia_cero y aislado y ambos_bloqueos]\npermiso:=TRUE; puerta_cerrada:=FALSE"];
+  mantenimiento -> mantenimiento [label="ingresar1/2 [permiso] / dentro:=TRUE\nsalir1/2 / dentro:=FALSE"];
+  mantenimiento -> liberacion [label="finalizar [!ocupada] / permiso:=FALSE"];
+  liberacion -> liberacion [label="retirar1/2 [titular fuera] / bloqueo:=FALSE"];
+  liberacion -> restablecimiento [label="cerrar_puerta [!ocupada y !bloqueada]\npuerta_cerrada:=TRUE"];
+  restablecimiento -> restablecimiento [label="restablecer [!ocupada y !bloqueada y puerta_cerrada]\naislado:=FALSE"];
+  restablecimiento -> listo [label="reset [listo_fisico]"];
+  emergencia [shape=note, label="Desde cualquier fase: emergencia\nfase:=FALLO; permiso:=FALSE\nLos ocupantes y bloqueos se conservan."];
+  emergencia -> fallo;
+  fallo -> fallo [label="abrir_contacto / potencia:=FALSE\ndetener [!potencia] / movimiento:=FALSE\nsalir1/2 / dentro:=FALSE"];
+  fallo -> listo [label="reset [listo_fisico]"];
+  {rank=same; inicio; listo; marcha;}
+  {rank=same; aislamiento; bloqueo; verificacion;}
+  {rank=same; mantenimiento; liberacion; restablecimiento;}
+  {rank=same; emergencia; fallo;}
+}

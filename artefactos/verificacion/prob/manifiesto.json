@@ -1,0 +1,88 @@
+{
+  "herramienta": "ProB CLI 1.16.1-final (716929f528b333dd3901a0521fc0d3460a488af7)",
+  "exportador": "ProB for Rodin 3.2.3.202611190957",
+  "modelo": "M2",
+  "sha256_exportacion": "26d3a87e4a9399c99c51311d39fdf1b6eb121516e2a9ea703b12fe4602c51e74",
+  "sha256_fuentes": {
+    "modelo/rodin/Enclavamiento/C0.buc": "b1bad9008f2e4d20a1ab6baa12be214c015c4253ef70007774fa3766b769d66c",
+    "modelo/rodin/Enclavamiento/C1.buc": "702644974865349ea42a923d308f1b24ba62ddd4abb49a3702dcd7f11d7b189f",
+    "modelo/rodin/Enclavamiento/C2.buc": "1a9929a79d33cf69440e91ec59f220bc59788d4cac4770608963d2f93e2e2102",
+    "modelo/rodin/Enclavamiento/M0.bum": "b8ad8cdf2a3b620c0b1d0c91fdd7833335488fd852273b54e01f9383f4be571c",
+    "modelo/rodin/Enclavamiento/M1.bum": "eb6efb9fa118e371023e460d7d35d7c8b77c0e02ee0eab02493397e54f496948",
+    "modelo/rodin/Enclavamiento/M2.bum": "b4414b2e1d9403d4dd564b4425bd5491f76102cd6f7621e1bf9af8bad2f68457"
+  },
+  "exploraciones": {
+    "limitada": {
+      "argumentos": [
+        "M2.eventb",
+        "-bf",
+        "-mc",
+        "10000",
+        "-global_time_out",
+        "30000",
+        "-p",
+        "MAXINT",
+        "12",
+        "-p",
+        "MAX_OPERATIONS",
+        "50",
+        "-p",
+        "MAX_INITIALISATIONS",
+        "10",
+        "-c"
+      ],
+      "estados_analizados": 10000,
+      "transiciones_ejecutadas": 138770,
+      "estados_con_invariante_violado": 0,
+      "deadlocks_reportados": 0,
+      "eventos_cubiertos_incluye_setup": 29,
+      "eventos_no_observados": [
+        "AutorizarAcceso",
+        "CerrarAcceso",
+        "FinalizarMantenimiento",
+        "Ingresar",
+        "Restablecer",
+        "RetirarBloqueo",
+        "Salir"
+      ],
+      "completa": false,
+      "motivo": "límite de estados alcanzado; enumeración acotada",
+      "log": "exploracion.log.gz",
+      "sha256_log_comprimido": "8f1d2ea28ae9c7eb85450f6837002259c8ee87e70b881c2f291df27c94839c16"
+    },
+    "acotada": {
+      "argumentos": [
+        "M2.eventb",
+        "-bf",
+        "-mc",
+        "20000",
+        "-global_time_out",
+        "30000",
+        "-p",
+        "MAXINT",
+        "12",
+        "-p",
+        "MAX_OPERATIONS",
+        "50",
+        "-p",
+        "MAX_INITIALISATIONS",
+        "10",
+        "-scope",
+        "sesion <= 1 & secuencia_heartbeat <= 2 & edad_sensor <= 4 & edad_heartbeat <= 6 & edad_apertura <= 4",
+        "-c"
+      ],
+      "estados_analizados": 20000,
+      "transiciones_ejecutadas": 377178,
+      "estados_con_invariante_violado": 0,
+      "deadlocks_reportados": 0,
+      "eventos_cubiertos_incluye_setup": 35,
+      "eventos_no_observados": [
+        "Restablecer"
+      ],
+      "completa": false,
+      "motivo": "límite de estados alcanzado; enumeración acotada",
+      "log": "acotada.log.gz",
+      "sha256_log_comprimido": "07926a693e34c33327468b6e8d90435b392cbdeb9fb9885def6d91cb016d8b50"
+    }
+  }
+}

@@ -24,6 +24,19 @@ El script conserva logs y hashes de modelo, binario y logs en
 copia temporal generada retirando únicamente la guarda de ingreso del primer
 operario. El log incluye el contraejemplo de MC01.
 
+Para adjuntar la evidencia de esta parte sin ampliar el artículo principal,
+usar el PDF de una página
+[`artefactos/verificacion/nusmv/evidencia.pdf`](../../artefactos/verificacion/nusmv/evidencia.pdf).
+La fuente editable es `evidencia.typ` en la misma carpeta. Se recompila con:
+
+```sh
+typst compile artefactos/verificacion/nusmv/evidencia.typ artefactos/verificacion/nusmv/evidencia.pdf
+```
+
+El PDF resume las cinco propiedades, el control negativo y el contraejemplo
+de intrusión; el modelo, los dos logs y `manifiesto.json` conservan la
+evidencia íntegra y los hashes para revisión.
+
 El diagrama `transiciones.dot` resume los cambios de fase, las guardas y las
 acciones principales. Los eventos inválidos conservan el estado. El archivo
 SMV contiene las actualizaciones completas. Cada transición procesa un evento.

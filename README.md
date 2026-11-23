@@ -11,6 +11,8 @@ ZeroMQ. La campaña conserva trazas, manifiestos, capturas y resultados.
   [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md).
 - [Resultados de integración](artefactos/validacion/integracion.md) y [trazabilidad](artefactos/validacion/trazabilidad.csv).
 - [Auditoría de originalidad y atribución](artefactos/entrega/originalidad.md).
+- [Evidencia NuSMV para adjuntar (PDF de una página)](artefactos/verificacion/nusmv/evidencia.pdf),
+  con [modelo y logs reproducibles](modelo/nusmv/README.md).
 
 ## Verificación y pruebas
 

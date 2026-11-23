@@ -1,34 +1,74 @@
 # AFEV — Enclavamiento de seguridad para minería
 
-Base de planificación y artículo para una faja, una zona y dos operarios; Event-B/Rodin, ProB, Python y CoppeliaSim EDU. Este repositorio contiene documentación inicial y un artículo compilable. Incluye una escena inicial, una base geométrica y el modelo mejorado `simulacion/mina_modelada.ttt`, reproducible con un generador Lua. C0/M0 están disponibles en `modelo/rodin/Enclavamiento/`, con cinco obligaciones demostradas en Rodin. Los refinamientos, el comportamiento de la escena, el controlador y los experimentos siguen pendientes.
+Artículo y código para una faja, una zona y dos operarios. Rodin reproduce
+272 obligaciones de la cadena Event-B M0–M2 y NuSMV comprueba cinco
+propiedades del ciclo nominal. Python controla la escena CoppeliaSim por
+ZeroMQ. La campaña conserva trazas, manifiestos, capturas y resultados.
 
-## Por dónde empezar
+- [Artículo compilado](articulo.pdf) y [escena integrada](simulacion/mina_integrada.ttt).
+- [Registro de artefactos](artefactos/artefactos.md) y [plan semanal](docs/plan_semanal.md).
+- [Requisitos](artefactos/especificacion/requisitos.md), [supuestos](artefactos/especificacion/riesgos.md),
+  [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md).
+- [Resultados de integración](artefactos/validacion/integracion.md) y [trazabilidad](artefactos/validacion/trazabilidad.csv).
 
-1. Consultar [artefactos/artefactos.md](artefactos/artefactos.md): códigos, rutas, responsables, estados y semanas.
-2. Leer [plan de siete semanas](docs/plan_semanal.md): 28 paquetes, 56 h por integrante, 224 h de equipo.
-3. Revisar [guía de proyecto y artículo](docs/guia_proyecto.md) y [entorno](docs/entorno.md).
-4. Usar [requisitos](artefactos/especificacion/requisitos.md), [supuestos](artefactos/especificacion/riesgos.md), [arquitectura](artefactos/diseno/arquitectura.md) y [protocolo](artefactos/validacion/protocolo.md) como bases de trabajo.
-5. Consultar `modelo/rodin/Enclavamiento/README.md` para importar y revisar C0/M0.
-6. Consultar `artefactos/validacion/protocolo.md` y `experimentos/escenarios.json` para A08; los escenarios están definidos, su ejecución sigue pendiente.
-7. Completar autores en `metadatos.typ` y desarrollar las secciones de `secciones/`.
+## Verificación y pruebas
+
+Rodin 3.10 comprobó 5 obligaciones de M0, 79 de M1 y 188 de M2. La
+[reproducción](artefactos/verificacion/rodin/m2/README.md) usa un segundo
+espacio de trabajo. [NuSMV](modelo/nusmv/README.md) conserva el modelo de
+estados, las propiedades, los controles negativos y los comandos.
+[ProB](artefactos/verificacion/prob.md) conserva dos exploraciones de M2.
+
+```sh
+python herramientas/verificar_rodin.py --rodin /ruta/a/rodin --java-home /ruta/al/jdk21 --replay
+python herramientas/verificar_nusmv.py --bin /ruta/al/ejecutable/NuSMV
+python -m pytest -q
+```
+
+La suite local pasó 18 pruebas. La parte 1 usa Event-B siguiendo las
+observaciones transmitidas de la docente. Queda confirmar con ella la
+sustitución de VDM++ de la consigna original.
+
+## Reproducir CoppeliaSim
+
+Instalar CoppeliaSim EDU 4.10.0 rev0 y Python 3.12. Los comandos parten
+de la raíz del repositorio salvo el de arranque del simulador.
+
+```sh
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+# En otra terminal, desde la instalación de CoppeliaSim
+./coppeliaSim.sh -GzmqRemoteApi.rpcPort=23170
+# Desde el repositorio, con el entorno Python activado
+python -m experimentos.coppelia --puerto 23170 --grupo piloto --output buffer/piloto
+python -m experimentos.coppelia --puerto 23170 --grupo todo --output buffer/reproduccion \
+  --capturas buffer/reproduccion/evidencias
+python -m analisis.campana --datos buffer/reproduccion --resumen-articulo buffer/resumen.json
+```
+
+En Linux, `-h` oculta la interfaz y permite renderizar en una sesión
+gráfica. `-Gpython=...` selecciona el intérprete si la instalación lo
+requiere. El ejecutor carga la geometría y monta los scripts Lua.
+`--guardar-escena` exporta la escena ensamblada del primer caso. Usar un
+directorio de salida nuevo para cada reproducción.
 
 ## Compilar y verificar
 
 ```sh
 typst compile main.typ articulo.pdf
 python herramientas/verificar.py
+pdfinfo articulo.pdf
 ```
 
-La plantilla es local, sin paquetes externos. Requiere Typst y Liberation Serif/Liberation Mono; en este entorno se usa Typst 0.15.0. El PDF sigue el estilo de `ejemplo_articulo.pdf`: carta, dos columnas, título Times compatible de 24 pt, cuerpo 10 pt, numeración romana y bibliografía IEEE.
+La compilación registrada usa Typst 0.14.2 y las fuentes Liberation Serif y
+Liberation Mono. El PDF emplea tamaño carta, dos columnas y referencias IEEE.
+Ver el [procedimiento de reproducción](artefactos/entrega/reproduccion.md).
 
-Una vez generadas las capturas y gráficas reales de A23:
+## Historial y versiones
 
-```sh
-typst compile --input evidencias=true main.typ articulo.pdf
-```
-
-Los datos faltantes de `artefactos/resultados/resumen.json` son `null`, nunca ceros inventados. La base redacta arquitectura, formalización propuesta y método; los resultados y las conclusiones se actualizan sólo con evidencia. Las referencias a rutas planificadas son contratos de ubicación, no afirmaciones de que el software exista.
-
-## Entrega final
-
-A25 audita citas/cifras/trazabilidad; A26 reproduce; A27 empaqueta; A28 integra y compila. El registro diferencia archivos disponibles de entregables pendientes. La evidencia formal se limita a las hipótesis del modelo; la simulación no constituye certificación industrial.
+Los cambios se registran por entregable, con el formato
+`tipo(alcance): descripción` de [Conventional Commits](docs/versionado.md).
+Las etiquetas `vMAJOR.MINOR.PATCH` identifican versiones reproducibles del
+artículo y sus artefactos. La versión `v0.9.0` es una candidata: quedan la
+revisión cruzada del equipo y la confirmación docente del uso de Event-B.

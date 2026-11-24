@@ -5,7 +5,7 @@
 
 El contexto C0 fija una zona y dos operarios mediante los conjuntos portadores $Z$ y $O$ y las constantes $z_1$, $o_1$ y $o_2$. La máquina M0 ve C0. El fragmento siguiente reproduce los axiomas y los invariantes de tipo de las fuentes nativas.
 
-#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%)[
+#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false)[
 ```text
 CONTEXT C0
 SETS Z O
@@ -31,7 +31,7 @@ $P$ contiene las zonas energizadas y $U$ los pares operario–zona que represent
 
 La inicialización establece $P := emptyset$ y $U := emptyset$. El evento de energización reproduce la condición decisiva del enclavamiento.
 
-#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%)[
+#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false)[
 ```text
 EVENT Energizar
   ANY z
@@ -47,22 +47,24 @@ EVENT Energizar
 
 La guarda `grd3` habilita la energización únicamente cuando la zona está libre. `Ingresar(o,z)` exige $o in O$, $z in Z$, $z in.not P$ y $o in.not op("dom")(U)$, y añade el par $o mapsto z$ a $U$. `Salir(o,z)` elimina ese par y `Cortar(z)` retira la zona de $P$. La guarda de ingreso presupone acceso normal controlado. En M0, la ausencia de potencia es abstracta. Los refinamientos incorporan el aislamiento y la confirmación de la parada.
 
-Considérese $U = {(o_1,z_1), (o_2,z_1)}$ y $P = emptyset$. Tras `Salir(o1,z1)`, permanece $U = {(o_2,z_1)}$. En consecuencia, $z_1 in op("ran")(U)$ y `Energizar(z1)` sigue deshabilitado. Sólo después de la salida del segundo operario queda satisfecha la guarda de ocupación. Esta secuencia muestra por qué RF-01 requiere conservar la identidad de cada ocupante en la relación.
+Considérese $U = {(o_1,z_1), (o_2,z_1)}$ y $P = emptyset$. Tras `Salir(o1,z1)`, permanece $U = {(o_2,z_1)}$. En consecuencia, $z_1 in op("ran")(U)$ y `Energizar(z1)` sigue deshabilitado. Sólo después de la salida del segundo operario queda satisfecha la guarda de ocupación de RF-01. La identidad de cada operario permite comprobar además la titularidad de los bloqueos personales en RF-03.
 
 == Refinamientos M1 y M2
+
+La @tab-niveles[Tabla] resume los tres niveles de especificación.
 
 #figure(tabla(
   [*Nivel y estado*], [*Contenido*],
   [M0, nativo y comprobado], [Ocupación, potencia y exclusión RF-01.],
   [M1, nativo y comprobado], [Bloqueos personales, aislamiento y rearme.],
   [M2, nativo y comprobado], [Observaciones, órdenes, confirmaciones y fallos.],
-), kind: table, caption: [Alcance de los niveles de especificación.])
+), kind: table, caption: [Alcance de los niveles de especificación.]) <tab-niveles>
 
 M1 refina M0 y ve C1, que extiende C0 con diez fases. Incorpora $L subset.eq O times Z$, los bloqueos por titular, y confirmaciones booleanas abstractas de aislamiento, energía cero, puerta y permiso. INV-02 establece $op("ran")(L) inter P = emptyset$. INV-03 exige que el permiso implique mantenimiento, potencia apagada, aislamiento, energía cero y bloqueos de ambos operarios. INV-04 restringe la energización a marcha con zona libre y sin bloqueos. El modelo tiene dieciocho eventos.
 
 `AplicarBloqueo` exige coincidencia entre solicitante y titular. `FinalizarMantenimiento` requiere la salida de todos antes de la liberación. El evento siguiente representa RF-03. Conserva $P$ y $U$ y modifica exclusivamente el bloqueo del titular.
 
-#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%)[
+#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false)[
 ```text
 EVENT RetirarBloqueo
   ANY o, z, solicitante

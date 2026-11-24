@@ -3,6 +3,20 @@
 **Fecha:** 23 de noviembre de 2026. **Objeto:** prosa del manuscrito Typst,
 referencias bibliográficas y fuentes aportadas para el estilo editorial.
 
+## Revisión de la versión IEEE
+
+El cotejo de once textos y su CSV corresponden a la versión anterior del
+manuscrito. Tras el ajuste IEEE se repitió el cotejo literal de la prosa
+con el ejemplo disponible en `ejemplo_articulo.pdf`. Se examinaron 202
+oraciones y no se hallaron coincidencias de cinco o más palabras consecutivas
+con ese archivo. Esta medición se limita al ejemplo disponible.
+
+La versión IEEE contiene 22 referencias. Se cotejaron con sus fichas
+editoriales las entradas sobre [ProB](https://doi.org/10.1007/s10009-007-0063-9),
+[OCRA](https://doi.org/10.1007/978-3-319-33951-1_10) y
+[NuSMV](https://doi.org/10.1007/3-540-45657-0_29). Las normas y los manuales
+técnicos se mantienen para documentar el marco normativo y las herramientas.
+
 ## Cotejo de texto
 
 Se extrajo el texto de los seis artículos de ejemplo facilitados por el equipo

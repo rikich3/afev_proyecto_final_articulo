@@ -8,10 +8,10 @@ La evaluación de riesgos y los resguardos se contextualizan en ISO 12100 e ISO 
 
 == Event-B y Rodin
 
-Event-B expresa el sistema mediante contextos y máquinas. Los contextos declaran conjuntos, constantes y axiomas. Las máquinas contienen variables, invariantes y eventos. Cada evento tiene parámetros, guardas que determinan su habilitación y acciones que modifican el estado. Los refinamientos introducen detalle y requieren demostrar una relación con el nivel anterior @abrial2010.
+Event-B expresa el sistema mediante contextos y máquinas. Los contextos declaran conjuntos, constantes y axiomas. Las máquinas contienen variables, invariantes y eventos. Los eventos pueden declarar parámetros. Sus guardas determinan cuándo se habilitan y sus acciones describen el cambio de estado. Los refinamientos introducen detalle y requieren demostrar una relación con el nivel anterior @abrial2010.
 
 Rodin genera obligaciones para comprobar que la inicialización establece los invariantes y que los eventos los preservan @rodin. Para una propiedad de exclusión, esto exige considerar tanto la energización como el ingreso y la salida de personas. La posibilidad de completar una intervención constituye una pregunta adicional sobre progreso, bajo condiciones del entorno. La distinción entre seguridad y vivacidad permite formular ambas preguntas por separado @lamport1977.
 
 == Estado abstracto y observación física
 
-El modelo abstracto representa ocupación y potencia mediante conjuntos. En la evaluación prevista, el controlador recibe sensores y emite órdenes, mientras que un monitor consulta ocupación geométrica y estado físico del contacto. Esta arquitectura permite contrastar la decisión lógica con la respuesta de la planta. La apertura del contacto y la parada mecánica se miden como sucesos diferentes, pues el movimiento residual condiciona el ingreso de mantenimiento.
+El modelo abstracto representa ocupación y potencia mediante conjuntos. En los ensayos, el controlador leyó las señales de los sensores y emitió órdenes. Un monitor independiente consultó la ocupación geométrica y el estado físico del contacto. Esta arquitectura permite contrastar la decisión lógica con la respuesta de la planta. La apertura del contacto y la parada mecánica se midieron como sucesos diferentes, pues el movimiento residual condiciona el ingreso de mantenimiento.

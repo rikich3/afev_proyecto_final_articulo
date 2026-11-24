@@ -3,20 +3,20 @@
   <desc>Camino nominal en tres filas, guardas entre corchetes y transiciones resumidas de fallo y rearme.</desc>
   <defs>
     <marker id="flecha" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M1 1L7 4L1 7Z" fill="#273d51"/>
+      <path d="M1 1L7 4L1 7Z" fill="#202020"/>
     </marker>
     <style>
-      .nodo { fill:#f2f6fa; stroke:#273d51; stroke-width:1.6; }
-      .fallo { fill:#fff4f2; stroke:#854132; }
-      .linea { fill:none; stroke:#273d51; stroke-width:1.6; marker-end:url(#flecha); }
-      .guarda,.estado,.nota { font-family:"Liberation Sans",sans-serif; fill:#152638; }
-      .estado { font-size:16px; font-weight:bold; text-anchor:middle; dominant-baseline:middle; }
-      .guarda { font-size:15px; text-anchor:middle; }
-      .nota { font-size:16px; }
+      .nodo { fill:#fff; stroke:#202020; stroke-width:1.6; }
+      .fallo { fill:#fff; stroke:#202020; }
+      .linea { fill:none; stroke:#202020; stroke-width:1.6; marker-end:url(#flecha); }
+      .guarda,.estado,.nota { font-family:"Times New Roman","Nimbus Roman",serif; fill:#202020; }
+      .estado { font-size:14.65px; font-weight:bold; text-anchor:middle; dominant-baseline:middle; }
+      .guarda { font-size:14.65px; text-anchor:middle; }
+      .nota { font-size:14.65px; }
     </style>
   </defs>
 
-  <circle cx="12" cy="58" r="5" fill="#273d51"/>
+  <circle cx="12" cy="58" r="5" fill="#202020"/>
   <path class="linea" d="M17 58H40"/>
   <path class="linea" d="M190 58H273"/>
   <path class="linea" d="M423 58H506"/>
@@ -30,17 +30,17 @@
   <path class="linea" d="M656 302H739"/>
 
   <g class="nodo">
-    <rect x="40" y="38" width="150" height="40" rx="10"/>
-    <rect x="273" y="38" width="150" height="40" rx="10"/>
-    <rect x="506" y="38" width="150" height="40" rx="10"/>
-    <rect x="739" y="38" width="150" height="40" rx="10"/>
-    <rect x="739" y="163" width="150" height="40" rx="10"/>
-    <rect x="506" y="163" width="150" height="40" rx="10"/>
-    <rect x="273" y="163" width="150" height="40" rx="10"/>
-    <rect x="40" y="163" width="150" height="40" rx="10"/>
-    <rect x="40" y="282" width="150" height="40" rx="10"/>
-    <rect x="273" y="282" width="150" height="40" rx="10"/>
-    <rect class="fallo" x="739" y="282" width="150" height="40" rx="10"/>
+    <rect x="40" y="38" width="150" height="40" rx="5"/>
+    <rect x="273" y="38" width="150" height="40" rx="5"/>
+    <rect x="506" y="38" width="150" height="40" rx="5"/>
+    <rect x="739" y="38" width="150" height="40" rx="5"/>
+    <rect x="739" y="163" width="150" height="40" rx="5"/>
+    <rect x="506" y="163" width="150" height="40" rx="5"/>
+    <rect x="273" y="163" width="150" height="40" rx="5"/>
+    <rect x="40" y="163" width="150" height="40" rx="5"/>
+    <rect x="40" y="282" width="150" height="40" rx="5"/>
+    <rect x="273" y="282" width="150" height="40" rx="5"/>
+    <rect class="fallo" x="739" y="282" width="150" height="40" rx="5"/>
   </g>
   <g class="estado">
     <text x="115" y="58">Inicio</text>
@@ -77,8 +77,8 @@
   <g class="nota">
     <text x="545" y="254" font-weight="bold">Transiciones de retorno y emergencia</text>
     <text x="545" y="307">Cualquier fase</text>
-    <text x="545" y="342">Fallo y Restablecimiento → Listo [reset ∧ listo físico]</text>
-    <text x="545" y="365">Parada → Listo [reset ∧ cero ∧ ¬intervención]</text>
+    <text x="545" y="342">Fallo o Restablecimiento → Listo: reset [listo físico]</text>
+    <text x="545" y="365">Parada → Listo: reset [cero ∧ ¬intervención]</text>
     <text x="40" y="373">cero = ¬potencia ∧ ¬movimiento</text>
   </g>
 </svg>

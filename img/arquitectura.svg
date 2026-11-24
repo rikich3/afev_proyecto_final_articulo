@@ -3,21 +3,21 @@
   <desc id="descripcion">Event-B orienta las guardas del supervisor Python. El adaptador ZeroMQ adquiere sensores y RFID de CoppeliaSim y devuelve órdenes y latidos. Un monitor recibe posición y potencia por un canal independiente. El registro reúne las decisiones y las observaciones para el análisis.</desc>
   <defs>
     <marker id="flecha" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0 1L10 6L0 11Z" fill="#273d51"/>
+      <path d="M0 1L10 6L0 11Z" fill="#202020"/>
     </marker>
     <marker id="flecha-observacion" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0 1L10 6L0 11Z" fill="#285f62"/>
+      <path d="M0 1L10 6L0 11Z" fill="#202020"/>
     </marker>
     <style>
-      text { font-family:"Liberation Sans",sans-serif; fill:#152638; text-anchor:middle; }
-      .titulo { font-size:24px; font-weight:700; }
-      .rotulo { font-size:21px; }
-      .flujo { fill:none; stroke:#273d51; stroke-width:2.4; marker-end:url(#flecha); }
-      .observacion { stroke:#285f62; marker-end:url(#flecha-observacion); }
+      text { font-family:"Times New Roman","Nimbus Roman",serif; fill:#202020; text-anchor:middle; }
+      .titulo { font-size:19.75px; font-weight:700; }
+      .rotulo { font-size:19.75px; }
+      .flujo { fill:none; stroke:#202020; stroke-width:1.6; marker-end:url(#flecha); }
+      .observacion { stroke:#202020; marker-end:url(#flecha-observacion); }
       .correspondencia { stroke-dasharray:5 4; }
-      .modulo { fill:#fff; stroke:#273d51; stroke-width:2; }
-      .planta { fill:#edf3f8; }
-      .evidencia { fill:#eef6f5; stroke:#285f62; }
+      .modulo { fill:#fff; stroke:#202020; stroke-width:1.6; }
+      .planta { fill:#fff; }
+      .evidencia { fill:#fff; stroke:#202020; }
     </style>
   </defs>
 
@@ -31,13 +31,13 @@
     <path class="observacion" d="M514 111V70"/>
   </g>
 
-  <rect class="modulo planta" x="10" y="5" width="348" height="65" rx="7"/>
+  <rect class="modulo planta" x="10" y="5" width="348" height="65"/>
   <text class="titulo" x="184" y="33">Event-B / Rodin</text>
   <text class="rotulo" x="184" y="57">Invariantes y refinamientos M0–M2</text>
   <text class="rotulo" x="187" y="96">Correspondencia de guardas</text>
 
-  <rect class="modulo" x="10" y="111" width="348" height="105" rx="7"/>
-  <path d="M10 174H358" stroke="#273d51" stroke-width="2"/>
+  <rect class="modulo" x="10" y="111" width="348" height="105"/>
+  <path d="M10 174H358" stroke="#202020" stroke-width="1.6"/>
   <text class="titulo" x="184" y="139">Supervisor Python</text>
   <text class="rotulo" x="184" y="162">Transición de estado y guardas</text>
   <text class="titulo" x="184" y="203">Adaptador ZeroMQ</text>
@@ -49,23 +49,23 @@
     <text x="268" y="282">y latidos</text>
   </g>
 
-  <rect class="modulo planta" x="10" y="309" width="348" height="125" rx="7"/>
+  <rect class="modulo planta" x="10" y="309" width="348" height="125"/>
   <text class="titulo" x="184" y="338">CoppeliaSim</text>
   <text class="rotulo" x="184" y="363">Faja, acceso y operarios</text>
-  <rect class="modulo" x="21" y="382" width="326" height="40" rx="4"/>
+  <rect class="modulo" x="21" y="382" width="326" height="40"/>
   <text class="rotulo" x="184" y="409">Watchdog Lua · orden de corte</text>
 
-  <rect class="modulo evidencia" x="414" y="309" width="200" height="125" rx="7"/>
+  <rect class="modulo evidencia" x="414" y="309" width="200" height="125"/>
   <text class="titulo" x="514" y="340">Monitor físico</text>
   <text class="rotulo" x="514" y="369">Posición y potencia</text>
   <text class="rotulo" x="514" y="398">Evalúa RF-01</text>
 
-  <rect class="modulo evidencia" x="414" y="111" width="200" height="105" rx="7"/>
+  <rect class="modulo evidencia" x="414" y="111" width="200" height="105"/>
   <text class="titulo" x="514" y="140">Registro JSONL</text>
   <text class="rotulo" x="514" y="169">Decisiones y</text>
   <text class="rotulo" x="514" y="193">observaciones</text>
 
-  <rect class="modulo evidencia" x="414" y="5" width="200" height="65" rx="7"/>
+  <rect class="modulo evidencia" x="414" y="5" width="200" height="65"/>
   <text class="titulo" x="514" y="33">Análisis</text>
   <text class="rotulo" x="514" y="57">Métricas y figuras</text>
 </svg>

@@ -3,20 +3,20 @@
   <desc id="descripcion">Con zona libre, cada titular retira su bloqueo. Se confirma el cierre de la puerta y luego el del seccionador. El reset manual prepara Listo con la potencia desactivada. Un start nuevo habilita Marcha en un ciclo posterior. Un fallo en cualquier etapa revoca el mando y las autorizaciones.</desc>
   <defs>
     <marker id="flecha" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0 0.5L9 5.5L0 10.5Z" fill="#273d51"/>
+      <path d="M0 0.5L9 5.5L0 10.5Z" fill="#202020"/>
     </marker>
     <marker id="flecha-fallo" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0 0.5L9 5.5L0 10.5Z" fill="#854132"/>
+      <path d="M0 0.5L9 5.5L0 10.5Z" fill="#202020"/>
     </marker>
     <style>
-      text { font-family:"Liberation Sans",sans-serif; fill:#152638; text-anchor:middle; }
-      .titulo { font-size:23px; font-weight:700; }
-      .detalle { font-size:21px; }
-      .etapa { fill:#fff; stroke:#273d51; stroke-width:2; }
-      .estado { fill:#edf3f8; }
-      .flujo { fill:none; stroke:#273d51; stroke-width:2.4; marker-end:url(#flecha); }
-      .desvio { fill:none; stroke:#854132; stroke-width:2.2; stroke-dasharray:6 4; }
-      .fallo { fill:#fcf4f2; stroke:#854132; stroke-width:2; }
+      text { font-family:"Times New Roman","Nimbus Roman",serif; fill:#202020; text-anchor:middle; }
+      .titulo { font-size:19.75px; font-weight:700; }
+      .detalle { font-size:19.75px; }
+      .etapa { fill:#fff; stroke:#202020; stroke-width:1.6; }
+      .estado { fill:#fff; }
+      .flujo { fill:none; stroke:#202020; stroke-width:1.6; marker-end:url(#flecha); }
+      .desvio { fill:none; stroke:#202020; stroke-width:1.6; stroke-dasharray:6 4; }
+      .fallo { fill:#fff; stroke:#202020; stroke-width:1.6; }
     </style>
   </defs>
 
@@ -29,7 +29,7 @@
   </g>
   <path class="desvio" d="M546 33H588 M546 108H588 M546 183H588 M546 258H588 M546 333H588 M546 408H588"/>
   <path class="desvio" d="M588 33V492H546" marker-end="url(#flecha-fallo)"/>
-  <g fill="#854132">
+  <g fill="#202020">
     <circle cx="588" cy="33" r="3"/>
     <circle cx="588" cy="108" r="3"/>
     <circle cx="588" cy="183" r="3"/>
@@ -39,14 +39,14 @@
   </g>
 
   <g class="etapa">
-    <rect x="6" y="6" width="540" height="54" rx="7"/>
-    <rect x="6" y="81" width="540" height="54" rx="7"/>
-    <rect x="6" y="156" width="540" height="54" rx="7"/>
-    <rect x="6" y="231" width="540" height="54" rx="7"/>
-    <rect class="estado" x="6" y="306" width="540" height="54" rx="7"/>
-    <rect class="estado" x="6" y="381" width="540" height="54" rx="7"/>
+    <rect x="6" y="6" width="540" height="54"/>
+    <rect x="6" y="81" width="540" height="54"/>
+    <rect x="6" y="156" width="540" height="54"/>
+    <rect x="6" y="231" width="540" height="54"/>
+    <rect class="estado" x="6" y="306" width="540" height="54"/>
+    <rect class="estado" x="6" y="381" width="540" height="54"/>
   </g>
-  <rect class="fallo" x="6" y="461" width="540" height="65" rx="7"/>
+  <rect class="fallo" x="6" y="461" width="540" height="65"/>
 
   <g class="titulo">
     <text x="276" y="28">Confirmar zona libre</text>

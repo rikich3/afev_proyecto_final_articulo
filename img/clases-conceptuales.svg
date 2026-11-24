@@ -2,14 +2,14 @@
   <title id="titulo">Diagrama UML de clases del enclavamiento</title>
   <desc id="descripcion">Un supervisor supervisa una zona. La zona admite hasta dos ocupantes y dos bloqueos. Un operario puede ocupar a lo sumo una zona y ser titular de a lo sumo un bloqueo. Cada bloqueo se asocia a un titular y a una zona.</desc>
   <style>
-    text { font-family:"Liberation Sans",sans-serif; fill:#152638; }
-    .clase { fill:#fff; stroke:#273d51; stroke-width:2; }
-    .cabecera { fill:#edf3f8; }
-    .separador,.asociacion { fill:none; stroke:#273d51; stroke-width:2; }
-    .nombre { font-size:24px; font-weight:700; text-anchor:middle; }
-    .atributo { font-size:19px; }
-    .multiplicidad { font-size:20px; }
-    .relacion { font-size:20px; text-anchor:middle; }
+    text { font-family:"Times New Roman","Nimbus Roman",serif; fill:#202020; }
+    .clase { fill:#fff; stroke:#202020; stroke-width:1.6; }
+    .cabecera { fill:#fff; }
+    .separador,.asociacion { fill:none; stroke:#202020; stroke-width:1.6; }
+    .nombre { font-size:19.75px; font-weight:700; text-anchor:middle; }
+    .atributo { font-size:19.75px; }
+    .multiplicidad { font-size:19.75px; }
+    .relacion { font-size:19.75px; text-anchor:middle; }
   </style>
 
   <g class="asociacion">

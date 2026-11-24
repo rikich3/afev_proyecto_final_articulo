@@ -7,14 +7,14 @@
   #set text(hyphenate: false)
   #text(size: 24pt, weight: "regular", titulo)
   #v(10pt)
-  #text(size: 10.8pt, autores)
+  #text(size: 11pt, autores)
   #linebreak()
-  #text(size: 9.8pt, style: "italic", afiliacion)
+  #text(size: 10pt, afiliacion)
   #linebreak()
-  #text(size: 9.8pt, style: "italic", correos)
+  #text(size: 10pt, correos)
 ]
-#v(8pt)
-#columns(2, gutter: 16pt)[
+#v(10pt)
+#columns(2, gutter: 12pt)[
   #include "secciones/00-resumen.typ"
   #include "secciones/01-introduccion.typ"
   #include "secciones/02-relacionados.typ"

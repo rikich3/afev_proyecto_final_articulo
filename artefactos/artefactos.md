@@ -7,7 +7,7 @@ Todas las rutas son relativas a la raíz del repositorio. Los códigos son estab
 | G01 | Registro de artefactos | `artefactos/artefactos.md` | Fuente de verdad de códigos, rutas y estados. | Documento base | I1 | 1 |
 | G02 | Plan de siete semanas | `docs/plan_semanal.md`; `docs/plan_ejecucion_semanas_4_5.md` | Carga equitativa, dependencias, responsables, revisores y ejecución de A13–A20. | Documento base | I1 | 1 |
 | G03 | Guía de implementación y artículo | `docs/guia_proyecto.md` | Ruta mínima, métricas, normas y criterios de redacción. | Documento base | I2 | 1 |
-| G04 | Entrada y guía del repositorio | `README.md`; `docs/versionado.md`; `img/README.md`; `img/enunciado.png`; `ejemplo_articulo.pdf`; `entregable_02/` | Enunciado original, ejemplo de formato, segundo entregable histórico, uso y versionado del proyecto. | Disponible | I3 | 1 |
+| G04 | Entrada y guía del repositorio | `README.md`; `docs/versionado.md`; `img/README.md`; `img/enunciado.png`; `ejemplo_articulo.pdf`; `entregable_02/`; `Presentacion.pptx` | Enunciado, ejemplos, plantilla de feria, segundo entregable histórico y guía de uso y versionado. | Disponible | I3 | 1 |
 | G05 | Verificación editorial | `herramientas/verificar.py`; `herramientas/auditar_originalidad.py` | Comprueba secciones, referencias a artefactos, figuras y coincidencias literales con fuentes aportadas. | Disponible | I4 | 7 |
 | A01 | Alcance y requisitos | `artefactos/especificacion/requisitos.md` | Una zona, dos operarios; requisitos RF y criterios verificables. | Base | I1 | 1 |
 | A02 | Peligros y supuestos | `artefactos/especificacion/riesgos.md` | Peligros, frontera física, fallos y condiciones de validez. | Base | I2 | 1 |
@@ -35,8 +35,8 @@ Todas las rutas son relativas a la raíz del repositorio. Los códigos son estab
 | A24 | Evaluación y discusión del artículo | `secciones/06-validacion.typ`; `secciones/07-resultados.typ`; `secciones/08-conclusiones.typ`; `artefactos/resultados/resumen.json` | Método, datos medidos, amenazas y conclusiones limitadas. | Resultados simulados y discusión incorporados | I4 | 6 |
 | A25 | Auditoría de requisitos y fuentes | `artefactos/entrega/auditoria.md`; `artefactos/entrega/originalidad.md`; `artefactos/entrega/originalidad.csv` | Revisión cruzada de RF/INV, cifras, citas, enlaces y prosa frente a fuentes originales. | Comprobación editorial, trazabilidad y cotejo de originalidad local completados | I1 | 7 |
 | A26 | Reproducción independiente | `artefactos/entrega/reproduccion.md` | Un integrante reproduce modelos, pruebas, experimento y PDF de otro. | Repetición local ejecutada; revisión por otro integrante pendiente | I2 | 7 |
-| A27 | Demostración y entrega técnica | `artefactos/entrega/guion.md`; `artefactos/entrega/demo.mp4`; `artefactos/entrega/manifest.sha256` | Guion corto, video y hashes de la versión entregada. | Escena, código, evidencias y huellas preparadas; video fuera de alcance | I3 | 7 |
-| A28 | Artículo final e integración editorial | `main.typ`; `estilo.typ`; `metadatos.typ`; `secciones/09-referencias.typ`; `articulo.pdf` | Compilación, autores, estilo basado en ejemplo y revisión final. | Artículo integrado y compilado en siete páginas, sin anexo | I4 | 7 |
+| A27 | Demostración y entrega técnica | `artefactos/entrega/guion.md`; `artefactos/entrega/demo.mp4`; `artefactos/entrega/manifest.sha256`; `Presentacion_feria.pptx`; `Presentacion_feria.pdf` | Presentación con notas, demostración y huellas de la entrega. | Presentación y evidencias disponibles. Grabación pendiente. | I3 | 7 |
+| A28 | Artículo final e integración editorial | `main.typ`; `estilo.typ`; `metadatos.typ`; `secciones/09-referencias.typ`; `articulo.pdf` | Compilación, autores, maquetación IEEE de conferencia y revisión final. | Artículo integrado y compilado en siete páginas. | I4 | 7 |
 
 ## Convenciones y aceptación
 

@@ -24,7 +24,7 @@ La escena geométrica contiene una faja, dos operarios, sensores representados v
 
 La arquitectura de @fig-arquitectura separa adquisición, decisión, actuación y observación. El controlador Python implementa una transición de estado que prioriza fallo o emergencia y después parada. El adaptador ZeroMQ conecta el supervisor con el script de planta. El contrato distingue observaciones previas al paso, órdenes emitidas y confirmaciones físicas posteriores.
 
-#figure(image("/img/arquitectura.svg", width: 100%), caption: [Arquitectura del enclavamiento simulado. El monitor consulta la planta por un canal independiente.]) <fig-arquitectura>
+#figure(image("/img/arquitectura.svg", width: 100%), caption: [Arquitectura del enclavamiento simulado. Las flechas continuas indican flujo de información y la discontinua vincula la especificación con las guardas. El monitor consulta la planta por un canal independiente.]) <fig-arquitectura>
 
 La @fig-clases presenta las entidades del dominio mediante atributos tipados, asociaciones y multiplicidades UML. Zona y Operario corresponden a los conjuntos portadores de Event-B. Potencia y ocupación se representan mediante las variables de M0. El bloqueo personal pertenece al refinamiento M1.
 

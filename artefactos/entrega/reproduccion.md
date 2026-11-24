@@ -14,9 +14,11 @@ Desde la raíz del repositorio:
    `evidencias/` dentro de ese directorio. Analizar con `python -m analisis.campana`.
    Comparar conteos, clasificación, tiempos y estado de planta. Los IDs de
    corrida y los tiempos de pared cambian en una reproducción.
-7. Compilar `typst compile main.typ articulo.pdf`. Ejecutar
-   `python herramientas/verificar.py` y comprobar las siete páginas
-   con `pdfinfo articulo.pdf`.
+7. Compilar `typst compile main.typ articulo.pdf` con Times New Roman
+   disponible. Si la fuente está en un directorio aparte, añadir
+   `--font-path /ruta/a/fuentes`. Ejecutar `python herramientas/verificar.py`
+   y comprobar las siete páginas con `pdfinfo articulo.pdf`. Confirmar la
+   fuente incrustada con `pdffonts articulo.pdf`.
 8. Comprobar las huellas de la distribución con
    `sha256sum -c artefactos/entrega/manifest.sha256`.
 

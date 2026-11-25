@@ -46,7 +46,7 @@ El monitor registró #ensayo.violaciones_fisicas episodios presencia–potencia 
 
 == Amenazas a la validez
 
-La planta reproduce contactos, movimiento residual y cruces discretos de los avatares. La desaceleración es un parámetro de simulación. Los tiempos observados dependen de la discretización y de esa parametrización. El acceso controlado y la confiabilidad del sensado condicionan la exclusión. Las intrusiones de SC-12 ilustran la ruptura de esos supuestos. El alcance se limita a una zona y dos operarios. La correspondencia entre M2 y el controlador Python se contrasta mediante guardas y casos trazables (@tab-correspondencia[Tabla]), distinguiendo lo demostrado en el modelo de lo observado por el monitor en simulación.
+La planta reproduce contactos, movimiento residual y cruces discretos de los avatares. La desaceleración es un parámetro de simulación. Los tiempos observados dependen de la discretización y de esa parametrización. La elección del nivel de detalle de la planta es parte del diseño de los ensayos de puesta en marcha virtual @striffler2023. El acceso controlado y la confiabilidad del sensado condicionan la exclusión. Las intrusiones de SC-12 ilustran la ruptura de esos supuestos. El alcance se limita a una zona y dos operarios. La correspondencia entre M2 y el controlador Python se contrasta mediante guardas y casos trazables (@tab-correspondencia[Tabla]), distinguiendo lo demostrado en el modelo de lo observado por el monitor en simulación. La fidelidad respecto de una especificación Event-B puede formularse mediante obligaciones de prueba específicas @mashkoor2017.
 
 #figure(tabla(
   columnas: (48pt, 168pt, 78pt, 1fr),

@@ -7,11 +7,11 @@ referencias bibliográficas y fuentes aportadas para el estilo editorial.
 
 El cotejo de once textos y su CSV corresponden a la versión anterior del
 manuscrito. Tras el ajuste IEEE se repitió el cotejo literal de la prosa
-con el ejemplo disponible en `ejemplo_articulo.pdf`. Se examinaron 202
+con el ejemplo disponible en `ejemplo_articulo.pdf`. Se examinaron 229
 oraciones y no se hallaron coincidencias de cinco o más palabras consecutivas
 con ese archivo. Esta medición se limita al ejemplo disponible.
 
-La versión IEEE contiene 22 referencias. Se cotejaron con sus fichas
+La versión IEEE contiene 27 referencias. Se cotejaron con sus fichas
 editoriales las entradas sobre [ProB](https://doi.org/10.1007/s10009-007-0063-9),
 [OCRA](https://doi.org/10.1007/978-3-319-33951-1_10) y
 [NuSMV](https://doi.org/10.1007/3-540-45657-0_29). Las normas y los manuales

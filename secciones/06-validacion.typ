@@ -44,7 +44,7 @@ El protocolo organiza requisitos, criterios y evidencia siguiendo el contexto me
 
 Se ejecutaron tres pilotos en CoppeliaSim EDU 4.10 para arranque, mantenimiento y pérdida de comunicación. La campaña combinó 41 corridas deterministas, 90 con semillas reproducibles y cuatro de sensibilidad al paso de 10 o 20 ms. Cada corrida comenzó con la escena restablecida y verificó las precondiciones mediante un prefijo de operaciones nominales. Se conservaron versiones, parámetros, semilla y hash de cada traza.
 
-El monitor independiente evaluó la ocupación por geometría y la potencia mediante el contacto y el seccionador simulados. El supervisor leyó el sensor volumétrico y los eventos RFID por ZeroMQ. Para simular la desconexión se cerró el socket del supervisor y un segundo cliente leyó el historial que la escena registró con su propio reloj.
+El montaje sigue el enfoque de conectar un controlador a un modelo de planta para ensayar su respuesta @striffler2023. El monitor independiente evaluó la ocupación por geometría y la potencia mediante el contacto y el seccionador simulados. El supervisor leyó el sensor volumétrico y los eventos RFID por ZeroMQ. Para simular la desconexión se cerró el socket del supervisor y un segundo cliente leyó el historial que la escena registró con su propio reloj.
 
 == Indicadores y criterios
 

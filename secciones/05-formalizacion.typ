@@ -1,11 +1,11 @@
-#import "/estilo.typ": tabla
+#import "/estilo.typ": listado, tabla
 = Especificación formal
 
 == Contexto y tipos de datos
 
-El contexto C0 fija una zona y dos operarios mediante los conjuntos portadores $Z$ y $O$ y las constantes $z_1$, $o_1$ y $o_2$. La máquina M0 ve C0. El fragmento siguiente reproduce los axiomas y los invariantes de tipo de las fuentes nativas.
+El contexto C0 fija una zona y dos operarios mediante los conjuntos portadores $Z$ y $O$ y las constantes $z_1$, $o_1$ y $o_2$. La máquina M0 ve C0. El @lst-contexto reproduce los axiomas y los invariantes de tipo de las fuentes nativas.
 
-#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false)[
+#listado([Axiomas de C0 e invariantes de M0.])[
 ```text
 CONTEXT C0
 SETS Z O
@@ -23,15 +23,15 @@ INVARIANTS
   inv_U: U ⊆ O × Z
   INV_01: ran(U) ∩ P = ∅
 ```
-]
+] <lst-contexto>
 
 $P$ contiene las zonas energizadas y $U$ los pares operario–zona que representan ocupación. La expresión $o_1 mapsto z_1 in U$ indica que el primer operario está dentro. El rango $op("ran")(U)$ contiene las zonas ocupadas por al menos una persona. Así, INV-01 expresa RF-01 al exigir que las zonas ocupadas y energizadas sean disjuntas. El contexto fija los individuos, mientras que el invariante restringe los estados alcanzables de la máquina.
 
 == Eventos y preservación de RF-01
 
-La inicialización establece $P := emptyset$ y $U := emptyset$. El evento de energización reproduce la condición decisiva del enclavamiento.
+La inicialización establece $P := emptyset$ y $U := emptyset$. El @lst-energizar muestra las guardas del evento de energización.
 
-#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false)[
+#listado([Evento Energizar y guarda de zona libre.])[
 ```text
 EVENT Energizar
   ANY z
@@ -43,7 +43,7 @@ EVENT Energizar
     act1: P ≔ P ∪ {z}
   END
 ```
-]
+] <lst-energizar>
 
 La guarda `grd3` habilita la energización únicamente cuando la zona está libre. `Ingresar(o,z)` exige $o in O$, $z in Z$, $z in.not P$ y $o in.not op("dom")(U)$, y añade el par $o mapsto z$ a $U$. `Salir(o,z)` elimina ese par y `Cortar(z)` retira la zona de $P$. La guarda de ingreso presupone acceso normal controlado. En M0, la ausencia de potencia es abstracta. Los refinamientos incorporan el aislamiento y la confirmación de la parada.
 
@@ -62,9 +62,9 @@ La @tab-niveles[Tabla] resume los tres niveles de especificación.
 
 M1 refina M0 y ve C1, que extiende C0 con diez fases. Incorpora $L subset.eq O times Z$, los bloqueos por titular, y confirmaciones booleanas abstractas de aislamiento, energía cero, puerta y permiso. INV-02 establece $op("ran")(L) inter P = emptyset$. INV-03 exige que el permiso implique mantenimiento, potencia apagada, aislamiento, energía cero y bloqueos de ambos operarios. INV-04 restringe la energización a marcha con zona libre y sin bloqueos. El modelo tiene dieciocho eventos.
 
-`AplicarBloqueo` exige coincidencia entre solicitante y titular. `FinalizarMantenimiento` requiere la salida de todos antes de la liberación. El evento siguiente representa RF-03. Conserva $P$ y $U$ y modifica exclusivamente el bloqueo del titular.
+`AplicarBloqueo` exige coincidencia entre solicitante y titular. `FinalizarMantenimiento` requiere la salida de todos antes de la liberación. El evento del @lst-retiro representa RF-03. Conserva $P$ y $U$ y modifica exclusivamente el bloqueo del titular.
 
-#block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false)[
+#listado([Evento RetirarBloqueo y guardas del titular.])[
 ```text
 EVENT RetirarBloqueo
   ANY o, z, solicitante
@@ -79,7 +79,7 @@ EVENT RetirarBloqueo
     act1: L ≔ L ∖ {o ↦ z}
   END
 ```
-]
+] <lst-retiro>
 
 El último retiro habilita el cierre y el restablecimiento, manteniendo la potencia apagada. `Reset` alcanza LISTO con zona libre, sin bloqueos y condiciones seguras confirmadas. Sólo un evento posterior `Energizar` puede activar potencia. La representación del solicitante sigue la hipótesis de identidad confiable. Todos los eventos son ordinarios. La prueba establece seguridad y refinamiento, mientras que convergencia y progreso universal quedan fuera de esta evidencia.
 

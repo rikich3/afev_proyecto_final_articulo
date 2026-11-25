@@ -3,7 +3,7 @@
 
 == Caso de aplicación y requisitos
 
-Dos operarios solicitan intervenir una faja en una zona delimitada. La secuencia prevista exige parar, abrir el seccionador, confirmar los bloqueos de ambos y verificar la ausencia de movimiento residual antes de habilitar el acceso. Al terminar, cada operario sale y retira su bloqueo. El rearme exige zona libre y una orden manual, seguida de una orden de arranque nueva. Si uno permanece dentro o conserva su bloqueo, la energización debe seguir inhibida. Este caso permite formular los requisitos siguientes.
+Dos operarios solicitan intervenir una faja en una zona delimitada. La secuencia prevista toma como referencia el aislamiento y la verificación del control de energía antes de intervenir la máquina @osha @iso14118. En el modelo, se exige parar, abrir el seccionador, confirmar los bloqueos de ambos y verificar la ausencia de movimiento residual antes de habilitar el acceso. Al terminar, cada operario sale y retira su bloqueo. El rearme exige zona libre y una orden manual, seguida de una orden de arranque nueva. Si uno permanece dentro o conserva su bloqueo, la energización debe seguir inhibida. Este caso permite formular los requisitos siguientes.
 
 - *RF-01. Exclusión presencia–potencia:* el sistema debe impedir la coexistencia de operarios y potencia activa en la zona, bajo los supuestos de acceso controlado y funcionamiento establecidos.
 - *RF-02. Aislamiento previo al acceso:* debe mantener el acceso cerrado hasta confirmar el aislamiento, la apertura del contacto y la ausencia de energía residual.
@@ -16,7 +16,7 @@ Dos operarios solicitan intervenir una faja en una zona delimitada. La secuencia
 - *RF-09. Supervisión de comunicación:* ante pérdida del cliente, un watchdog local debe ordenar la apertura del contacto simulado y bloquear el acceso, sin depender del proceso desconectado.
 - *RF-10. Confirmación del corte:* debe detectar la negativa del contacto a abrir y denegar el acceso y el rearme; una orden de apagado no constituye confirmación de ausencia de potencia.
 
-Los requisitos se agrupan en exclusión y acceso (RF-01/02), participación individual y rearme (RF-03/04/06), respuesta a fallos (RF-05/07/09/10) y registro (RF-08). La aceptación combina obligaciones formales y escenarios con observación física. El protocolo fija los presupuestos temporales antes de las corridas finales.
+Los RF-01 a RF-04 concretan las medidas de aislamiento y prevención del arranque inesperado para el caso de dos operarios @osha @iso14118. Los RF-05 a RF-07, RF-09 y RF-10 responden a señales inválidas, órdenes simultáneas, reinicio, pérdida de comunicación y contacto pegado, respectivamente. Su análisis se enmarca en el enfoque de reducción de riesgos de ISO 12100 @iso12100. El RF-08 aporta trazabilidad a la evaluación al vincular cada corrida con las decisiones y las observaciones de planta. La aceptación combina obligaciones formales y escenarios con observación física. Los presupuestos temporales se fijaron antes de las corridas finales.
 
 == Alcance y arquitectura
 

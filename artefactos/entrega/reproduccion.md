@@ -17,7 +17,7 @@ Desde la raíz del repositorio:
 7. Compilar `typst compile main.typ articulo.pdf` con Times New Roman
    disponible. Si la fuente está en un directorio aparte, añadir
    `--font-path /ruta/a/fuentes`. Ejecutar `python herramientas/verificar.py`
-   y comprobar las siete páginas con `pdfinfo articulo.pdf`. Confirmar la
+   y comprobar las ocho páginas con `pdfinfo articulo.pdf`. Confirmar la
    fuente incrustada con `pdffonts articulo.pdf`.
 8. Comprobar las huellas de la distribución con
    `sha256sum -c artefactos/entrega/manifest.sha256`.

@@ -69,6 +69,15 @@
     ]
   }
 }
+#let listado(descripcion, codigo) = figure(
+  block(inset: 6pt, stroke: 0.3pt + gray, width: 100%, breakable: false, align(left, codigo)),
+  kind: "listado",
+  supplement: [Listado],
+  numbering: "1",
+  placement: none,
+  caption: descripcion,
+)
+
 #let tabla(columnas: (1fr, 1fr), ..celdas) = {
   set text(size: 8pt)
   set par(first-line-indent: 0pt, justify: false)

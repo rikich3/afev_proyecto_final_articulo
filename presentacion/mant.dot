@@ -1,0 +1,11 @@
+digraph G {
+  rankdir=TB; fontname="Liberation Sans"; nodesep=0.5; ranksep=0.9;
+  node [fontname="Liberation Sans", fontsize=14, shape=box, style="rounded,filled", fillcolor="#EEF2F7", color="#4A5A70", margin="0.2,0.1"];
+  edge [fontname="Liberation Sans", fontsize=12, color="#4A5A70"];
+  VER [label="VERIFICACION_CERO"]; LIB [label="LIBERACION"]; FAL [label="FALLO", fillcolor="#F2A0A0", color="#A02020"];
+  MAN [label="MANTENIMIENTO\nentry: acceso permitido, puerta abierta", fillcolor="#7FD1A5", color="#1E7A4C", penwidth=3, fontsize=17];
+  VER -> MAN [label="[contacto_cerrado = False ∧ seccionador_abierto = True\n ∧ |velocidad| ≤ 0.001]\n/ permiso_acceso := True; orden_puerta := ABRIR\n  alarma := False"];
+  MAN -> MAN [label="cerrar_acceso [ocupantes ≠ ∅]\n/ permiso_acceso := True; motivo := OPERARIO_DENTRO"];
+  MAN -> LIB [label="cerrar_acceso [ocupantes = ∅]\n/ fase := LIBERACION\n  permiso_acceso := False (por defecto); alarma := False"];
+  MAN -> FAL [label="[emergencia ∨ watchdog ∨ dato inválido\n ∨ (ocupantes ∨ láser) ∧ contacto cerrado]\n/ fase := FALLO; Salidas := seguras", color="#A02020", fontcolor="#A02020", style=dashed];
+}

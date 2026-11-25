@@ -1,0 +1,12 @@
+digraph G {
+  rankdir=TB; fontname="Liberation Sans"; nodesep=0.5; ranksep=0.9;
+  node [fontname="Liberation Sans", fontsize=14, shape=box, style="rounded,filled", fillcolor="#EEF2F7", color="#4A5A70", margin="0.2,0.1"];
+  edge [fontname="Liberation Sans", fontsize=12, color="#4A5A70"];
+  LIS [label="LISTO"]; PAR [label="PARADA_SOLICITADA"]; FAL [label="FALLO", fillcolor="#F2A0A0", color="#A02020"];
+  MAR [label="MARCHA\nentry: contactor energizado", fillcolor="#F6C453", color="#B07A00", penwidth=3, fontsize=17];
+  LIS -> MAR [label="start  [reset_pendiente ∧ seguro_para_listo]\n/ reset_pendiente := False\n  orden_contactor := True; alarma := False"];
+  MAR -> MAR [label="sin eventos\n/ orden_contactor := True"];
+  MAR -> PAR [label="solicitar_mantenimiento\n/ fase := PARADA_SOLICITADA\n  intervencion_activa := True\n  Salidas := seguras (contactor off)"];
+  MAR -> PAR [label="stop  / reset_pendiente := False", style=dashed];
+  MAR -> FAL [label="[emergencia ∨ watchdog ∨ dato inválido\n ∨ presencia ∧ contacto cerrado]\n/ fase := FALLO; Salidas := seguras", color="#A02020", fontcolor="#A02020", style=dashed];
+}

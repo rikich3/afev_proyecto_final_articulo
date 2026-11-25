@@ -1,0 +1,26 @@
+digraph G {
+  rankdir=TB; fontname="Liberation Sans"; bgcolor="white"; nodesep=0.3; ranksep=0.45;
+  node [fontname="Liberation Sans", fontsize=13, shape=box, style="rounded,filled", fillcolor="#EEF2F7", color="#4A5A70", margin="0.15,0.08"];
+  edge [fontname="Liberation Sans", fontsize=10, color="#4A5A70"];
+  INI [label="INICIO_SEGURO"]; LIS [label="LISTO"];
+  MAR [label="MARCHA", fillcolor="#F6C453", color="#B07A00", penwidth=3, fontsize=17];
+  PAR [label="PARADA_\nSOLICITADA"]; AIS [label="AISLAMIENTO"]; BLO [label="BLOQUEO"]; VER [label="VERIFICACION_\nCERO"];
+  MAN [label="MANTENIMIENTO", fillcolor="#7FD1A5", color="#1E7A4C", penwidth=3, fontsize=17];
+  LIB [label="LIBERACION"]; RES [label="RESTABLECIMIENTO"];
+  FAL [label="FALLO\n(desde cualquier fase)", fillcolor="#F2A0A0", color="#A02020"];
+  s [shape=point, width=0.15, style=filled, fillcolor=black];
+  s -> INI;
+  INI -> LIS [label="reset ∧ seguro"];
+  LIS -> MAR [label="start ∧ reset_pendiente\n∧ seguro", penwidth=2, color="#B07A00"];
+  MAR -> PAR [label="solicitar_mantenimiento", penwidth=2, color="#B07A00"];
+  LIS -> PAR [label="solicitar_mantenimiento"];
+  PAR -> AIS [label="contacto abierto ∧ v≈0"];
+  AIS -> BLO [label="seccionador abierto"];
+  BLO -> VER [label="bloqueos = {1,2}"];
+  VER -> MAN [label="contacto abierto ∧ seccionador\nabierto ∧ v≈0", penwidth=2, color="#1E7A4C"];
+  MAN -> LIB [label="cerrar_acceso ∧ ocupantes = ∅", penwidth=2, color="#1E7A4C"];
+  LIB -> RES [label="bloqueos = ∅"];
+  RES -> LIS [label="reset ∧ puerta cerrada\n∧ seguro"];
+  FAL -> LIS [label="reset ∧ seguro", style=dashed];
+  MAR -> FAL [label="emergencia, watchdog,\ndato inválido, presencia", style=dashed, color="#A02020", fontcolor="#A02020"];
+}

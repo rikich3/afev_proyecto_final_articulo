@@ -1,0 +1,35 @@
+-- BORRADOR ilustrativo (no verificado con VDMJ/Overture ni parte del modelo del proyecto).
+-- Muestra como se expresaria en VDM++ la transicion a FALLO de M2 (DetectarFallo, INV_05).
+class Supervisor
+types
+  public Fase = <INICIO_SEGURO> | <LISTO> | <MARCHA> | <PARADA> | <AISLAMIENTO>
+              | <BLOQUEO> | <MANTENIMIENTO> | <LIBERACION> | <RESTABLECIMIENTO> | <FALLO>;
+
+instance variables
+  fase          : Fase := <INICIO_SEGURO>;
+  ocupantes     : set of nat := {};
+  contactoReal  : bool := false;
+  fallo         : bool := false;   -- emergencia, watchdog o dato invalido agregados
+  ordenContactor: bool := false;
+  permisoAcceso : bool := false;
+
+  -- Equivale a INV_05 de M2: en FALLO no hay potencia ni acceso.
+  inv fase = <FALLO> => (not ordenContactor and not permisoAcceso);
+
+operations
+  -- Equivale al evento DetectarFallo: la precondicion es la condicion insegura.
+  public DetectarFallo : () ==> ()
+  DetectarFallo() ==
+    ( fase := <FALLO>;
+      ordenContactor := false;
+      permisoAcceso := false )
+  pre  fallo or (contactoReal and ocupantes <> {})
+  post fase = <FALLO> and not ordenContactor and not permisoAcceso;
+
+  -- Prioridad del fallo: las demas operaciones exigen que NO haya condicion insegura.
+  public Arrancar : () ==> ()
+  Arrancar() ==
+    ( fase := <MARCHA>; ordenContactor := true )
+  pre  fase = <LISTO> and not fallo and not (contactoReal and ocupantes <> {})
+  post fase = <MARCHA> and ordenContactor;
+end Supervisor

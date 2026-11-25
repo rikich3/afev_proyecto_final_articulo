@@ -46,4 +46,19 @@ El monitor registró #ensayo.violaciones_fisicas episodios presencia–potencia 
 
 == Amenazas a la validez
 
-La planta reproduce contactos, movimiento residual y cruces discretos de los avatares. La desaceleración es un parámetro de simulación. Los tiempos observados dependen de la discretización y de esa parametrización. El acceso controlado y la confiabilidad del sensado condicionan la exclusión. Las intrusiones de SC-12 ilustran la ruptura de esos supuestos. El alcance se limita a una zona y dos operarios. La correspondencia con M2 se contrasta por guardas y casos trazables.
+La planta reproduce contactos, movimiento residual y cruces discretos de los avatares. La desaceleración es un parámetro de simulación. Los tiempos observados dependen de la discretización y de esa parametrización. El acceso controlado y la confiabilidad del sensado condicionan la exclusión. Las intrusiones de SC-12 ilustran la ruptura de esos supuestos. El alcance se limita a una zona y dos operarios. La correspondencia entre M2 y el controlador Python se contrasta mediante guardas y casos trazables (@tab-correspondencia[Tabla]), distinguiendo lo demostrado en el modelo de lo observado por el monitor en simulación.
+
+#figure(tabla(
+  columnas: (48pt, 168pt, 78pt, 1fr),
+  [*Req.*], [*Guarda / invariante en Event-B*], [*Escenarios*], [*Observación del monitor y simulación*],
+  [RF-01], [INV-01; `z ∉ ran(U)`, `z ∉ P` (M0).], [SC-01, SC-02, SC-12], [0 violaciones bajo supuestos; 2 intrusiones detectadas en SC-12.],
+  [RF-02], [INV-03/07; parada, aislamiento y ambos bloqueos (M1/M2).], [SC-02, SC-08, SC-13], [Permiso habilitado solo tras apertura, energía cero y bloqueos.],
+  [RF-03], [INV-02; `solicitante = o`, `o ∉ dom(U)` (M1).], [SC-03, SC-04, SC-10], [Retiro indebido rechazado; bloqueo restante inhibe arranque.],
+  [RF-04], [INV-04; zona libre, sin bloqueos, `Reset` y `Energizar` (M1).], [SC-01, SC-03–05, SC-13], [El reset no energiza; exige una orden `start` posterior.],
+  [RF-05, RF-07], [INV-05/06/08; caducidad, invalidez y reinicio seguro (M2).], [SC-06, SC-07, SC-11], [Fallo enclavado, mando revocado y bloqueos conservados.],
+  [RF-06], [Prioridad de fallo y parada en `step()` (controlador).], [SC-05], [Fallo y parada prevalecen sobre `start` en orden directo e inverso.],
+  [RF-09], [INV-05/06; `RecibirHeartbeat` y `TickCaducado` (M2).], [SC-09], [Corte local del watchdog a 120 ms (p95); SC-09-c reloj congelado.],
+  [RF-10], [INV-05/07; `orden_contactor` frente a `contacto_real` (M2).], [SC-08], [Fallo de apertura diagnosticado; acceso y rearme denegados.],
+), kind: table, scope: "parent", placement: top,
+  caption: [Correspondencia entre el modelo Event-B, el controlador Python y las observaciones de simulación.],
+) <tab-correspondencia>
